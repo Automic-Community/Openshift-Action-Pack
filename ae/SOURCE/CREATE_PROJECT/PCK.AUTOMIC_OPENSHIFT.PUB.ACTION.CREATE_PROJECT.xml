@@ -61,6 +61,7 @@
 <UC4RB_OPENSHIFT_SERVERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_SERVER#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CONNECTION_DETAILS"/>
 <UC4RB_OPENSHIFT_TOKENs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_TOKEN#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CONNECTION_DETAILS">--10</UC4RB_OPENSHIFT_TOKENs.00>
 <UC4RB_OPENSHIFT_USERNAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_USERNAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CONNECTION_DETAILS"/>
+<UC4RB_SKIP_SSLs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_SKIP_SSL#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CONNECTION_DETAILS">false</UC4RB_SKIP_SSLs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -145,6 +146,7 @@
 <UC4RB_OPENSHIFT_SERVERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_SERVER#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CONNECTION_DETAILS"/>
 <UC4RB_OPENSHIFT_TOKENs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_TOKEN#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CONNECTION_DETAILS">--10</UC4RB_OPENSHIFT_TOKENs.00>
 <UC4RB_OPENSHIFT_USERNAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_USERNAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CONNECTION_DETAILS"/>
+<UC4RB_SKIP_SSLs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_SKIP_SSL#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CONNECTION_DETAILS">false</UC4RB_SKIP_SSLs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -229,6 +231,7 @@
 <UC4RB_OPENSHIFT_SERVERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_SERVER#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CONNECTION_DETAILS"/>
 <UC4RB_OPENSHIFT_TOKENs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_TOKEN#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CONNECTION_DETAILS">--10</UC4RB_OPENSHIFT_TOKENs.00>
 <UC4RB_OPENSHIFT_USERNAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_USERNAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CONNECTION_DETAILS"/>
+<UC4RB_SKIP_SSLs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_SKIP_SSL#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CONNECTION_DETAILS">false</UC4RB_SKIP_SSLs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -300,6 +303,7 @@
 <UC4RB_OPENSHIFT_SERVERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_SERVER#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CONNECTION_DETAILS"/>
 <UC4RB_OPENSHIFT_TOKENs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_TOKEN#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CONNECTION_DETAILS">--10</UC4RB_OPENSHIFT_TOKENs.00>
 <UC4RB_OPENSHIFT_USERNAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_USERNAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CONNECTION_DETAILS"/>
+<UC4RB_SKIP_SSLs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_SKIP_SSL#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CONNECTION_DETAILS">false</UC4RB_SKIP_SSLs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -399,6 +403,7 @@
 <UC4RB_OPENSHIFT_PASSWORDs.00 altview="0" haslist="0">--10</UC4RB_OPENSHIFT_PASSWORDs.00>
 <UC4RB_OPENSHIFT_TOKENs.00 altview="0" haslist="0">--10</UC4RB_OPENSHIFT_TOKENs.00>
 <UC4RB_OPENSHIFT_CERTSs.00 altview="0" haslist="0"/>
+<UC4RB_SKIP_SSLs.00 altview="0" haslist="0">false</UC4RB_SKIP_SSLs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -475,7 +480,8 @@ The optional description can be a more detailed description of the project and i
 * If project already exists.
 
 = Inputs =
-* Project name         : Provide project name.E.g automic .Max length 63 characters.
+* Project name         : Provide project name.E.g automic .Max length 63 characters. Must consist of lower case alphanumeric characters or '-', and must start and end with an 
+                                   alphanumeric character (e.g. 'my-name',  or '123-abc', regex used for validation is '[a-z0-9]([-a-z0-9]*[a-z0-9])?')
 * Project display name : Provide project display name. E.g Automic Project
 * Project description  : Provide project description. E.g This project build,deploy and runs the automic applicaiton
 * Advanced Options     : Provide other options which will be used during the project creation.	--cache-dir='C:\Users\automic\.kube\http-cache'
