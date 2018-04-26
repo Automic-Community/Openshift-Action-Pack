@@ -156,8 +156,8 @@
 :SET &UC4RB_LOGGING_INFO# = "******** CREATE PROJECT ACTION EXECUTED SUCCESSFULLY ********"
 :SET &UC4RB_LOGGING_ERROR# = "******** CREATE PROJECT ACTION FAILED ********"
 
-!------------------------------------------ ERROR HANDLING ----------------------------------------------------
-: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.CHECK_JOBSTATUS@UNIX
+!------------------------------------------ LOG OUT ----------------------------------------------------
+: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_OUT@UNIX
 
 
 ]]></MSCRI>
