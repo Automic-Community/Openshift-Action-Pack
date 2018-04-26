@@ -156,7 +156,7 @@
 
 
 !------------------------------------------ ERROR HANDLING ----------------------------------------------------
-: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.CHECK_JOBSTATUS@WIN
+: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_OUT@WIN
 
 
 ]]></MSCRI>
