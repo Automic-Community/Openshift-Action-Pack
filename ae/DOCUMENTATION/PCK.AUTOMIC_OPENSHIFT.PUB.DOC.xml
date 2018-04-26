@@ -15,7 +15,7 @@ The core of the platform is containers and orchestration. For the container side
 
 This package provide means to interact with the openshift system and performs different actions on it.
 It creates a temporary config file in the temp directory. Every action first perform the login action which causes the session to be updated in the 
-temporary config file and then it executes the action specific command. Once done with the action this temporary config file will be deleted in the post process 
+temporary config file and then it executes the action specific command. Once done with the action it logouts and this temporary config file will be deleted in the post process 
 of every action. 
 
 
