@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
 <VARA OVD_VRName="FREI" data_type="STATIC" name="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPT_EXTERNAL_MAP" replacementmode="2">
 <HEADER state="1">
-<Title/>
+<Title>External mapping for Agent/Login</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <OH_SubType>STATIC</OH_SubType>
@@ -24,7 +24,14 @@
 <HostType/>
 </ATTR_VARA>
 <VARA state="1">
-<Variables/>
+<Variables>
+<row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_PROJECT/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_PROJECT/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_RESOURCE/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_RESOURCE/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.EXPOSE_SERVICE/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.EXPOSE_SERVICE/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
+</Variables>
 </VARA>
 <DOCU_Docu state="1" type="text">
 <DOC/>
