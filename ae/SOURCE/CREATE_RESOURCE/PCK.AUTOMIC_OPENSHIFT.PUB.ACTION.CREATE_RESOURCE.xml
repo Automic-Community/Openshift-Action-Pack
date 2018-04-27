@@ -68,7 +68,7 @@
 <node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE">
-<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE"/>
+<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE"/>
 <UC4RB_OPENSHIFT_FILE_PATHs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_FILE_PATH#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -145,7 +145,7 @@
 <node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE">
-<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE"/>
+<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE"/>
 <UC4RB_OPENSHIFT_FILE_PATHs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_FILE_PATH#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -222,7 +222,7 @@
 <node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE">
-<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE"/>
+<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE"/>
 <UC4RB_OPENSHIFT_FILE_PATHs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_FILE_PATH#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -286,7 +286,7 @@
 <node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE">
-<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE"/>
+<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE"/>
 <UC4RB_OPENSHIFT_FILE_PATHs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_FILE_PATH#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -379,6 +379,7 @@
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE" ontop="1">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_RESOURCE" prptmode="1">
 <UC4RB_OPENSHIFT_FILE_PATHs.00 altview="0" haslist="0"/>
+<UC4RB_OPENSHIFT_ADV_OPTSs.00 altview="0" haslist="0"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -433,8 +434,8 @@ This action creates the resource(s) in Openshift. A resource can be pods, servic
 * If the resource that we are creating, is already present.
 
 = Inputs =
-* File Path*:                    Provide the path to a JSON or YAML file describing the resource to be created. E.g. ./myapp.yaml
-* Advanced Options:      Provide other options E.g. --cache-dir='C:\Users\automic\.kube\http-cache'
+* File Path*:                    Provide one or more comma separated files or a directory path. Accepted file types are JSON and YAML. E.g. ./myapp.yaml
+* Advanced Options:      Provide other options E.g. --dry-run
 
 = Behavior =
 * The user can provide multiple files or directory in File Path input.
@@ -450,6 +451,10 @@ This action creates the resource(s) in Openshift. A resource can be pods, servic
 AE logs will be displayed in the AE report.
 
 = Example =
+File Path*:                       ./myapp.yaml
+Advanced Options:         --dry-run
+
+= Sample Commands =
 single file:             oc create -f "E:\automic\oc\files\deployment.yml"
 multiple files:        oc create -f "E:\automic\oc\files\pod1.yml,E:\automic\kubernetes\files\deployment.yml"
 directory:              oc create -f "E:\automic\oc\files\deployments"
