@@ -428,10 +428,10 @@ This action modifies an existing object based on the contents of the specified c
 * If supplied configuration already present in the resource.
 
 = Inputs =
-* File Path*:                    Provide the path to a JSON or YAML file describing the modified resource. E.g. ./myapp.yaml
+* File Path*:                    Provide one or more comma-separated files or a directory path. Accepted file types are JSON and YAML. E.g. ./deployment.yaml
 
 = Behavior =
-* The user can provide multiple files or directory in File Path input.
+(none)
 
 = Outputs =
 * Return code is 0 in case of success.
@@ -444,6 +444,9 @@ This action modifies an existing object based on the contents of the specified c
 AE logs will be displayed in the AE report.
 
 = Example =
+File Path*:                 Provide one or more comma-separated files or a directory path. Accepted file types are JSON and YAML. E.g. ./deployment.yaml
+
+= Sample Command =
 single file:             oc repalce -f "E:\automic\oc\files\deployment.yml"
 multiple files:        oc replace -f "E:\automic\oc\files\pod1.yml,E:\automic\kubernetes\files\deployment.yml"
 directory:              oc replace -f "E:\automic\oc\files\deployments"
