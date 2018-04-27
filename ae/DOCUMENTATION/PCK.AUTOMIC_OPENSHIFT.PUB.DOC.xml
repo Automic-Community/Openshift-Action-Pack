@@ -7,7 +7,45 @@
 <OH_SubType/>
 </HEADER>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[About the Package
+================================
+OpenShift is a platform as a service (PaaS) from Red Hat that is built on Docker and Kubernetes. Kubernetes is an open source, container as a service (CaaS) project originating from Google.
+
+The core of the platform is containers and orchestration. For the container side of the house, the platform uses images based upon the docker image format. For the orchestration side, it uses Kubernetes. 
+
+This package provide means to interact with the openshift system and performs different actions on it.
+The user can either provide username/password or session token or certificate path as a means to login into the system.Any other combination will fail the action.
+
+It creates a temporary config file in the temp directory. Every action first perform the login action which causes the session to be updated in the 
+temporary config file and then it executes the action specific command. Once done with the action it logouts and this temporary config file will be deleted in the post process 
+of every action. 
+
+
+=Setup=  
+* Openshift command line tool must be set in the environment
+
+ 
+=Common Inputs=
+* OpenShift server	             :  Provide OpenShift server name. E.g localhost:8443
+* Username			     : Provide your OpenShift Login ID. E.g automic
+* Password			     : Provide your OpenShift Login Password.
+* Session token                    : Provide your OpenShift session token for authentication to the API server.
+* Certificate		             : Provide the path to your crt file.
+* Sudo Username                 : The username to be used for the sudo command. 
+* Options                              : Run using sudo password (and sudo username if specified).
+* Sudo Password                 : The password to be used for the sudo command.	
+* Overwrite Agent		: Overwrites the default agent
+* Overwrite Login		: Overwrites the default login
+
+
+=Actions=
+Following actions are supported.
+
+* Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_PROJECT
+* Action Description: This action is used to create project in openshift
+
+* Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_APP_FROM_SOURCE_CODE
+* Action Description: This action is used to create application in openshift]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
