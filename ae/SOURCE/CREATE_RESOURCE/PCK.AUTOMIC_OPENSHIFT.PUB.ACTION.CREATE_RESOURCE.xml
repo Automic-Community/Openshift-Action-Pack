@@ -431,7 +431,7 @@
 PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_RESOURCE
 
 = General description =
-This action creates the resource(s) in Openshift. It parses a configuration file and creates one or more OpenShift objects based on the file contents. The -f flag can be passed multiple times with different file or directory paths. When the flag is passed multiple times, oc create iterates through each one, creating the objects described in all of the indicated files. Any existing resources are ignored.
+This action creates the resource(s) in Openshift. It parses a configuration file and creates one or more OpenShift objects based on the file contents. The -f flag can be passed multiple times with different file or directory paths. When the flag is passed multiple times, oc create iterates through each one, creating the objects described in all of the indicated files.
 
 
 = Failure Conditions =
@@ -446,6 +446,7 @@ This action creates the resource(s) in Openshift. It parses a configuration file
 
 = Behavior =
 * The user can provide multiple files or directory in File Path input.
+* If multiple files are provided, the action will fail if any of provided file is invalid and resource will be created for the valid files. 
 
 = Outputs =
 * Return code is 0 in case of success.
