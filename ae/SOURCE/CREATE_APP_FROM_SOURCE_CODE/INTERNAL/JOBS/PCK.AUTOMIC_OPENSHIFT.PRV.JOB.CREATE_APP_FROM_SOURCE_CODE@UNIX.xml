@@ -124,6 +124,10 @@
 
 :INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.PREPARE_CMD@UNIX
 
+:IF &UC4RB_OPENSHIFT_PROJECT# NE ""
+:   INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.CHANGE_PROJECT@UNIX
+:ENDIF
+
 !----------------------------------------------- Create application from source code -start --------------------------------
 : SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#," new-app ")
 
