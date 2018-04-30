@@ -1,0 +1,14 @@
+*** Settings ***
+Resource          ../../../Env/default.txt
+
+*** Variables ***
+#---- Promptset Fields --------------------------------------------------------------------------------------
+#----Global Variables----------------------------------------------------------------------------------------
+${Server_URL}     https://console.starter-us-west-2.openshift.com
+${User_Name}      add_username_here
+${OpenShift_Password}    add_password_here
+${Project_Name}    test-projects
+#----Create Resource----------------------------------------------------------------------------------------
+${File_Path}      ${EXECDIR}\\resource.yaml
+${File_Path_2}    ${EXECDIR}\\resource_2.yaml
+${Advanced_Options}    --dry-run=false
