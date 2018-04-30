@@ -426,7 +426,7 @@
 PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.EXPOSE_SERVICE
 
 = General description =
-This action looks up a service and exposes it as a route. If no labels are specified, the new object will re-use the labels from the object it exposes.
+This action looks up a service and exposes it as a route. There is also the ability to expose a deployment configuration, replication controller, service, or pod as a new service on a specified port. If no labels are specified, the new object will re-use the labels from the object it exposes.
 
 = Failure Conditions =
 * If the route for the specified service already exists.
