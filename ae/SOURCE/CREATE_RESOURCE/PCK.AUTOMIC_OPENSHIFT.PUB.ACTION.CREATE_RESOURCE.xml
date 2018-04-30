@@ -426,7 +426,7 @@
 PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_RESOURCE
 
 = General description =
-This action creates the resource(s) in Openshift. A resource can be pods, services, deployments etc.
+This action creates the resource(s) in Openshift. It parses a configuration file and creates one or more OpenShift objects based on the file contents. The -f flag can be passed multiple times with different file or directory paths. When the flag is passed multiple times, oc create iterates through each one, creating the objects described in all of the indicated files. Any existing resources are ignored.
 
 
 = Failure Conditions =
@@ -434,7 +434,7 @@ This action creates the resource(s) in Openshift. A resource can be pods, servic
 * If the resource that we are creating, is already present.
 
 = Inputs =
-* File Path*:                    Provide one or more comma separated files or a directory path. Accepted file types are JSON and YAML. E.g. ./myapp.yaml
+* File Path*:                    Provide one or more comma-separated files or a directory path. Accepted file types are JSON and YAML. E.g. ./myapp.yaml
 * Advanced Options:      Provide other options E.g. --dry-run
 
 = Behavior =
@@ -459,6 +459,28 @@ single file:             oc create -f "E:\automic\oc\files\deployment.yml"
 multiple files:        oc create -f "E:\automic\oc\files\pod1.yml,E:\automic\kubernetes\files\deployment.yml"
 directory:              oc create -f "E:\automic\oc\files\deployments"
 
+= Sample Json =
+{
+"kind": "Service",
+"apiVersion": "v1",
+"metadata": {
+"name": "demoservice",
+"labels": {
+"application": "test-node"
+}
+},
+"spec": {
+"ports": [
+{
+"port": 8080,
+"targetPort": 8080
+}
+],
+"selector": {
+"deploymentConfig": "test-nodejs"
+}
+}
+}
 
 ]]></DOC>
 </DOCU_Docu>
