@@ -69,6 +69,7 @@
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE">
 <UC4RB_OPENSHIFT_FILE_PATHs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_FILE_PATH#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -145,6 +146,7 @@
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE">
 <UC4RB_OPENSHIFT_FILE_PATHs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_FILE_PATH#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -221,6 +223,7 @@
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE">
 <UC4RB_OPENSHIFT_FILE_PATHs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_FILE_PATH#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -284,6 +287,7 @@
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE">
 <UC4RB_OPENSHIFT_FILE_PATHs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_FILE_PATH#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPSE" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -429,9 +433,10 @@ This action modifies an existing object based on the contents of the specified c
 
 = Inputs =
 * File Path*:                    Provide one or more comma-separated files or a directory path. Accepted file types are JSON and YAML. E.g. ./deployment.yaml
+* Project Name:              Provide the project name in which you want to replace the resource. If not provided, the default project will be used. E.g. spartan   
 
 = Behavior =
-(none)
+* If multiple files are provided, the action will fail if any of provided file is invalid and resource will be replaced for the valid files.  
 
 = Outputs =
 * Return code is 0 in case of success.
@@ -444,7 +449,8 @@ This action modifies an existing object based on the contents of the specified c
 AE logs will be displayed in the AE report.
 
 = Example =
-File Path*:                 Provide one or more comma-separated files or a directory path. Accepted file types are JSON and YAML. E.g. ./deployment.yaml
+File Path*:                ./deployment.yaml
+Project Name:          spartan
 
 = Sample Command =
 single file:             oc repalce -f "E:\automic\oc\files\deployment.yml"
