@@ -69,6 +69,7 @@
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE">
 <UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE"/>
 <UC4RB_OPENSHIFT_SERVICEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_SERVICE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -146,6 +147,7 @@
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE">
 <UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE"/>
 <UC4RB_OPENSHIFT_SERVICEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_SERVICE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -223,6 +225,7 @@
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE">
 <UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE"/>
 <UC4RB_OPENSHIFT_SERVICEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_SERVICE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -287,6 +290,7 @@
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE">
 <UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE"/>
 <UC4RB_OPENSHIFT_SERVICEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_SERVICE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -379,6 +383,7 @@
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE" ontop="1">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.EXPOSE_SERVICE" prptmode="1">
 <UC4RB_OPENSHIFT_SERVICEs.00 altview="0" haslist="0"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 altview="0" haslist="0"/>
 <UC4RB_OPENSHIFT_ADV_OPTSs.00 altview="0" haslist="0"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -431,9 +436,11 @@ This action looks up a service and exposes it as a route. There is also the abil
 = Failure Conditions =
 * If the route for the specified service already exists.
 * If specified service does not exist.
+* If the specified project does not exist.
 
 = Inputs =
-* Service Name*:                    Provide the name of the service to be exposed. E.g. demoservice
+* Service Name*:                   Provide the name of the service to be exposed. E.g. demoservice
+* Project Name:                     Provide the project name in which you want to expose the resource. If not provided, the default project will be used. E.g. spartan
 * Advanced Options:             Provide additional options which will be used during the action execution. E.g. --dry-run
 
 = Behavior =
@@ -451,6 +458,7 @@ AE logs will be displayed in the AE report.
 
 = Example =
 Service Name:                        demoservice
+Project Name:                        spartan       
 Advanced Options:                --dry-run
 
 = Sample Command =
