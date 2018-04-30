@@ -15,7 +15,7 @@ then
 fi]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[Check command execution status on Unix system]]></DOC>
 </DOCU_Docu>
 </JOBI>
 </uc-export>
