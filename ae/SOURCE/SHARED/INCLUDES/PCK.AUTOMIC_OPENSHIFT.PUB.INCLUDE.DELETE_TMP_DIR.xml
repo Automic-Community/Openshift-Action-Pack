@@ -16,14 +16,13 @@
 :  SET &STATUS# = GET_UC_OBJECT_STATUS(,&ACTOBJ#,"RETCODE")
 :  P "EXECUTED OBJECT [&UC4RB_OPENSHIFT_OBJ#] STATUS: &STATUS#"
 :  IF &STATUS# <> "0"
-:    STOP MSG, 50, "Error while executing &UC4RB_OPENSHIFT_OBJ# object"
+:    PRINT "Error while executing &UC4RB_OPENSHIFT_OBJ# object"
 :  ENDIF
 :  IF &ACTOBJ# = "0"
 :    SET &ERRNR# = SYS_LAST_ERR_NR()
 :    SET &ERRINS#  = SYS_LAST_ERR_INS()
 :    SET &MESSAGE# = GET_MSG_TXT(&ERRNR#,&ERRINS#)
-:    PRINT "Error while activating object :&MESSAGE#"
-:    STOP MSG, 50, "Error while activating &UC4RB_OPENSHIFT_OBJ# object :&MESSAGE#"
+:    PRINT "Error while activating &UC4RB_OPENSHIFT_OBJ# object :&MESSAGE#"
 :  ENDIF]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
