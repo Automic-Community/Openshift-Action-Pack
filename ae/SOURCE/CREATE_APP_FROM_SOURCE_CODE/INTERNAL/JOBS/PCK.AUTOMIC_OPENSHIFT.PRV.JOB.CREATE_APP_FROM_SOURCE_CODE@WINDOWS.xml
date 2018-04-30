@@ -119,7 +119,7 @@
 
 :INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 : INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_CONNECTION_PARAMS
-: SET &UC4RB_LOGGING_PARAMETER# = "Source code URL"
+: SET &UC4RB_LOGGING_PARAMETER# = "Application source URL"
 : SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_OPENSHIFT_SRC_URL#"
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
 : SET &UC4RB_LOGGING_PARAMETER# = "Application name"
@@ -130,6 +130,8 @@
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
 
 :INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.PREPARE_CMD@WIN
+
+!----------------------------------------------- Create application from source code -start --------------------------------
 
 : SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#," new-app ")
 
@@ -150,6 +152,7 @@
 :PRINT "Create Application from source code : &UC4RB_OPENSHIFT_CMD#"
 &UC4RB_OPENSHIFT_CMD#
 
+!----------------------------------------------- Create application from source code -end  --------------------------------
 !Status messages
 :SET &UC4RB_LOGGING_INFO# = "******** CREATE APPLICATION FROM SOURCE CODE ACTION EXECUTED SUCCESSFULLY ********"
 :SET &UC4RB_LOGGING_ERROR# = "******** CREATE APPLICATION FROM SOURCE CODE ACTION FAILED ********"
