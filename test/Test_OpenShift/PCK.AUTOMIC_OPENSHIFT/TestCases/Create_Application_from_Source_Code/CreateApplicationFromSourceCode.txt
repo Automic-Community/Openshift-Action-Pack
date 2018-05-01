@@ -1,0 +1,69 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        create_app_from_source_code
+Test Template     Create Application Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    SourceURL                                              AppName        ProjectName    AdvancedOpt
+Create Application action with valid values passed in all fields
+                      [Tags]    main_scenarios
+                      OK        ${Source_URL}                                          ${App_Name}    ${Project}     ${Advanced_Opt}
+
+Create Application action with only Application Source URL passed leaving the optional fields
+                      OK        https://github.com/openshift/ruby-hello-world#beta4    ${EMPTY}       ${EMPTY}       ${EMPTY}
+
+Mandatory assertion test for Create Application when Application Source URL is not provided
+                      NOK       ${EMPTY}                                               ${App_Name}    ${Project}     ${EMPTY}
+
+Create Application action with an already existing Application name on Server
+                      NOK       ${Source_URL}                                          ${App_Name}    ${Project}     ${Advanced_Opt}
+
+Create Application with Invalid Application Source URL
+                      NOK       Invalid                                                ${App_Name}    ${EMPTY}       ${EMPTY}
+
+Create Application with Invalid Application Name
+                      NOK       ${Source_URL}                                          Invalid        ${EMPTY}       ${EMPTY}
+
+Create Application with Invalid Project Name
+                      NOK       ${Source_URL}                                          ${EMPTY}       Invalid        ${EMPTY}
+
+Create Application with Invalid advanced option
+                      NOK       ${Project_Name}                                        ${App_Name}    ${Project}     Invalid
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "CREATE APPLICATION FROM SOURCE CODE"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Create Application Template
+    [Arguments]    ${OK_NOK}    ${SourceURL}    ${AppName}    ${ProjectName}    ${AdvancedOpt}
+    [Documentation]    This test create a project in OpenShiftServer
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${SourceURL}: This field specifies the path to the application source code in a local or a remote repository.
+    ...    -${AppName}: This field specifies application name to be provided to new application
+    ...    -${ProjectName}: This field specifies the project name in which you want to create a resource
+    ...    -${AdvancedOpt}: This field specifies any other additional options which will be used during the resource creation.
+    Generate String
+    Init Action    ${_CREATE_APPLICATION_ACTION}
+    Connect To OpenShift
+    Run Keyword If    '${SourceURL}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_SRC_URL#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_SRC_URL#    ${SourceURL}
+    Run Keyword If    '${AdvancedOpt}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_ADV_OPTS#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_ADV_OPTS#    ${AdvancedOpt}
+    Run Keyword If    '${AppName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_APP_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_APP_NAME#    ${AppName}
+    Run Keyword If    '${ProjectName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PROJECT#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_PROJECT#    ${ProjectName}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE    Assert Failure
+
+Teardown
+    Log    *******End Test "CREATE APPLICATION FROM SOURCE CODE"*******

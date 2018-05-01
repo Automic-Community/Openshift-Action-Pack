@@ -1,0 +1,19 @@
+*** Settings ***
+Resource          ../../../Env/default.txt
+
+*** Variables ***
+#---- Connection Promptset Fields --------------------------------------------------------------------------------------
+${OpenShiftServer}    https://console.starter-ca-central-1.openshift.com/
+${Username}       redhatankur
+${Password}       NewPwd@00
+${Token}          CL5ToPHgeYVEs9nyl1KoYUyh4DSvNOHoIOZqIfi0ang
+${Cert_Path}      C:\BITBUCKET REPO\openshift.crt
+#----Create Project-----------------------------------------------------------------------------------------------------
+${Project_Name}    demo-12
+${Display_Name}    ${EMPTY}
+${Project_Desc}    ${EMPTY}
+${Advanced_Opt}    ${EMPTY}
+#----Create Application From Source Code--------------------------------------------------------------------------------
+${Source_URL}     https://github.com/sumitsamson/springdemoapp.git
+${App_Name}       testapp-123456
+${Project}        demo-1
