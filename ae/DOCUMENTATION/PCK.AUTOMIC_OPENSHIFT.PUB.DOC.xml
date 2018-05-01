@@ -46,6 +46,9 @@ Following actions are supported.
 * Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_RESOURCE
 * Action Description: This action is used to create resource in openshift.
 
+* Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.REPLACE_RESOURCE
+* Action Description: This action modifies an existing object based on the contents of the specified configuration file.
+
 * Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_APP_FROM_SOURCE_CODE
 * Action Description: This action is used to create application in openshift]]></DOC>
 
