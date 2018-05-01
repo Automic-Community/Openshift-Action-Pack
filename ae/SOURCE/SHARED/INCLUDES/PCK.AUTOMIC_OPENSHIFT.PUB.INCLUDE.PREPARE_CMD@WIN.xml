@@ -69,7 +69,11 @@
 :     SET &UC4RB_ESCAPED_STRING# =&UC4RB_OPENSHIFT_CERTS#
 :     INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.ESCAPE_ARG_VALUE@WIN
 :     SET &UC4RB_OPENSHIFT_LOGIN_CMD# = STR_CAT(&UC4RB_OPENSHIFT_LOGIN_CMD#, " --certificate-authority=&UC4RB_ESCAPED_STRING#")
-:     SET &UC4RB_OPENSHIFT_LOGIN_CMD# = STR_CAT(&UC4RB_OPENSHIFT_LOGIN_CMD#, " --insecure-skip-tls-verify=&UC4RB_SKIP_SSL#")
+
+:     IF &UC4RB_SKIP_SSL# EQ "YES"
+:       SET &UC4RB_OPENSHIFT_LOGIN_CMD# = STR_CAT(&UC4RB_OPENSHIFT_LOGIN_CMD#, " --insecure-skip-tls-verify=true")
+:     ENDIF
+
 
 :   OTHER
 :      STOP MSG, 50, "Please provide either of these (Username/password or Token or Certificate)"
