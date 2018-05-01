@@ -27,7 +27,6 @@
 :ENDIF
 
 :IF &COUNT# NE 1
-:  PRINT "Please provide either of these (Username/password or Token or Certificate)"
 :  STOP MSG, 50, "Please provide either of these (Username/password or Token or Certificate)"
 :ENDIF
 
