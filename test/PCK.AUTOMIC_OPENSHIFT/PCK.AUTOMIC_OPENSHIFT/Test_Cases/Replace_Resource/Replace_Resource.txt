@@ -1,0 +1,54 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        replace_resource
+Test Template     Replace Resource Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK                                                                ProjectName        FilePath
+Replace Resource with valid File Path
+                      [Tags]                                                                main_scenarios
+                      OK                                                                    ${EMPTY}           ${File_Path}
+                      #Replace Resources with multiple Files also providing Project Name
+                      OK                                                                    ${Project_Name}    ${File_Path},${File_Path_2}
+
+Replace Resource with non-existing Project Name
+                      [Tags]                                                                main_scenarios
+                      NOK                                                                   Invalid            ${File_Path}
+
+Replace Resource with Invalid File Path
+                      NOK                                                                   ${Project_Name}    Invalid
+
+Assert File Path as mandatory field
+                      NOK                                                                   ${Project_Name}    ${EMPTY}
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "REPLACE RESOURCE"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Replace Resource Template
+    [Arguments]    ${OK_NOK}    ${ProjectName}    ${FilePath}
+    [Documentation]    This test executes the Replace Resource action.
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK/FAULT_OTHER. Value of this variable should be OK, NOK.
+    ...    -${ProjectName}: Specify the project name in which you want to replace the resource. If not provided, default will be used.
+    ...    -${FilePath}: This field specifies YAML file including full path.
+    Generate String
+    Init Action    ${REPLACE_RESOURCE}
+    Connect to OpenShift
+    Run Keyword If    '${ProjectName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PRJ_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_PRJ_NAME#    ${ProjectName}
+    Run Keyword If    '${FilePath}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_FILE_PATH#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_FILE_PATH#    ${FilePath}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
+
+Teardown
+    Log    *******End Test "REPLACE RESOURCE"*******

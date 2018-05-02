@@ -1,0 +1,60 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        create_resource
+Test Template     Create Resource Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK                                                                                ProjectName        FilePath                       AdvancedOptions
+Create Resource with valid File Path and not giving Advanced Options
+                      [Tags]                                                                                main_scenarios
+                      OK                                                                                    ${EMPTY}           ${File_Path}                   ${EMPTY}
+                      #Create Resources with multiple Files and giving Advanced Options and Project Name
+                      OK                                                                                    ${Project_Name}    ${File_Path},${File_Path_2}    ${Advanced_Options}
+
+Create Resource with invalid Project Name
+                      [Tags]                                                                                main_scenarios
+                      NOK                                                                                   Invalid            ${File_Path}                   ${EMPTY}
+
+Create Resource with Invalid File Location
+                      NOK                                                                                   ${Project_Name}    Invalid                        ${Advanced_Options}
+
+Create Resource with Invalid Advanced Options
+                      NOK                                                                                   ${Project_Name}    ${File_Path}                   Invalid
+
+Assert File Location as mandatory field
+                      NOK                                                                                   ${Project_Name}    ${EMPTY}                       ${Advanced_Options}
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "CREATE RESOURCE"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Create Resource Template
+    [Arguments]    ${OK_NOK}    ${ProjectName}    ${FilePath}    ${AdvancedOptions}
+    [Documentation]    This test executes the Create Resource action.
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK/FAULT_OTHER. Value of this variable should be OK, NOK.
+    ...    -${ProjectName}: Specify the project name in which you want to create the resource. If not provided, default will be used.
+    ...    -${FilePath}: This field specifies YAML file including full path.
+    ...    -${AdvancedOptions}: This field specifies other options which will be used during resource creation.
+    Generate String
+    Init Action    ${CREATE_RESOURCE}
+    Connect to OpenShift
+    Run Keyword If    '${ProjectName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PRJ_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_PRJ_NAME#    ${ProjectName}
+    Run Keyword If    '${FilePath}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_FILE_PATH#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_FILE_PATH#    ${FilePath}
+    Run Keyword If    '${AdvancedOptions}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_ADV_OPTS#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_ADV_OPTS#    ${AdvancedOptions}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
+
+Teardown
+    Log    *******End Test "CREATE RESOURCE"*******

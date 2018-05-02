@@ -27,7 +27,6 @@
 :ENDIF
 
 :IF &COUNT# NE 1
-:  PRINT "Please provide either of these (Username/password or Token or Certificate)"
 :  STOP MSG, 50, "Please provide either of these (Username/password or Token or Certificate)"
 :ENDIF
 
@@ -80,10 +79,7 @@
 ! Do Login
   &UC4RB_OPENSHIFT_LOGIN_CMD#
 
-!Status messages
-:SET &UC4RB_LOGGING_INFO# = "******** LOGIN SUCCESSFUL ********"
-:SET &UC4RB_LOGGING_ERROR# = "******** LOGIN FAILED ********"
-: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.CHECK_JOBSTATUS@UNIX]]></MSCRI>
+:INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.CHECK_CMD_STATUS@UNIX]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>
