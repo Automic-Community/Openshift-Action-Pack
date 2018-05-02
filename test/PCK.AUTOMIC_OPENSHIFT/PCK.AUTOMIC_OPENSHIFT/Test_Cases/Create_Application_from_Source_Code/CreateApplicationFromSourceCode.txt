@@ -14,7 +14,7 @@ Resource          ../../Resources/actions.txt
 *** Test Cases ***    OK_NOK    SourceURL                                              AppName        ProjectName        AdvancedOption
 Create Application action with valid values passed in all fields
                       [Tags]    main_scenarios
-                      OK        ${Source_URL}                                          ${App_Name}    ${Project_Name}    ${Advanced_Options}
+                      OK        ${Source_URL}                                          ${App_Name}    ${Project_Name}    ${App_Advanced_Options}
 
 Create Application action with only Application Source URL passed leaving the optional fields
                       OK        https://github.com/openshift/ruby-hello-world#beta4    ${EMPTY}       ${EMPTY}           ${EMPTY}
@@ -23,7 +23,7 @@ Mandatory assertion test for Create Application when Application Source URL is n
                       NOK       ${EMPTY}                                               ${App_Name}    ${Project_Name}    ${EMPTY}
 
 Create Application action with an already existing Application name on Server
-                      NOK       ${Source_URL}                                          ${App_Name}    ${Project_Name}    ${Advanced_Options}
+                      NOK       ${Source_URL}                                          ${App_Name}    ${Project_Name}    ${App_Advanced_Options}
 
 Create Application with Invalid Application Source URL
                       NOK       Invalid                                                ${App_Name}    ${EMPTY}           ${EMPTY}

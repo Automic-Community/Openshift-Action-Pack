@@ -113,3 +113,4 @@ Connect to OpenShift
     Action Set    &UC4RB_OPENSHIFT_PASSWORD#    ${OpenShift_Password}
     Action Set    &UC4RB_OPENSHIFT_TOKEN#    ${EMPTY}
     Action Set    &UC4RB_OPENSHIFT_CERTS#    ${EMPTY}
+    Action Set    &UC4RB_SKIP_SSL#    YES

@@ -14,13 +14,13 @@ Resource          ../../Resources/actions.txt
 *** Test Cases ***    OK_NOK                                                                ProjectName        FilePath
 Replace Resource with valid File Path
                       [Tags]                                                                main_scenarios
-                      OK                                                                    ${EMPTY}           ${File_Path}
+                      OK                                                                    ${EMPTY}           ${Replace_File_Path}
                       #Replace Resources with multiple Files also providing Project Name
-                      OK                                                                    ${Project_Name}    ${File_Path},${File_Path_2}
+                      #OK                                                                   ${Project_Name}    ${Replace_File_Path},${Replace_File_Path_2}
 
 Replace Resource with non-existing Project Name
                       [Tags]                                                                main_scenarios
-                      NOK                                                                   Invalid            ${File_Path}
+                      NOK                                                                   Invalid            ${Replace_File_Path}
 
 Replace Resource with Invalid File Path
                       NOK                                                                   ${Project_Name}    Invalid
