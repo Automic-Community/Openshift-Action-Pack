@@ -1,0 +1,26 @@
+*** Settings ***
+Resource          ../../../Env/default.txt
+
+*** Variables ***
+#---- Promptset Fields --------------------------------------------------------------------------------------
+#----Global Variables----------------------------------------------------------------------------------------
+${Server_URL}     https://console.starter-ca-central-1.openshift.com/
+${User_Name}      redhatankur
+${OpenShift_Password}    NewPwd@00
+${Token}          add_token_here
+${Cert_Path}      add-certificate-path
+${Project_Name}    test-projects
+${Advanced_Options}    --output=json
+#----Create Resource----------------------------------------------------------------------------------------
+${File_Path}      ${EXECDIR}\\resource.yaml
+${File_Path_2}    ${EXECDIR}\\resource_2.yaml
+#----Replace Resource---------------------------------------------------------------------------------------
+${Replace_File_Path}    ${EXECDIR}\\replace.json
+${Replace_File_Path_2}    ${EXECDIR}\\replace_2.json
+#----Create Project-----------------------------------------------------------------------------------------------------
+${Display_Name}    test project
+${Project_Desc}    test description for project
+#----Create Application From Source Code--------------------------------------------------------------------------------
+${Source_URL}     https://github.com/sumitsamson/springdemoapp.git
+${App_Name}       testapp-123456
+${App_Advanced_Options}    --image-stream="openshift/wildfly:10.1"

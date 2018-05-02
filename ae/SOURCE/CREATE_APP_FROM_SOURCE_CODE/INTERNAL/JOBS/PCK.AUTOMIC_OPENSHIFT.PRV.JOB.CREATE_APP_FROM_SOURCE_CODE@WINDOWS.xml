@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBS_WINDOWS AttrType="WINDOWS" name="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.EXPOSE_SERVICE@WINDOWS">
+<JOBS_WINDOWS AttrType="WINDOWS" name="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.CREATE_APP_FROM_SOURCE_CODE@WINDOWS">
 <XHEADER state="1">
-<Title>Expose Service</Title>
+<Title>Create application from source code</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <Active>1</Active>
@@ -117,53 +117,51 @@
 <SCRIPT mode="1" state="1">
 <MSCRI><![CDATA[ @echo off
 
-!----------------------------------------------- Parameter validation ---------------------------------------------------------------------------------------------
-: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
-
+:INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 : INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_CONNECTION_PARAMS
-
-: SET &UC4RB_LOGGING_PARAMETER# = "Service Name"
-: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_OPENSHIFT_SERVICE#
+: SET &UC4RB_LOGGING_PARAMETER# = "Application source URL"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_OPENSHIFT_SRC_URL#"
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
-
-: SET &UC4RB_LOGGING_PARAMETER# = "Project"
-: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_OPENSHIFT_PROJECT#
+: SET &UC4RB_LOGGING_PARAMETER# = "Application name"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_OPENSHIFT_APP_NAME#"
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
-
 : SET &UC4RB_LOGGING_PARAMETER# = "Advanced Options"
-: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_OPENSHIFT_ADV_OPTS#
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_OPENSHIFT_ADV_OPTS#"
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
 
-: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
-
-
-!----------------------------------------- Expose Service Command ------------------------------------------------------------------------------------------------
 :INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.PREPARE_CMD@WIN
 
 :IF &UC4RB_OPENSHIFT_PROJECT# NE ""
 :   INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.CHANGE_PROJECT@WIN
 :ENDIF
 
-: SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#," expose service")
+!----------------------------------------------- Create application from source code -start --------------------------------
 
-: SET &UC4RB_ESCAPED_STRING# =&UC4RB_OPENSHIFT_SERVICE#
+: SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#," new-app ")
+
+: SET &UC4RB_ESCAPED_STRING# =&UC4RB_OPENSHIFT_SRC_URL#
 : INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.ESCAPE_ARG_VALUE@WIN
 : SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " &UC4RB_ESCAPED_STRING#")
+
+:IF &UC4RB_OPENSHIFT_APP_NAME# NE ""
+: SET &UC4RB_ESCAPED_STRING# =&UC4RB_OPENSHIFT_APP_NAME#
+: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.ESCAPE_ARG_VALUE@WIN
+: SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " --name=&UC4RB_ESCAPED_STRING#")
+:ENDIF
 
 :IF &UC4RB_OPENSHIFT_ADV_OPTS# NE ""
 :  SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " &UC4RB_OPENSHIFT_ADV_OPTS#")
 :ENDIF
 
-:PRINT "Expose Service : &UC4RB_OPENSHIFT_CMD#"
+:PRINT "Create Application from source code : &UC4RB_OPENSHIFT_CMD#"
 &UC4RB_OPENSHIFT_CMD#
 
-!------------------------------------------ Error Handling --------------------------------------------------------------------------------------------------------
-! Status messages
-: SET &UC4RB_LOGGING_INFO# = "********  EXPOSE SERVICE ACTION EXECUTED SUCCESSFULLY ********"
-: SET &UC4RB_LOGGING_ERROR# = "******** EXPOSE SERVICE ACTION EXECUTION FAILED ********"
+!----------------------------------------------- Create application from source code -end  --------------------------------
+!Status messages
+:SET &UC4RB_LOGGING_INFO# = "******** CREATE APPLICATION FROM SOURCE CODE ACTION EXECUTED SUCCESSFULLY ********"
+:SET &UC4RB_LOGGING_ERROR# = "******** CREATE APPLICATION FROM SOURCE CODE ACTION FAILED ********"
 
-
-!------------------------------------------ ERROR HANDLING ----------------------------------------------------
+!------------------------------------------ LOG OUT ----------------------------------------------------
 : INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_OUT@WIN
 
 
