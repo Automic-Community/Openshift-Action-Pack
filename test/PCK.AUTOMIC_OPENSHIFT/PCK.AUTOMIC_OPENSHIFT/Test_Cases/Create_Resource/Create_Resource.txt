@@ -16,7 +16,7 @@ Create Resource with valid File Path and not giving Advanced Options
                       [Tags]                                                                                main_scenarios
                       OK                                                                                    ${EMPTY}           ${File_Path}                   ${EMPTY}
                       #Create Resources with multiple Files and giving Advanced Options and Project Name
-                      OK                                                                                    ${Project_Name}    ${File_Path},${File_Path_2}    ${Advanced_Options}
+                      #OK                                                                                   ${Project_Name}    ${File_Path},${File_Path_2}    ${Advanced_Options}
 
 Create Resource with invalid Project Name
                       [Tags]                                                                                main_scenarios

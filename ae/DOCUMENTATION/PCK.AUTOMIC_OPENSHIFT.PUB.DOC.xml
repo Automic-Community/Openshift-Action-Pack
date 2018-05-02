@@ -51,7 +51,6 @@ Following actions are supported.
 
 * Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_APP_FROM_SOURCE_CODE
 * Action Description: This action is used to create application in openshift]]></DOC>
-
 </DOCU_Docu>
 </DOCU>
 </uc-export>

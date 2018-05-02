@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: '2018-05-02T04:20:31Z'
+  labels:
+    application: test-nodejs12
+  name: test-nodejs12
+  namespace: test-projects
+  resourceVersion: '2219788883'
+  selfLink: /api/v1/namespaces/test-projects/services/test-nodejs12
+  uid: 27036858-4dc0-11e8-b45b-0a2a2b777307
+spec:
+  clusterIP: 172.30.45.40
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    deploymentConfig: test-nodejs12
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

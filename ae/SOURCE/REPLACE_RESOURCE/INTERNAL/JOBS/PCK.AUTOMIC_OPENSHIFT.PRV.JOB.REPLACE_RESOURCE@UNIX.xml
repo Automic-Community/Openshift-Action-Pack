@@ -147,7 +147,7 @@
 : SET &UC4RB_LOGGING_ERROR# = "******** REPLACE RESOURCE ACTION EXECUTION FAILED ********"
 
 !------------------------------------------ ERROR HANDLING ----------------------------------------------------
-: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.CHECK_JOBSTATUS@UNIX]]></MSCRI>
+: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_OUT@UNIX]]></MSCRI>
 </SCRIPT>
 <OUTPUTSCAN state="1">
 <Inherit>N</Inherit>
