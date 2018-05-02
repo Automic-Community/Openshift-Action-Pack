@@ -6,10 +6,10 @@ Resource          ../../../Env/default.txt
 ${OpenShiftServer}    https://console.starter-ca-central-1.openshift.com/
 ${Username}       redhatankur
 ${Password}       NewPwd@00
-${Token}          CL5ToPHgeYVEs9nyl1KoYUyh4DSvNOHoIOZqIfi0ang
-${Cert_Path}      C:\BITBUCKET REPO\openshift.crt
+${Token}          ${EMPTY}
+${Cert_Path}      ${EMPTY}
 #----Create Project-----------------------------------------------------------------------------------------------------
-${Project_Name}    demo-12
+${Project_Name}    demo-123demo-123demo-123demo-123demo-123demo-123demo-123demo-123
 ${Display_Name}    ${EMPTY}
 ${Project_Desc}    ${EMPTY}
 ${Advanced_Opt}    ${EMPTY}

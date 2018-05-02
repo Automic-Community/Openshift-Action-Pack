@@ -100,7 +100,7 @@ Assert Failure
     Action Return Code Should Not Equal    ${RETURN_CODE_SUCCESS}
 
 Generate String
-    ${Generated_Name}    Generate Random String    32    [UPPER][NUMBERS]
+    ${Generated_Name}    Generate Random String    64    [UPPER][NUMBERS]
     ${Time}    Get Time
     Set Global Variable    ${Generated_Name}
     Set Global Variable    ${Time}

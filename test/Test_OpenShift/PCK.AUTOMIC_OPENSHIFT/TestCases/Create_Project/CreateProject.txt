@@ -14,10 +14,10 @@ Resource          ../../Resources/actions.txt
 *** Test Cases ***    OK_NOK    ProjectName        DisplayName        ProjectDesc        AdvancedOpt
 Create Project action with valid values passed in all fields
                       [Tags]    main_scenarios
-                      OK        ${Project_Name}    ${Display_Name}    ${Project_Desc}    ${Advanced_Opt}
+                      OK        demo-123           ${Display_Name}    ${Project_Desc}    ${Advanced_Opt}
 
 Create Project action with only Project Name passed leaving the optional fields
-                      OK        demo-123           ${Display_Name}    ${EMPTY}           ${EMPTY}
+                      OK        demo-1234          ${Display_Name}    ${EMPTY}           ${EMPTY}
 
 Mandatory assertion test for Create Project when Project name is not provided
                       NOK       ${EMPTY}           ${Display_Name}    ${Project_Desc}    ${EMPTY}
@@ -25,11 +25,14 @@ Mandatory assertion test for Create Project when Project name is not provided
 Create Project action with an already existing Project name on Server
                       NOK       demo-123           ${Display_Name}    ${Project_Desc}    ${EMPTY}
 
-Create package with Invalid project name
+Create package with Invalid project name having more than 63 characters with upppercase and numbers
                       NOK       Invalid            ${Display_Name}    ${EMPTY}           ${EMPTY}
 
+Create package with Invalid project name having more than 63 characters containing lowercase-numbers
+                      NOK       ${Project_Name}    ${Display_Name}    ${EMPTY}           ${EMPTY}
+
 Create package with Invalid advanced option
-                      NOK       ${Project_Name}    ${Display_Name}    ${Project_Desc}    Invalid
+                      NOK       demo-1             ${Display_Name}    ${Project_Desc}    Invalid
 
 *** Keywords ***
 Startup
