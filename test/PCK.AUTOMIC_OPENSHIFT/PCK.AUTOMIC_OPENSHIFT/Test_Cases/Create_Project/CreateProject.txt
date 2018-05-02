@@ -11,28 +11,27 @@ Resource          ../../Resources/keywords.txt
 Resource          ../../Resources/variables.txt
 Resource          ../../Resources/actions.txt
 
-*** Test Cases ***    OK_NOK    ProjectName        DisplayName        ProjectDesc        AdvancedOpt
+*** Test Cases ***    OK_NOK                                                                              ProjectName        DisplayName        ProjectDesc        AdvancedOption
 Create Project action with valid values passed in all fields
-                      [Tags]    main_scenarios
-                      OK        demo-123           ${Display_Name}    ${Project_Desc}    ${Advanced_Opt}
-
-Create Project action with only Project Name passed leaving the optional fields
-                      OK        demo-1234          ${Display_Name}    ${EMPTY}           ${EMPTY}
+                      [Tags]                                                                              main_scenarios
+                      OK                                                                                  ${Project_Name}    ${Display_Name}    ${Project_Desc}    ${Advanced_Options}
+                      #Create Project action with only Project Name passed leaving the optional fields
+                      #                                                                                   OK                 demo-12345         ${EMPTY}           ${EMPTY}               ${EMPTY}
 
 Mandatory assertion test for Create Project when Project name is not provided
-                      NOK       ${EMPTY}           ${Display_Name}    ${Project_Desc}    ${EMPTY}
+                      NOK                                                                                 ${EMPTY}           ${Display_Name}    ${Project_Desc}    ${Advanced_Options}
 
 Create Project action with an already existing Project name on Server
-                      NOK       demo-123           ${Display_Name}    ${Project_Desc}    ${EMPTY}
+                      NOK                                                                                 ${Project_Name}    ${Display_Name}    ${Project_Desc}    ${Advanced_Options}
 
-Create package with Invalid project name having more than 63 characters with upppercase and numbers
-                      NOK       Invalid            ${Display_Name}    ${EMPTY}           ${EMPTY}
+Create package with Invalid project name containing upppercase letters and special characters
+                      NOK                                                                                 DEMO_!@#@$%78      ${Display_Name}    ${EMPTY}           ${Advanced_Options}
 
 Create package with Invalid project name having more than 63 characters containing lowercase-numbers
-                      NOK       ${Project_Name}    ${Display_Name}    ${EMPTY}           ${EMPTY}
+                      NOK                                                                                 Invalid            ${Display_Name}    ${EMPTY}           ${EMPTY}
 
 Create package with Invalid advanced option
-                      NOK       demo-1             ${Display_Name}    ${Project_Desc}    Invalid
+                      NOK                                                                                 demo-111           ${Display_Name}    ${Project_Desc}    Invalid
 
 *** Keywords ***
 Startup
@@ -41,20 +40,20 @@ Startup
     Connect AE
 
 Create Project Template
-    [Arguments]    ${OK_NOK}    ${ProjectName}    ${DisplayName}    ${ProjectDesc}    ${AdvancedOpt}
+    [Arguments]    ${OK_NOK}    ${ProjectName}    ${DisplayName}    ${ProjectDesc}    ${AdvancedOption}
     [Documentation]    This test create a project in OpenShiftServer
     ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
     ...    -${ProjectName}: This field specifies name of Project to be created
     ...    -${DisplayName}: This field specifies Project Display Name
     ...    -${ProjectDesc}: This field specifies any description user wants to add to the created project
-    ...    -${AdvancedOpt}: This field specifies any other options that will be considered during project creation
+    ...    -${AdvancedOption}: This field specifies any other options that will be considered during project creation
     Generate String
-    Init Action    ${_CREATE_PROJECT_ACTION}
+    Init Action    ${CREATE_PROJECT_ACTION}
     Connect To OpenShift
-    Run Keyword If    '${ProjectName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PRJ_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
+    Run Keyword If    '${ProjectName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PRJ_NAME#    ${Generated_Name2}_${Time}    ELSE    Action Set
     ...    &UC4RB_OPENSHIFT_PRJ_NAME#    ${ProjectName}
-    Run Keyword If    '${AdvancedOpt}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_ADV_OPTS#    ${Generated_Name}_${Time}    ELSE    Action Set
-    ...    &UC4RB_OPENSHIFT_ADV_OPTS#    ${AdvancedOpt}
+    Run Keyword If    '${AdvancedOption}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_ADV_OPTS#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_ADV_OPTS#    ${AdvancedOption}
     Action Set    &UC4RB_OPENSHIFT_PRJ_DISP_NAME#    ${DisplayName}
     Action Set    &UC4RB_OPENSHIFT_PRJ_DESC#    ${ProjectDesc}
     Action Execute

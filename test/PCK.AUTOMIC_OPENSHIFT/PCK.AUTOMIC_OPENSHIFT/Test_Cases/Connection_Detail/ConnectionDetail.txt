@@ -11,31 +11,25 @@ Resource          ../../Resources/keywords.txt
 Resource          ../../Resources/variables.txt
 Resource          ../../Resources/actions.txt
 
-*** Test Cases ***    OK_NOK    OpenShiftSrvr         User_name      Passwd         SessionToken    Certificate     ProjectName
+*** Test Cases ***    OK_NOK    OpenShiftSrvr     Username        Passwd                   SessionToken    Certificate    ProjectName        SkipSSL    DisplayName    ProjectDesc    AdvancedOption
 Create Project action with connection detail using valid Server Details and UserName/Password
                       [Tags]    main_scenarios
-                      OK        ${OpenShiftServer}    ${Username}    ${Password}    ${EMPTY}        ${EMPTY}        ${Project_Name}
-
-Create Project action with connection detail using valid Server Details and Session Token
-                      OK        ${OpenShiftServer}    ${EMPTY}       ${EMPTY}       ${Token}        ${EMPTY}        ${Project_Name}
-
-Create Project action with connection detail using valid Server Details and Certificate authentication
-                      OK        ${OpenShiftServer}    ${EMPTY}       ${EMPTY}       ${EMPTY}        ${Cert_Path}    ${Project_Name}
+                      OK        ${Server_URL}     ${User_Name}    ${OpenShift_Password}    ${EMPTY}        ${EMPTY}       ${Project_Name}    YES        ${EMPTY}       ${EMPTY}       ${EMPTY}
 
 Create Project action with connection detail using more than one condition for authentication
-                      NOK       ${OpenShiftServer}    ${Username}    ${Password}    ${Token}        ${EMPTY}        ${Project_Name}
+                      NOK       ${Server_URL}     ${User_Name}    ${OpenShift_Password}    ${Token}        ${EMPTY}       ${Project_Name}    YES        ${EMPTY}       ${EMPTY}       ${EMPTY}
 
 Create Project action with connection detail using invalid Server Details and access
-                      NOK       Invalid               ${Username}    ${Password}    ${EMPTY}        ${EMPTY}        ${Project_Name}
+                      NOK       Invalid           ${User_Name}    ${OpenShift_Password}    ${EMPTY}        ${EMPTY}       ${Project_Name}    YES        ${EMPTY}       ${EMPTY}       ${EMPTY}
 
 Create Project action with connection detail using invalid Username/Password combination
-                      NOK       ${OpenShiftServer}    Invalid        Invalid        ${EMPTY}        ${EMPTY}        ${Project_Name}
+                      NOK       ${Server_URL}     Invalid         Invalid                  ${EMPTY}        ${EMPTY}       ${Project_Name}    YES        ${EMPTY}       ${EMPTY}       ${EMPTY}
 
 Create Project action with connection detail using invalid Server SessionToken
-                      NOK       ${OpenShiftServer}    ${EMPTY}       ${EMPTY}       Invalid         ${EMPTY}        ${Project_Name}
+                      NOK       ${Server_URL}     ${User_Name}    ${EMPTY}                 Invalid         ${EMPTY}       ${Project_Name}    YES        ${EMPTY}       ${EMPTY}       ${EMPTY}
 
 Create Project action with connection detail using invalid Certificate
-                      NOK       ${OpenShiftServer}    ${EMPTY}       ${EMPTY}       ${EMPTY}        Invalid         ${Project_Name}
+                      NOK       ${Server_URL}     ${User_Name}    ${EMPTY}                 ${EMPTY}        Invalid        ${Project_Name}    YES        ${EMPTY}       ${EMPTY}       ${EMPTY}
 
 *** Keywords ***
 Startup
@@ -44,18 +38,22 @@ Startup
     Connect AE
 
 Connection Detail Template
-    [Arguments]    ${OK_NOK}    ${OpenShiftSrvr}    ${User_name}    ${Passwd}    ${SessionToken}    ${Certificate}
-    ...    ${ProjectName}
+    [Arguments]    ${OK_NOK}    ${OpenShiftSrvr}    ${Username}    ${Passwd}    ${SessionToken}    ${Certificate}
+    ...    ${ProjectName}    ${SkipSSL}    ${DisplayName}    ${ProjectDesc}    ${AdvancedOption}
     [Documentation]    This test create a project in OpenShiftServer
     ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
     ...    -${ProjectName}: This field specifies name of Project to be created
     ...    -${OpenShiftSrvr}: This field specifies the OpenShift Server name
-    ...    -${User_name}: This field specifies the username part of User Credentials
+    ...    -${Username}: This field specifies the username part of User Credentials
     ...    -${Passwd}: This field specifies the Password part of User Credentials
     ...    -${SessionToken}: This field specifies the authentication token used to login to OpenShift
     ...    -${Certificate}: This field specifies the certificate path which can be used for logging into OpenShift
+    ...    -${DisplayName}: This field specifies Project Display Name
+    ...    -${ProjectDesc}: This field specifies any description user wants to add to the created project
+    ...    -${AdvancedOption}: This field specifies any other options that will be considered during project creation
+    ...    -${SkipSSL}: This field specifies if the SSL certificate validation is to be skipped or not
     Generate String
-    Init Action    ${_CREATE_PROJECT_ACTION}
+    Init Action    ${CREATE_PROJECT_ACTION}
     Run Keyword If    '${OpenShiftSrvr}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_SERVER#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OPENSHIFT_SERVER#    ${OpenShiftSrvr}
     Run Keyword If    '${User_name}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_USERNAME#    ${Generated_Name}_${Time}    ELSE    Action Set
@@ -67,6 +65,10 @@ Connection Detail Template
     Run Keyword If    '${Certificate}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_CERTS#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OPENSHIFT_CERTS#    ${Certificate}
     Action Set    &UC4RB_OPENSHIFT_PRJ_NAME#    ${ProjectName}
+    Action Set    &UC4RB_SKIP_SSL#    ${SkipSSL}
+    Action Set    &UC4RB_OPENSHIFT_PRJ_DISP_NAME#    ${DisplayName}
+    Action Set    &UC4RB_OPENSHIFT_PRJ_DESC#    ${ProjectDesc}
+    Action Set    &UC4RB_OPENSHIFT_ADV_OPTS#    ${AdvancedOption}
     Action Execute
     Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE    Assert Failure
 

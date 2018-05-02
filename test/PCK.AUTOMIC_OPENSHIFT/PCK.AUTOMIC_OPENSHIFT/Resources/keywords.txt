@@ -96,8 +96,10 @@ Assert Failure
 
 Generate String
     ${Generated_Name}    Generate Random String    8    [LETTERS]
+    ${Generated_Name2}    Generate Random String    64    [LOWER][LETTERS]
     ${Time}    Get Time
     Set Global Variable    ${Generated_Name}
+    Set Global Variable    ${Generated_Name2}
     Set Global Variable    ${Time}
 
 Init Action
