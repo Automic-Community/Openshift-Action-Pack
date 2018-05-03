@@ -2,7 +2,7 @@
 Suite Setup       Startup
 Suite Teardown    Teardown
 Force Tags        expose_service
-Test Template     Create Application Template
+Test Template     Expose Service Template
 Library           com.automic.robot.itpa.ItpaLibrary
 Library           String
 Library           DateTime
@@ -40,7 +40,7 @@ Startup
     Log    *******Connect to AE*******
     Connect AE
 
-Create Application Template
+Expose Service Template
     [Arguments]    ${OK_NOK}    ${ServiceName}    ${ProjectName}    ${AdvancedOption}
     [Documentation]    This test exposes a services in the project
     ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
