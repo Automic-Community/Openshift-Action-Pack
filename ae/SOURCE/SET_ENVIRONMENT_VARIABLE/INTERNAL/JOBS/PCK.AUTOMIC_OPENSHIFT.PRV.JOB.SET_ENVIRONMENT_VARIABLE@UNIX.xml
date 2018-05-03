@@ -148,6 +148,7 @@
 
 :IF &UC4RB_OPENSHIFT_PROJECT# NE ""
 :   INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.CHANGE_PROJECT@UNIX
+:   PRINT "Project scope has been changed. You are currently working in project &UC4RB_OPENSHIFT_PROJECT#"
 :ENDIF
 
 
