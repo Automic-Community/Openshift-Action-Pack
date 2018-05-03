@@ -426,7 +426,7 @@
 PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.REPLACE_RESOURCE
 
 = General description =
-This action modifies an existing object based on the contents of the specified configuration file. When multiple files or directory paths are passed to file path input, action will iterate through each one, updating the objects described in all of the indicated files.
+This action modifies an existing resource based on the contents of the specified configuration file. When multiple files or directory paths are passed to file path input, action will iterate through each one, updating the objects described in all of the indicated files.
 
 = Failure Conditions =
 * If the user tries to provide invalid file location.
