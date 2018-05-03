@@ -1,0 +1,63 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        expose_service
+Test Template     Create Application Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    ServiceName         ProjectName        AdvancedOption
+Expose Service action with valid values passed in all fields
+                      [Tags]    main_scenarios
+                      OK        ${Service_Name}     ${Project_Name}    ${Srvc_Advanced_Options}
+
+Expose Service action with only Service Name passed leaving the optional fields
+                      OK        ruby-hello-world    ${EMPTY}           ${EMPTY}
+
+Mandatory assertion test for ExposeService when Service name is not provided
+                      NOK       ${EMPTY}            ${Project_Name}    ${EMPTY}
+
+Expose Service action with an already exposed route for Service
+                      NOK       ${Service_Name}     ${Project_Name}    ${Srvc_Advanced_Options}
+
+Expose service action with Invalid Service Name
+                      NOK       Invalid             ${EMPTY}           ${EMPTY}
+
+Expose Service action with Invalid Project Name
+                      NOK       ${Service_Name}     Invalid            ${EMPTY}
+
+Expose Service action with Invalid advanced option
+                      NOK       ${Service_Name}     ${Project_Name}    Invalid
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "EXPOSE SERVICE"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Create Application Template
+    [Arguments]    ${OK_NOK}    ${ServiceName}    ${ProjectName}    ${AdvancedOption}
+    [Documentation]    This test exposes a services in the project
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${ServiceName}: This field specifies the service that is to be exposed
+    ...    -${ProjectName}: This field specifies the project name for which you want to expose route
+    ...    -${AdvancedOption}: This field specifies any other additional options which will be used during the service esposure.
+    Generate String
+    Init Action    ${EXPOSE_SERVICE}
+    Connect To OpenShift
+    Run Keyword If    '${ServiceName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_SERVICE#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_SERVICE#    ${ServiceName}
+    Run Keyword If    '${AdvancedOption}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_ADV_OPTS#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_ADV_OPTS#    ${AdvancedOption}
+    Run Keyword If    '${ProjectName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PROJECT#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_PROJECT#    ${ProjectName}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE    Assert Failure
+
+Teardown
+    Log    *******End Test "EXPOSE SERVICE"*******
