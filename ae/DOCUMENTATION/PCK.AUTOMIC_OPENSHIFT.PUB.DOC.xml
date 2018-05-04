@@ -50,7 +50,10 @@ Following actions are supported.
 * Action Description: This action modifies an existing object based on the contents of the specified configuration file.
 
 * Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_APP_FROM_SOURCE_CODE
-* Action Description: This action is used to create application in openshift]]></DOC>
+* Action Description: This action is used to create application in openshift
+
+* Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.SET_ENVIRONMENT_VARIABLE
+* Action Description: This action is used to set environment variables in a build config or deployment config.]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
