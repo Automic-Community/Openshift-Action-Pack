@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBI name="PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_OUT@UNIX">
+<JOBI name="PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.CHECK_CMD_STATUS@UNIX">
 <HEADER state="1">
-<Title>Logout from openshift</Title>
+<Title>Check Command status</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <OH_SubType/>
@@ -9,22 +9,13 @@
 <SCRIPT mode="1" state="1">
 <MSCRI><![CDATA[!Error handling
 execcode=$?
-if [ $execcode -eq 0 ]
-then
-:  INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.INFO
-else
-:  INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
-fi
-:PRINT "Log out from openshift"
-&UC4RB_OPENSHIFT_LOGOUT_CMD#
-
 if [ "$execcode" -ne "0" ]
 then
     exit $execcode
 fi]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[Check command execution status on Unix system]]></DOC>
 </DOCU_Docu>
 </JOBI>
 </uc-export>

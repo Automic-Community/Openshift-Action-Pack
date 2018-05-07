@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBP AllowExternal="1" name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_PROJECT">
+<JOBP AllowExternal="1" name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_APP_FROM_SOURCE_CODE">
 <XHEADER state="1">
-<Title>Create Project</Title>
+<Title>Create application from source code</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <Active>1</Active>
@@ -57,21 +57,21 @@
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">
 <UC4RB_OPENSHIFT_CERTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_CERTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS"/>
-<UC4RB_OPENSHIFT_PASSWORDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PASSWORD#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">--10</UC4RB_OPENSHIFT_PASSWORDs.00>
+<UC4RB_OPENSHIFT_PASSWORDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PASSWORD#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">--10FBA41CCE80A626FF9F1A8BC87ECEB23E141388E66BC9D730</UC4RB_OPENSHIFT_PASSWORDs.00>
 <UC4RB_OPENSHIFT_SERVERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_SERVER#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS"/>
-<UC4RB_OPENSHIFT_TOKENs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_TOKEN#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">--10</UC4RB_OPENSHIFT_TOKENs.00>
+<UC4RB_OPENSHIFT_TOKENs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_TOKEN#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">--10FBA41CCE80A626FF9F1A8BC87ECEB23E141388E66BC9D730</UC4RB_OPENSHIFT_TOKENs.00>
 <UC4RB_OPENSHIFT_USERNAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_USERNAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS"/>
 <UC4RB_SKIP_SSLs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_SKIP_SSL#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">NO</UC4RB_SKIP_SSLs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT">
-<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT">
-<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT"/>
-<UC4RB_OPENSHIFT_PRJ_DESCs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PRJ_DESC#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT"/>
-<UC4RB_OPENSHIFT_PRJ_DISP_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PRJ_DISP_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT"/>
-<UC4RB_OPENSHIFT_PRJ_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PRJ_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT"/>
+<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE">
+<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE">
+<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE"/>
+<UC4RB_OPENSHIFT_APP_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_APP_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE"/>
+<UC4RB_OPENSHIFT_SRC_URLs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_SRC_URL#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -102,7 +102,7 @@
 </PostCon>
 </postconditions>
 </task>
-<task Alias="CREATE_PROJECT" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.CREATE_PROJECT@WINDOWS" ParentAlias="" ParentObject="" Row="1" Text2="">
+<task Alias="CREATE_APPLICATION_FROM_SOURCE_CODE" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.CREATE_APP_FROM_SOURCE_CODE@WINDOWS" ParentAlias="" ParentObject="" Row="1" Text2="">
 <checkpoint RollbackFlag="0" RunPerPatch="0" RunPerTarget="0" TcpADays="0" TcpATime="00:00" TcpATimeTZ="" TcpExecute="" TcpOn="0" promptatgen="0" showprompt="0"/>
 <after ActFlg="1" AtimOn="0" ErlstStDays="0" ErlstStTime="00:00" ErlstStTimeTZ="" HoldFlg="0"/>
 <when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="1" WElseH="0" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
@@ -136,21 +136,21 @@
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">
 <UC4RB_OPENSHIFT_CERTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_CERTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS"/>
-<UC4RB_OPENSHIFT_PASSWORDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PASSWORD#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">--10</UC4RB_OPENSHIFT_PASSWORDs.00>
+<UC4RB_OPENSHIFT_PASSWORDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PASSWORD#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">--10FBA41CCE80A626FF9F1A8BC87ECEB23E141388E66BC9D730</UC4RB_OPENSHIFT_PASSWORDs.00>
 <UC4RB_OPENSHIFT_SERVERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_SERVER#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS"/>
-<UC4RB_OPENSHIFT_TOKENs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_TOKEN#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">--10</UC4RB_OPENSHIFT_TOKENs.00>
+<UC4RB_OPENSHIFT_TOKENs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_TOKEN#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">--10FBA41CCE80A626FF9F1A8BC87ECEB23E141388E66BC9D730</UC4RB_OPENSHIFT_TOKENs.00>
 <UC4RB_OPENSHIFT_USERNAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_USERNAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS"/>
 <UC4RB_SKIP_SSLs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_SKIP_SSL#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">NO</UC4RB_SKIP_SSLs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT">
-<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT">
-<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT"/>
-<UC4RB_OPENSHIFT_PRJ_DESCs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PRJ_DESC#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT"/>
-<UC4RB_OPENSHIFT_PRJ_DISP_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PRJ_DISP_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT"/>
-<UC4RB_OPENSHIFT_PRJ_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PRJ_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT"/>
+<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE">
+<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE">
+<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE"/>
+<UC4RB_OPENSHIFT_APP_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_APP_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE"/>
+<UC4RB_OPENSHIFT_SRC_URLs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_SRC_URL#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -181,7 +181,7 @@
 </PostCon>
 </postconditions>
 </task>
-<task Alias="CREATE_PROJECT" BranchType="0" Col="2" Lnr="3" OType="JOBS" Object="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.CREATE_PROJECT@UNIX" ParentAlias="" ParentObject="" Row="3" Text2="">
+<task Alias="CREATE_APPLICATION_FROM_SOURCE_CODE" BranchType="0" Col="2" Lnr="3" OType="JOBS" Object="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.CREATE_APP_FROM_SOURCE_CODE@UNIX" ParentAlias="" ParentObject="" Row="3" Text2="">
 <checkpoint RollbackFlag="0" RunPerPatch="0" RunPerTarget="0" TcpADays="0" TcpATime="00:00" TcpATimeTZ="" TcpExecute="" TcpOn="0" promptatgen="0" showprompt="0"/>
 <after ActFlg="1" AtimOn="0" ErlstStDays="0" ErlstStTime="00:00" ErlstStTimeTZ="" HoldFlg="0"/>
 <when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="1" WElseH="0" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
@@ -215,21 +215,21 @@
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">
 <UC4RB_OPENSHIFT_CERTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_CERTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS"/>
-<UC4RB_OPENSHIFT_PASSWORDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PASSWORD#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">--10</UC4RB_OPENSHIFT_PASSWORDs.00>
+<UC4RB_OPENSHIFT_PASSWORDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PASSWORD#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">--10FBA41CCE80A626FF9F1A8BC87ECEB23E141388E66BC9D730</UC4RB_OPENSHIFT_PASSWORDs.00>
 <UC4RB_OPENSHIFT_SERVERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_SERVER#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS"/>
-<UC4RB_OPENSHIFT_TOKENs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_TOKEN#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">--10</UC4RB_OPENSHIFT_TOKENs.00>
+<UC4RB_OPENSHIFT_TOKENs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_TOKEN#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">--10FBA41CCE80A626FF9F1A8BC87ECEB23E141388E66BC9D730</UC4RB_OPENSHIFT_TOKENs.00>
 <UC4RB_OPENSHIFT_USERNAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_USERNAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS"/>
 <UC4RB_SKIP_SSLs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_SKIP_SSL#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">NO</UC4RB_SKIP_SSLs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT">
-<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT">
-<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT"/>
-<UC4RB_OPENSHIFT_PRJ_DESCs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PRJ_DESC#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT"/>
-<UC4RB_OPENSHIFT_PRJ_DISP_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PRJ_DISP_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT"/>
-<UC4RB_OPENSHIFT_PRJ_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PRJ_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT"/>
+<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE">
+<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE">
+<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE"/>
+<UC4RB_OPENSHIFT_APP_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_APP_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE"/>
+<UC4RB_OPENSHIFT_SRC_URLs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_SRC_URL#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -281,21 +281,21 @@
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">
 <UC4RB_OPENSHIFT_CERTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_CERTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS"/>
-<UC4RB_OPENSHIFT_PASSWORDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PASSWORD#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">--10</UC4RB_OPENSHIFT_PASSWORDs.00>
+<UC4RB_OPENSHIFT_PASSWORDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PASSWORD#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">--10FBA41CCE80A626FF9F1A8BC87ECEB23E141388E66BC9D730</UC4RB_OPENSHIFT_PASSWORDs.00>
 <UC4RB_OPENSHIFT_SERVERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_SERVER#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS"/>
-<UC4RB_OPENSHIFT_TOKENs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_TOKEN#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">--10</UC4RB_OPENSHIFT_TOKENs.00>
+<UC4RB_OPENSHIFT_TOKENs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_TOKEN#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">--10FBA41CCE80A626FF9F1A8BC87ECEB23E141388E66BC9D730</UC4RB_OPENSHIFT_TOKENs.00>
 <UC4RB_OPENSHIFT_USERNAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_USERNAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS"/>
 <UC4RB_SKIP_SSLs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_SKIP_SSL#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS">NO</UC4RB_SKIP_SSLs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT">
-<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT">
-<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT"/>
-<UC4RB_OPENSHIFT_PRJ_DESCs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PRJ_DESC#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT"/>
-<UC4RB_OPENSHIFT_PRJ_DISP_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PRJ_DISP_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT"/>
-<UC4RB_OPENSHIFT_PRJ_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PRJ_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT"/>
+<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE">
+<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE">
+<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE"/>
+<UC4RB_OPENSHIFT_APP_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_APP_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE"/>
+<UC4RB_OPENSHIFT_SRC_URLs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_SRC_URL#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -376,20 +376,20 @@
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS" prptmode="1">
 <UC4RB_OPENSHIFT_SERVERs.00 altview="0" haslist="0"/>
 <UC4RB_OPENSHIFT_USERNAMEs.00 altview="0" haslist="0"/>
-<UC4RB_OPENSHIFT_PASSWORDs.00 altview="0" haslist="0">--10</UC4RB_OPENSHIFT_PASSWORDs.00>
-<UC4RB_OPENSHIFT_TOKENs.00 altview="0" haslist="0">--10</UC4RB_OPENSHIFT_TOKENs.00>
+<UC4RB_OPENSHIFT_PASSWORDs.00 altview="0" haslist="0">--10FBA41CCE80A626FF9F1A8BC87ECEB23E141388E66BC9D730</UC4RB_OPENSHIFT_PASSWORDs.00>
+<UC4RB_OPENSHIFT_TOKENs.00 altview="0" haslist="0">--10FBA41CCE80A626FF9F1A8BC87ECEB23E141388E66BC9D730</UC4RB_OPENSHIFT_TOKENs.00>
 <UC4RB_OPENSHIFT_CERTSs.00 altview="0" haslist="0"/>
 <UC4RB_SKIP_SSLs.00 altview="0" haslist="0">NO</UC4RB_SKIP_SSLs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT" parent="PRPTS" type="PROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT" ontop="1">
-<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_PROJECT" prptmode="1">
-<UC4RB_OPENSHIFT_PRJ_NAMEs.00 altview="0" haslist="0"/>
-<UC4RB_OPENSHIFT_PRJ_DISP_NAMEs.00 altview="0" haslist="0"/>
-<UC4RB_OPENSHIFT_PRJ_DESCs.00 altview="0" haslist="0"/>
+<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE" parent="PRPTS" type="PROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE" ontop="1">
+<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE" prptmode="1">
+<UC4RB_OPENSHIFT_SRC_URLs.00 altview="0" haslist="0"/>
+<UC4RB_OPENSHIFT_APP_NAMEs.00 altview="0" haslist="0"/>
 <UC4RB_OPENSHIFT_ADV_OPTSs.00 altview="0" haslist="0"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 altview="0" haslist="0"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -433,28 +433,18 @@
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC><![CDATA[= Action name =
-PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_PROJECT
+PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_APP_FROM_SOURCE_CODE
 
 = General description =
-A project is a Kubernetes namespace with additional annotations, and is the central vehicle by which access to resources for regular users is managed. A project allows a community of users to organize and manage their content in isolation from other communities. Users must be given access to projects by administrators, or if allowed to create projects, automatically have access to their own projects.
+This action creates an application in the project.When you specify a source code URL, it will set up a build that takes your source code and converts it into an image that can run inside of a pod. Local source must be in a git repository that has a remote repository that the server can see.The images will be deployed via a deployment configuration, and a service will be connected to the first public port of
+the app. You may either specify components using the various existing flags or let new-app auto detect what kind of components you have provided.
 
-Projects can have a separate name, displayName, and description.
-
-The mandatory name is a unique identifier for the project and is most visible when using the CLI tools or API. The maximum name length is 63 characters.
-
-The optional displayName is how the project is displayed in the web console (defaults to name).
-
-The optional description can be a more detailed description of the project and is also visible in the web console.
-
-= Failure Conditions =
-* If project already exists.
 
 = Inputs =
-* Project name         : Provide project name.E.g dev .Max length 63 characters. Must consist of lower case alphanumeric characters or '-', and must start and end with an 
-                                   alphanumeric character (e.g. 'my-name',  or '123-abc', regex used for validation is '[a-z0-9]([-a-z0-9]*[a-z0-9])?')
-* Project display name : Provide project display name. E.g Dev Project
-* Project description  : Provide project description. E.g This project build,deploy and runs the mydemo applicaiton
-* Advanced Options     : Provide other options which will be used during the project creation.	--cache-dir='C:\Users\foo\.kube\http-cache'
+* Application source URL         : Provide the path to source code in a local or a remote repository.E.g  https://github.com/youruser/yourgitrepo.git
+* Application name          : Provide application name. E.g Myapp
+* Project                           : Specify the project name in which you want to create a resource. If not provided, the default project will be used. E.g dev
+* Advanced Options        : Provide other options which will be used during the application creation .E.g  --image-stream="openshift/wildfly:10.0"
 
 
 = Outputs =
@@ -469,6 +459,9 @@ AE logs will be displayed in the AE report.
 
 = Example =
 
+Application source URL =  https://github.com/sumitsamson/springdemoapp.git
+Application name =  springdemoapp 
+Advanced Options =  --image-stream="openshift/wildfly:10.0" 
 ]]></DOC>
 </DOCU_Docu>
 </JOBP>

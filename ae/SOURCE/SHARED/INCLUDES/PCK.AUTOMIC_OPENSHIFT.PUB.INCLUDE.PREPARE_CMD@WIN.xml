@@ -27,11 +27,8 @@
 :ENDIF
 
 :IF &COUNT# NE 1
-:  PRINT "Please provide either of these (Username/password or Token or Certificate)"
 :  STOP MSG, 50, "Please provide either of these (Username/password or Token or Certificate)"
 :ENDIF
-
-
 
 ! Create temporary config file
 :INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.CREATE_CONFIG_FILE
@@ -70,23 +67,21 @@
 :     SET &UC4RB_ESCAPED_STRING# =&UC4RB_OPENSHIFT_CERTS#
 :     INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.ESCAPE_ARG_VALUE@WIN
 :     SET &UC4RB_OPENSHIFT_LOGIN_CMD# = STR_CAT(&UC4RB_OPENSHIFT_LOGIN_CMD#, " --certificate-authority=&UC4RB_ESCAPED_STRING#")
-:     IF &UC4RB_SKIP_SSL# EQ "YES"
-:       SET &UC4RB_OPENSHIFT_LOGIN_CMD# = STR_CAT(&UC4RB_OPENSHIFT_LOGIN_CMD#, " --insecure-skip-tls-verify=true")
-:     ENDIF
 
 :   OTHER
 :      STOP MSG, 50, "Please provide either of these (Username/password or Token or Certificate)"
 : ENDSWITCH
+
+: IF &UC4RB_SKIP_SSL# EQ "YES"
+:   SET &UC4RB_OPENSHIFT_LOGIN_CMD# = STR_CAT(&UC4RB_OPENSHIFT_LOGIN_CMD#, " --insecure-skip-tls-verify=true")
+: ENDIF
 
 : PRINT "Attempting login into openshift ,type :&LOGIN_TYPE#"
 : PRINT &UC4RB_OPENSHIFT_LOGIN_CMD#
 ! Do Login
   &UC4RB_OPENSHIFT_LOGIN_CMD#
 
-!Status messages
-:SET &UC4RB_LOGGING_INFO# = "******** LOGIN SUCCESSFULLY ********"
-:SET &UC4RB_LOGGING_ERROR# = "******** LOGIN FAILED ********"
-: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.CHECK_JOBSTATUS@WIN]]></MSCRI>
+:INC PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_CMDLINE_CMD@WINDOWS]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>
