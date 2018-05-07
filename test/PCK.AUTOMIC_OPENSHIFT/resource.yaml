@@ -1,0 +1,21 @@
+{
+   "kind": "Service",
+   "apiVersion": "v1",
+   "metadata": {
+      "name": "test-nodejs123",
+      "labels": {
+         "application": "test-nodejs"
+      }
+   },
+   "spec": {
+      "ports": [
+         {
+            "port": 8080,
+            "targetPort": 8080
+         }
+      ],
+      "selector": {
+         "deploymentConfig": "test-nodejs"
+      }
+   }
+} 
