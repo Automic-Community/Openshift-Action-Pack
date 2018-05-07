@@ -48,7 +48,7 @@ Create Project Template
     ...    -${ProjectDesc}: This field specifies any description user wants to add to the created project
     ...    -${AdvancedOption}: This field specifies any other options that will be considered during project creation
     Generate String
-    Init Action    ${CREATE_PROJECT_ACTION}
+    Init Action    ${CREATE_PROJECT}
     Connect To OpenShift
     Run Keyword If    '${ProjectName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PROJECT#    ${Generated_Name2}_${Time}    ELSE    Action Set
     ...    &UC4RB_OPENSHIFT_PROJECT#    ${ProjectName}

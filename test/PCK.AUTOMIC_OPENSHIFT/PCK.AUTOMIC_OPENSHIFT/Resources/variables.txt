@@ -24,7 +24,10 @@ ${Project_Desc}    test description for project
 ${Source_URL}     https://github.com/sumitsamson/springdemoapp.git
 ${App_Name}       myapp
 ${App_Advanced_Options}    --image-stream="openshift/wildfly:10.1"
-#----Expose Service--------------------------------------------------------------------------------
+#----Expose Service-----------------------------------------------------------------------------------------------
 ${Service_Name}    myapp
 ${Srvc_Advanced_Options}    --dry-run
-
+#----Set Environment Variables-------------------------------------------------------------------------------------
+${Resource_Name}    ruby-hello-world
+${Single_Key_Value_Pair}    var199=demo test
+${Multiple_Key_Value_Pair}    var_1=demo1,var_2=demo2

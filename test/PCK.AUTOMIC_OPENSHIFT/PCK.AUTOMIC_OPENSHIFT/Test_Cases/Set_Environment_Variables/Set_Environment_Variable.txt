@@ -1,0 +1,76 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        set_env_variables
+Test Template     Set Environment Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    ResourceType        ResourceName        KeyValuePair                          ProjectName
+Set Environment Variable action with valid values passed in all fields for resource type buildconfig
+                      [Tags]    main_scenarios
+                      OK        buildconfig         ${Resource_Name}    ${Single_Key_Value_Pair}              ${Project_Name}
+
+Set Environment Variable action with valid values passed in all fields for resource type deploymentconfig
+                      [Tags]    main_scenarios
+                      OK        deploymentconfig    ${Resource_Name}    ${Single_Key_Value_Pair}              ${Project_Name}
+
+Set Environment Variable action with valid multiple key-value pairs while leaving Project field as empty
+                      OK        buildconfig         ${Resource_Name}    ${Multiple_Key_Value_Pair}            ${EMPTY}
+
+Set Environment Variable action with key-value pair where input value contains space and special characters
+                      OK        buildconfig         ${Resource_Name}    key1=test demo!@#space                ${EMPTY}
+
+Mandatory assertion test for Set Environment Variable when ResourceName is not provided
+                      NOK       buildconfig         ${EMPTY}            ${Multiple_Key_Value_Pair}            ${EMPTY}
+
+Mandatory assertion test for Set Environment Variable when Key value pair is not provided
+                      NOK       buildconfig         ${Resource_Name}    ${EMPTY}                              ${EMPTY}
+
+Set Environment Variable action with Invalid Resource name
+                      NOK       deploymentconfig    Invalid             ${Single_Key_Value_Pair}              ${EMPTY}
+
+Set Environment Variable action with single Key-Value pair as input in incorrect format
+                      NOK       deploymentconfig    ${Resource_Name}    Key-1=value1                          ${EMPTY}
+
+Set Environment Variable action with multiple key-value pairs as input where atleast one key-value in incorrect format
+                      NOK       deploymentconfig    ${Resource_Name}    key+1=test incorrect,key_2=correct    ${EMPTY}
+
+Set Environment Variable action with Invalid Project
+                      NOK       buildconfig         ${Resource_Name}    ${Single_Key_Value_Pair}              Invalid
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "SET ENVIRONMENT VARIABLE"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Set Environment Template
+    [Arguments]    ${OK_NOK}    ${ResourceType}    ${ResourceName}    ${KeyValuePair}    ${ProjectName}
+    [Documentation]    This test exposes a services in the project
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${ResourceType}: This field specifies resource type for which variable/s will be create or updated
+    ...    -${ResourceName}: This field specifies the name of selected resource type in which environment variable/s will be updated.
+    ...    -${KeyValuePair}: This field specifies the variable/s that will be updated in a key-value format.
+    ...    -${ProjectName}: This field specifies the project name in which the resources environment variables need change
+    Generate String
+    Init Action    ${SET_ENV_VARIABLE}
+    Connect To OpenShift
+    Run Keyword If    '${ResourceType}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_RESOURCE_TYPE#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_RESOURCE_TYPE#    ${ResourceType}
+    Run Keyword If    '${ResourceName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_RESOURCE_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_RESOURCE_NAME#    ${ResourceName}
+    Run Keyword If    '${KeyValuePair}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_KEY_VALUE_PAIR#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_KEY_VALUE_PAIR#    ${KeyValuePair}
+    Run Keyword If    '${ProjectName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PROJECT#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_PROJECT#    ${ProjectName}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE    Assert Failure
+
+Teardown
+    Log    *******End Test "SET ENVIRONMENT VARIABLE"*******
