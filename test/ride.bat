@@ -8,3 +8,4 @@ set CLASSPATH="%~dp0\lib\itpa-keywords-1.1.0.jar;%CLASSPATH%"
 echo %CLASSPATH%
 
 ride.py .\PCK.AUTOMIC_OPENSHIFT
+
