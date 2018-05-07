@@ -388,8 +388,8 @@
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE" prptmode="1">
 <UC4RB_OPENSHIFT_SRC_URLs.00 altview="0" haslist="0"/>
 <UC4RB_OPENSHIFT_APP_NAMEs.00 altview="0" haslist="0"/>
-<UC4RB_OPENSHIFT_PROJECTs.00 altview="0" haslist="0"/>
 <UC4RB_OPENSHIFT_ADV_OPTSs.00 altview="0" haslist="0"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 altview="0" haslist="0"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
