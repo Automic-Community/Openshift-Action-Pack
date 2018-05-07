@@ -55,7 +55,7 @@ Create Application Template
     ...    -${ProjectName}: This field specifies the project name in which you want to create a resource
     ...    -${AdvancedOption}: This field specifies any other additional options which will be used during the resource creation.
     Generate String
-    Init Action    ${CREATE_APPLICATION_ACTION}
+    Init Action    ${CREATE_APPLICATION}
     Connect To OpenShift
     Run Keyword If    '${SourceURL}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_SRC_URL#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OPENSHIFT_SRC_URL#    ${SourceURL}

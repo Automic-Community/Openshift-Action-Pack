@@ -11,35 +11,38 @@ Resource          ../../Resources/keywords.txt
 Resource          ../../Resources/variables.txt
 Resource          ../../Resources/actions.txt
 
-*** Test Cases ***    OK_NOK    ResourceType        ResourceName        KeyValuePair                  ProjectName
+*** Test Cases ***    OK_NOK    ResourceType        ResourceName        KeyValuePair                          ProjectName
 Set Environment Variable action with valid values passed in all fields for resource type buildconfig
                       [Tags]    main_scenarios
-                      OK        buildconfig         ${Resource_Name}    ${Single_Key_Value_Pair}      ${Project_Name}
+                      OK        buildconfig         ${Resource_Name}    ${Single_Key_Value_Pair}              ${Project_Name}
 
 Set Environment Variable action with valid values passed in all fields for resource type deploymentconfig
                       [Tags]    main_scenarios
-                      OK        deploymentconfig    ${Resource_Name}    ${Single_Key_Value_Pair}      ${Project_Name}
+                      OK        deploymentconfig    ${Resource_Name}    ${Single_Key_Value_Pair}              ${Project_Name}
 
-Set Environment Variable action with valid multiple key value pair and leaving Project as empty
-                      OK        buildconfig         ${Resource_Name}    ${Multiple_Key_Value_Pair}    ${EMPTY}
+Set Environment Variable action with valid multiple key-value pairs while leaving Project field as empty
+                      OK        buildconfig         ${Resource_Name}    ${Multiple_Key_Value_Pair}            ${EMPTY}
+
+Set Environment Variable action with key-value pair where input value contains space and special characters
+                      OK        buildconfig         ${Resource_Name}    key1=test demo!@#space                ${EMPTY}
 
 Mandatory assertion test for Set Environment Variable when ResourceName is not provided
-                      NOK       buildconfig         ${EMPTY}            ${Multiple_Key_Value_Pair}    ${EMPTY}
+                      NOK       buildconfig         ${EMPTY}            ${Multiple_Key_Value_Pair}            ${EMPTY}
 
 Mandatory assertion test for Set Environment Variable when Key value pair is not provided
-                      NOK       buildconfig         ${Resource_Name}    ${EMPTY}                      ${EMPTY}
-
-Set Environment Variable action with Invalid Resource type
-                      NOK       Invalid             ${Resource_Name}    ${Single_Key_Value_Pair}      ${EMPTY}
+                      NOK       buildconfig         ${Resource_Name}    ${EMPTY}                              ${EMPTY}
 
 Set Environment Variable action with Invalid Resource name
-                      NOK       deploymentconfig    Invalid             ${Single_Key_Value_Pair}      ${EMPTY}
+                      NOK       deploymentconfig    Invalid             ${Single_Key_Value_Pair}              ${EMPTY}
 
-Set Environment Variable action with Invalid Key Value pair
-                      NOK       deploymentconfig    ${Resource_Name}    Invalid                       ${EMPTY}
+Set Environment Variable action with single Key-Value pair as input in incorrect format
+                      NOK       deploymentconfig    ${Resource_Name}    Key-1=value1                          ${EMPTY}
+
+Set Environment Variable action with multiple key-value pairs as input where atleast one key-value in incorrect format
+                      NOK       deploymentconfig    ${Resource_Name}    key+1=test incorrect,key_2=correct    ${EMPTY}
 
 Set Environment Variable action with Invalid Project
-                      NOK       buildconfig         ${Resource_Name}    ${Single_Key_Value_Pair}      Invalid
+                      NOK       buildconfig         ${Resource_Name}    ${Single_Key_Value_Pair}              Invalid
 
 *** Keywords ***
 Startup
