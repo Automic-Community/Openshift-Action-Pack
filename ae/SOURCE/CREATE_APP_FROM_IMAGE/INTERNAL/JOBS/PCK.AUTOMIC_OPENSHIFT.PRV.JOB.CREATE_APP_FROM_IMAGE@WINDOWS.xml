@@ -196,7 +196,7 @@
 <LoginFsc/>
 </OUTPUTSCAN>
 <POST_SCRIPT mode="1" replacementmode="1" state="1">
-<OSCRI/>
+<OSCRI><![CDATA[:INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.DELETE_TMP_DIR]]></OSCRI>
 </POST_SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>
