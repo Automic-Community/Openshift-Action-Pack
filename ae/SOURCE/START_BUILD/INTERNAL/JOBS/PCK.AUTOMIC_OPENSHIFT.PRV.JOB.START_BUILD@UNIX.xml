@@ -25,14 +25,14 @@
 <ExtRepDef>1</ExtRepDef>
 <ExtRepAll>0</ExtRepAll>
 <ExtRepNone>0</ExtRepNone>
-<AutoDeactNo>1</AutoDeactNo>
+<AutoDeactNo>0</AutoDeactNo>
 <AutoDeact1ErrorFree>0</AutoDeact1ErrorFree>
-<AutoDeactErrorFree>0</AutoDeactErrorFree>
-<DeactWhen/>
+<AutoDeactErrorFree>1</AutoDeactErrorFree>
+<DeactWhen>ANY_OK</DeactWhen>
 <DeactDelay>0</DeactDelay>
 <AutoDeactAlways>0</AutoDeactAlways>
 <AttDialog>0</AttDialog>
-<ActAtRun>1</ActAtRun>
+<ActAtRun>0</ActAtRun>
 <Consumption>0</Consumption>
 <UC4Priority>0</UC4Priority>
 <MaxParallel2>0</MaxParallel2>
@@ -132,6 +132,10 @@
 :   INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.CHANGE_PROJECT@UNIX
 :ENDIF
 
+!Status messages
+: SET &UC4RB_LOGGING_INFO# = "******** START BUILD ACTION EXECUTED SUCCESSFULLY ********"
+: SET &UC4RB_LOGGING_ERROR# = "******** START BUILD ACTION FAILED ********"
+
 !----------------------------------------------- Start Build -start --------------------------------
 : SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#," start-build ")
 : PRINT "BUILD MODE: &UC4RB_OPENSHIFT_BUILD_MODE#"
@@ -169,20 +173,19 @@
 
 &UC4RB_OPENSHIFT_CMD#
 
-if [ $? -eq 0 ]; then
-   build_name=$(<&UC4RB_BUILD_OUTPUT#)
-   echo UC4RB_BUILD_NAME::=$build_name| awk '{print $2}' | tr -d '"'
+!------------------------------------------ LOG OUT ----------------------------------------------------
+: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_OUT@UNIX
+
+if [ $execcode -eq 0 ]; then
+   build_output=&UC4RB_BUILD_OUTPUT#
+   build_name=$(<$build_output)
+   echo $build_name
+   build_name=`echo $build_name| awk '{print $2}' | tr -d '"'`
+   echo UC4RB_BUILD_NAME::=$build_name
 fi
 
-!----------------------------------------------- Start Build -end  --------------------------------
 
-!Status messages
-: SET &UC4RB_LOGGING_INFO# = "******** START BUILD ACTION EXECUTED SUCCESSFULLY ********"
-: SET &UC4RB_LOGGING_ERROR# = "******** START BUILD ACTION FAILED ********"
-
-
-!------------------------------------------ LOG OUT ----------------------------------------------------
-: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_OUT@UNIX]]></MSCRI>
+]]></MSCRI>
 </SCRIPT>
 <OUTPUTSCAN state="1">
 <Inherit>N</Inherit>
