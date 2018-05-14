@@ -1,0 +1,68 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        start_build
+Test Template     Start Build Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    BuildConfig_Name    BuildMode                   AdvancedOptions        ProjectName
+Start Build action with valid values passed in all fields for build mode set as "from build configuration"
+                      [Tags]    main_scenarios
+                      OK        ${Buildconfig}      From build configuration    ${Advanced_Options}    ${Project_Name}
+
+Start Build action with valid values passed in all fields for build mode set as "from a previous build"
+                      [Tags]    main_scenarios
+                      OK        ${Build_Name}       From a previous build       ${Advanced_Options}    ${Project_Name}
+
+Start Build action with valid values in only mandatory and conditional fields
+                      OK        ${Buildconfig}      From build configuration    ${EMPTY}               ${EMPTY}
+
+Mandatory assertion test for Start Build action when Buildconfig is not provided for build mode "from build configuration"
+                      NOK       ${EMPTY}            From build configuration    ${Advanced_Options}    ${Project_Name}
+
+Mandatory assertion test for Start Build action when Build name is not provided for build mode "from a previous build"
+                      NOK       ${EMPTY}            From a previous build       ${Advanced_Options}    ${Project_Name}
+
+Start Build action with Invalid BuildConfig/name
+                      NOK       Invalid             From a previous build       ${Advanced_Options}    ${Project_Name}
+
+Start Build action with invalid advanced options provided
+                      NOK       ${Buildconfig}      From build configuration    Invalid                ${Project_Name}
+
+Start Build action when user passes an Invalid Project
+                      NOK       ${Build_Name}       From a previous build       ${Advanced_Options}    Invalid
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "START BUILD"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Start Build Template
+    [Arguments]    ${OK_NOK}    ${BuildConfig_Name}    ${BuildMode}    ${AdvancedOptions}    ${ProjectName}
+    [Documentation]    This test starts a build based on the build configuration or previous build in a project
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${BuildConfig_Name}: This field specifies a Build Configuration or a Build name.
+    ...    -${BuildMode}: This field is used to specify the build mode i.e. either from build configuration or from a previous build
+    ...    -${AdvancedOptions}: This field specifies other options which will be used during the build execution.
+    ...    -${ProjectName}: This field specifies the project name in which the build has to be started, when left empty the default project will be used
+    Generate String
+    Init Action    ${START_BUILD}
+    Connect To OpenShift
+    Run Keyword If    '${BuildConfig_Name}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_BUILD#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_BUILD#    ${BuildConfig_Name}
+    Run Keyword If    '${AdvancedOptions}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_ADV_OPTS#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_ADV_OPTS#    ${AdvancedOptions}
+    Run Keyword If    '${ProjectName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PROJECT#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_PROJECT#    ${ProjectName}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE    Assert Failure
+
+Teardown
+    Log    *******End Test "START BUILD"*******
