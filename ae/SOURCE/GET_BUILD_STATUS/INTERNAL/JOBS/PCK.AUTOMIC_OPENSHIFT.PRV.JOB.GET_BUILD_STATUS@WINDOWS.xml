@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<JOBS_WINDOWS AttrType="WINDOWS" name="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.GET_BUILD_STATUS@WINDOWS">
+<XHEADER state="1">
+<Title/>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<Active>1</Active>
+<OH_SubType/>
+<CustomAttributes KeyListID="0" dataRequestID="0"/>
+</XHEADER>
+<OUTPUTREG state="1">
+<FileReg/>
+</OUTPUTREG>
+<SYNCREF state="1">
+<Syncs/>
+</SYNCREF>
+<ATTR_JOBS state="1">
+<Queue>CLIENT_QUEUE</Queue>
+<StartType/>
+<HostDst>|&lt;WIN&gt;|HOST</HostDst>
+<HostATTR_Type>WINDOWS</HostATTR_Type>
+<CodeName/>
+<Login/>
+<IntAccount/>
+<ExtRepDef>1</ExtRepDef>
+<ExtRepAll>0</ExtRepAll>
+<ExtRepNone>0</ExtRepNone>
+<AutoDeactNo>0</AutoDeactNo>
+<AutoDeact1ErrorFree>0</AutoDeact1ErrorFree>
+<AutoDeactErrorFree>1</AutoDeactErrorFree>
+<DeactWhen>ANY_OK</DeactWhen>
+<DeactDelay>0</DeactDelay>
+<AutoDeactAlways>0</AutoDeactAlways>
+<AttDialog>0</AttDialog>
+<ActAtRun>0</ActAtRun>
+<Consumption>0</Consumption>
+<UC4Priority>0</UC4Priority>
+<MaxParallel2>0</MaxParallel2>
+<MpElse1>1</MpElse1>
+<MpElse2>0</MpElse2>
+<TZ/>
+</ATTR_JOBS>
+<ATTR_WINDOWS state="1">
+<OutputDb>1</OutputDb>
+<OutputDbErr>0</OutputDbErr>
+<OutputFile>0</OutputFile>
+<IsGenerated>0</IsGenerated>
+<BAT>1</BAT>
+<COM>0</COM>
+<WinBatch>0</WinBatch>
+<Standard>1</Standard>
+<Minimized>0</Minimized>
+<Maximized>0</Maximized>
+<JObjDefault>1</JObjDefault>
+<JObjYes>0</JObjYes>
+<JObjNo>0</JObjNo>
+<WorkingDirectory>c:\</WorkingDirectory>
+<Command/>
+<LogOn>0</LogOn>
+<ShowJob>0</ShowJob>
+</ATTR_WINDOWS>
+<RUNTIME state="1">
+<MaxRetCode>0</MaxRetCode>
+<MrcExecute/>
+<MrcElseE>0</MrcElseE>
+<FcstStatus>0| |</FcstStatus>
+
+<ErtMethodDef>1</ErtMethodDef>
+<ErtMethodFix>0</ErtMethodFix>
+<ErtFix>0</ErtFix>
+<ErtDynMethod>2|Average</ErtDynMethod>
+<ErtMethodDyn>0</ErtMethodDyn>
+<ErtCnt>0</ErtCnt>
+<ErtCorr>0</ErtCorr>
+<ErtIgn>0</ErtIgn>
+<ErtIgnFlg>0</ErtIgnFlg>
+<ErtMinCnt>0</ErtMinCnt>
+<MrtMethodNone>1</MrtMethodNone>
+<MrtMethodFix>0</MrtMethodFix>
+<MrtFix>0</MrtFix>
+<MrtMethodErt>0</MrtMethodErt>
+<MrtErt>0</MrtErt>
+<MrtMethodDate>0</MrtMethodDate>
+<MrtDays>0</MrtDays>
+<MrtTime>00:00</MrtTime>
+<MrtTZ/>
+<SrtMethodNone>1</SrtMethodNone>
+<SrtMethodFix>0</SrtMethodFix>
+<SrtFix>0</SrtFix>
+<SrtMethodErt>0</SrtMethodErt>
+<SrtErt>0</SrtErt>
+<MrtCancel>0</MrtCancel>
+<MrtExecute>0</MrtExecute>
+<MrtExecuteObj/>
+</RUNTIME>
+<DYNVALUES state="1">
+<dyntree>
+<node content="1" id="VALUE" name="Variables" parent="" type="VALUE">
+<VALUE state="1">
+<Values/>
+<Mode>0</Mode>
+</VALUE>
+</node>
+</dyntree>
+</DYNVALUES>
+<ROLLBACK state="1">
+<RollbackFlag>0</RollbackFlag>
+<CBackupObj/>
+<CRollbackObj/>
+<FBackupPath/>
+<FDeleteBefore>0</FDeleteBefore>
+<FInclSubDirs>0</FInclSubDirs>
+</ROLLBACK>
+<PRE_SCRIPT mode="1" replacementmode="1" state="1">
+<PSCRI><![CDATA[:INC PCK.ITPA_SHARED.PUB.INCLUDE.START_STOP_JOB_ACCORDING_TO_AGENT_OS]]></PSCRI>
+</PRE_SCRIPT>
+<SCRIPT mode="1" state="1">
+<MSCRI><![CDATA[ @echo off
+
+:INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
+: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_CONNECTION_PARAMS
+: SET &UC4RB_LOGGING_PARAMETER# = "Build name"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_OPENSHIFT_BUILD_NAME#"
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
+: SET &UC4RB_LOGGING_PARAMETER# = "Initial waiting time"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_OPENSHIFT_WAIT#"
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
+: SET &UC4RB_LOGGING_PARAMETER# = "Retry count"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_OPENSHIFT_RETRY_COUNT#"
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
+: SET &UC4RB_LOGGING_PARAMETER# = "Retry interval"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_OPENSHIFT_RETRY_INTERVAL#"
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
+: SET &UC4RB_LOGGING_PARAMETER# = "Project"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_OPENSHIFT_PROJECT#"
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
+
+:INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.PREPARE_CMD@WIN
+
+:IF &UC4RB_OPENSHIFT_PROJECT# NE ""
+:   INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.CHANGE_PROJECT@WIN
+:ENDIF
+
+!----------------------------------------------- Get build status -start --------------------------------
+
+: SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#," get builds ")
+
+: SET &UC4RB_ESCAPED_STRING# =&UC4RB_OPENSHIFT_BUILD_NAME#
+: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.ESCAPE_ARG_VALUE@WIN
+: SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " &UC4RB_ESCAPED_STRING#")
+: SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " -o template --template={{.status.phase}}")
+
+:PRINT "Get Build Status : &UC4RB_OPENSHIFT_CMD#"
+
+
+: SET &LEN# = STR_LENGTH(&AGENT_TEMPDIR#)
+: SET &SEPARATOR# = SUBSTR(&AGENT_TEMPDIR#,&LEN#)
+: SET &UC4RB_BUILD_STATUS_FILE# = STR_CAT(&UC4RB_OPENSHIFT_HOMEDIR#,&SEPARATOR#)
+: SET &UC4RB_BUILD_STATUS_FILE# = STR_CAT(&UC4RB_BUILD_STATUS_FILE#,"build-status.txt")
+!: SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " > &UC4RB_BUILD_STATUS_FILE#")
+
+
+
+!Initial Wait Time
+echo "Intial waiting for &UC4RB_OPENSHIFT_WAIT# mins"
+
+
+IF &UC4RB_OPENSHIFT_WAIT# GTR 0 (
+SET  /A "INITIAL_WAIT=&UC4RB_OPENSHIFT_WAIT# * 60"
+PING localhost -n %INITIAL_WAIT% >NUL
+)
+
+SET LOOP_END_STATUS="Complete Failed Error Cancelled"
+
+echo "Fetching the status..."
+&UC4RB_OPENSHIFT_CMD# > &UC4RB_BUILD_STATUS_FILE#
+
+
+IF "%ERRORLEVEL%" EQU "0" (
+!First check the file contents for status
+    FOR /F %%A IN (&UC4RB_BUILD_STATUS_FILE#) DO (
+              set status1=%%~A
+              FOR /F %%B IN (%LOOP_END_STATUS%) DO (
+              set temp1=%%B
+!If status equal Complete, Error ,Failed ,Cancelled then break loop
+                    IF "%status1%" EQU "%temp1%" (
+                      echo UC4RB_BUILD_STATUS::=%status1%
+		              GOTO LOOP_END
+                   )
+              )
+
+    )
+
+    IF &UC4RB_OPENSHIFT_RETRY_COUNT# GTR 0 (
+         SET  /A RETRY_COUNT=&UC4RB_OPENSHIFT_RETRY_COUNT#
+         SET  /A "RETRY_INTERVAL=&UC4RB_OPENSHIFT_RETRY_INTERVAL# * 60"
+
+
+          FOR /L %%x IN (1,1,%RETRY_COUNT%) DO (
+
+           echo Retrying for %%x/%RETRY_COUNT%
+           FOR /F %%D IN ('&UC4RB_OPENSHIFT_CMD#') DO (
+                  set status2=%%~D
+             FOR /F %%E IN (%LOOP_END_STATUS%) DO (
+                   set temp2=%%E
+                    IF "%status2%" EQU "%temp2%" (
+					    echo UC4RB_BUILD_STATUS::=%status2%
+		                GOTO LOOP_END
+                   )
+              )
+!Last retry
+             IF "%RETRY_COUNT%" EQU "%%~x"  (
+                echo UC4RB_BUILD_STATUS::=%status2%
+              )
+             ELSE(
+                  IF &UC4RB_OPENSHIFT_RETRY_INTERVAL# GTR 0 (
+                         echo Waiting for %RETRY_INTERVAL% seconds
+                         PING localhost -n %RETRY_INTERVAL% >NUL
+                    )
+               )
+
+         )
+
+
+        )
+      )
+
+ :LOOP_END
+  echo Status retrieved for build :&UC4RB_OPENSHIFT_BUILD_NAME#
+
+)
+cd frt
+!----------------------------------------------- Get Build Stauts -end  --------------------------------
+!Status messages
+:SET &UC4RB_LOGGING_INFO# = "******** GET BUILD STATUS ACTION EXECUTED SUCCESSFULLY ********"
+:SET &UC4RB_LOGGING_ERROR# = "******** GET BUILD STATUS ACTION FAILED ********"
+
+!------------------------------------------ LOG OUT ----------------------------------------------------
+: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_OUT@WIN
+
+
+]]></MSCRI>
+</SCRIPT>
+<OUTPUTSCAN state="1">
+<Inherit>N</Inherit>
+<filterobjects/>
+<HostFsc/>
+<LoginFsc/>
+</OUTPUTSCAN>
+<POST_SCRIPT mode="1" replacementmode="1" state="1">
+<OSCRI><![CDATA[:SET &STATUS# = GET_UC_OBJECT_STATUS(,,"RETCODE")
+:SET &UC4RB_BUILD_STATUS# = ""
+:IF &STATUS# EQ 0
+:    SET &HND# = PREP_PROCESS_REPORT("JOBS",, "REP","UC4RB_BUILD_STATUS*","COL=DELIMITER", 'DELIMITER=*::=*')
+:    PROCESS &HND#
+:      SET &KEY# = GET_PROCESS_LINE(&HND#,1)
+:      SET &VALUE# = GET_PROCESS_LINE(&HND#,2)
+:      IF &KEY# = "UC4RB_BUILD_STATUS"
+:         SET &UC4RB_BUILD_STATUS# = &VALUE#
+:      ENDIF
+:    ENDPROCESS
+:    CLOSE_PROCESS &HND#
+:ENDIF
+
+:PUBLISH &UC4RB_BUILD_STATUS#,,"WORKFLOW"
+
+!:INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.DELETE_TMP_DIR]]></OSCRI>
+</POST_SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</JOBS_WINDOWS>
+</uc-export>

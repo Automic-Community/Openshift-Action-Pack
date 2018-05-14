@@ -56,7 +56,9 @@ Following actions are supported.
 * Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.SET_ENVIRONMENT_VARIABLE
 * Action Description: This action is used to set environment variables in a build config or deployment config.
 * Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.START_BUILD
-* Action Description: This action starts a new build for the provided build config or copies an existing build.]]></DOC>
+* Action Description: This action starts a new build for the provided build config or copies an existing build.
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.GET_BUILD_STATUS
+* Action Description: This action gets the build statusFailure Conditions]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
