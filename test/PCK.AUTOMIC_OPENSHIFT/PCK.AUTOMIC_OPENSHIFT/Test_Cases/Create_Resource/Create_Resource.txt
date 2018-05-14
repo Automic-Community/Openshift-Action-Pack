@@ -11,25 +11,26 @@ Resource          ../../Resources/keywords.txt
 Resource          ../../Resources/variables.txt
 Resource          ../../Resources/actions.txt
 
-*** Test Cases ***    OK_NOK                                                                                ProjectName        FilePath                       AdvancedOptions
+*** Test Cases ***    OK_NOK    ProjectName        FilePath                       AdvancedOptions
 Create Resource with valid File Path and not giving Advanced Options
-                      [Tags]                                                                                main_scenarios
-                      OK                                                                                    ${EMPTY}           ${File_Path}                   ${EMPTY}
-                      #Create Resources with multiple Files and giving Advanced Options and Project Name
-                      #OK                                                                                   ${Project_Name}    ${File_Path},${File_Path_2}    ${Advanced_Options}
+                      [Tags]    main_scenarios
+                      OK        ${EMPTY}           ${File_Path}                   ${EMPTY}
+
+Create Resources with multiple Files and giving Advanced Options and Project Name
+                      OK        ${Project_Name}    ${File_Path},${File_Path_2}    ${Advanced_Options}
 
 Create Resource with invalid Project Name
-                      [Tags]                                                                                main_scenarios
-                      NOK                                                                                   Invalid            ${File_Path}                   ${EMPTY}
+                      [Tags]    main_scenarios
+                      NOK       Invalid            ${File_Path}                   ${EMPTY}
 
 Create Resource with Invalid File Location
-                      NOK                                                                                   ${Project_Name}    Invalid                        ${Advanced_Options}
+                      NOK       ${Project_Name}    Invalid                        ${Advanced_Options}
 
 Create Resource with Invalid Advanced Options
-                      NOK                                                                                   ${Project_Name}    ${File_Path}                   Invalid
+                      NOK       ${Project_Name}    ${File_Path}                   Invalid
 
 Assert File Location as mandatory field
-                      NOK                                                                                   ${Project_Name}    ${EMPTY}                       ${Advanced_Options}
+                      NOK       ${Project_Name}    ${EMPTY}                       ${Advanced_Options}
 
 *** Keywords ***
 Startup
@@ -47,8 +48,8 @@ Create Resource Template
     Generate String
     Init Action    ${CREATE_RESOURCE}
     Connect to OpenShift
-    Run Keyword If    '${ProjectName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PRJ_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
-    ...    &UC4RB_OPENSHIFT_PRJ_NAME#    ${ProjectName}
+    Run Keyword If    '${ProjectName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PROJECT#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_PROJECT#    ${ProjectName}
     Run Keyword If    '${FilePath}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_FILE_PATH#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OPENSHIFT_FILE_PATH#    ${FilePath}
     Run Keyword If    '${AdvancedOptions}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_ADV_OPTS#    ${Generated_Name}_${Time}    ELSE    Action Set

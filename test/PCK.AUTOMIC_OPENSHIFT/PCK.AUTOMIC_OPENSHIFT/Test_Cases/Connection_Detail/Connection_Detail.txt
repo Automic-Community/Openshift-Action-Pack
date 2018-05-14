@@ -53,7 +53,7 @@ Connection Detail Template
     ...    -${AdvancedOption}: This field specifies any other options that will be considered during project creation
     ...    -${SkipSSL}: This field specifies if the SSL certificate validation is to be skipped or not
     Generate String
-    Init Action    ${CREATE_PROJECT_ACTION}
+    Init Action    ${CREATE_PROJECT}
     Run Keyword If    '${OpenShiftSrvr}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_SERVER#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OPENSHIFT_SERVER#    ${OpenShiftSrvr}
     Run Keyword If    '${User_name}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_USERNAME#    ${Generated_Name}_${Time}    ELSE    Action Set
