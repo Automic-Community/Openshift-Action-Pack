@@ -22,6 +22,9 @@ Expose Service action with only Service Name passed leaving the optional fields
 Mandatory assertion test for ExposeService when Service name is not provided
                       NOK       ${EMPTY}            ${Project_Name}    ${EMPTY}
 
+Expose Service action with an already exposed route for Service
+                      NOK       ${Service_Name}     ${Project_Name}    ${Srvc_Advanced_Options}
+
 Expose service action with Invalid Service Name
                       NOK       Invalid             ${EMPTY}           ${EMPTY}
 

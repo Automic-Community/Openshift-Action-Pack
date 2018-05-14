@@ -450,11 +450,11 @@ The optional description can be a more detailed description of the project and i
 * If project already exists.
 
 = Inputs =
-* Project name         : Provide project name.E.g automic .Max length 63 characters. Must consist of lower case alphanumeric characters or '-', and must start and end with an 
+* Project name         : Provide project name.E.g dev .Max length 63 characters. Must consist of lower case alphanumeric characters or '-', and must start and end with an 
                                    alphanumeric character (e.g. 'my-name',  or '123-abc', regex used for validation is '[a-z0-9]([-a-z0-9]*[a-z0-9])?')
-* Project display name : Provide project display name. E.g Automic Project
-* Project description  : Provide project description. E.g This project build,deploy and runs the automic applicaiton
-* Advanced Options     : Provide other options which will be used during the project creation.	--cache-dir='C:\Users\automic\.kube\http-cache'
+* Project display name : Provide project display name. E.g Dev Project
+* Project description  : Provide project description. E.g This project build,deploy and runs the mydemo applicaiton
+* Advanced Options     : Provide other options which will be used during the project creation.	--cache-dir='C:\Users\foo\.kube\http-cache'
 
 
 = Outputs =

@@ -35,3 +35,4 @@ ${Multiple_Key_Value_Pair}    var_1=demo1,var_2=demo2
 ${Resource_Name}    ruby-hello-world
 ${Single_Key}    var1
 ${Multiple_Keys}    var_1,var_2
+

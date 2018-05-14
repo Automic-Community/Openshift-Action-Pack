@@ -388,8 +388,8 @@
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CREATE_APP_FROM_SOURCE_CODE" prptmode="1">
 <UC4RB_OPENSHIFT_SRC_URLs.00 altview="0" haslist="0"/>
 <UC4RB_OPENSHIFT_APP_NAMEs.00 altview="0" haslist="0"/>
-<UC4RB_OPENSHIFT_PROJECTs.00 altview="0" haslist="0"/>
 <UC4RB_OPENSHIFT_ADV_OPTSs.00 altview="0" haslist="0"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 altview="0" haslist="0"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -443,7 +443,7 @@ the app. You may either specify components using the various existing flags or l
 = Inputs =
 * Application source URL         : Provide the path to source code in a local or a remote repository.E.g  https://github.com/youruser/yourgitrepo.git
 * Application name          : Provide application name. E.g Myapp
-* Project                           : Specify the project name in which you want to create a resource. If not provided, the default project will be used. E.g automic
+* Project                           : Specify the project name in which you want to create a resource. If not provided, the default project will be used. E.g dev
 * Advanced Options        : Provide other options which will be used during the application creation .E.g  --image-stream="openshift/wildfly:10.0"
 
 
