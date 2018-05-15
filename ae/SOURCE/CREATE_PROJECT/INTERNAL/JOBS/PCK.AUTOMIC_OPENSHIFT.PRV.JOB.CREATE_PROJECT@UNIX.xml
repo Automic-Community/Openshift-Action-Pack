@@ -47,7 +47,7 @@
 <ShellScript>1</ShellScript>
 <Command>0</Command>
 <Priority>0</Priority>
-<Shell/>
+<Shell>-bash</Shell>
 <ShellOptions/>
 <Com/>
 </ATTR_UNIX>
@@ -157,8 +157,7 @@
 :SET &UC4RB_LOGGING_ERROR# = "******** CREATE PROJECT ACTION FAILED ********"
 
 !------------------------------------------ LOG OUT ----------------------------------------------------
-: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_OUT@UNIX
-: INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_FOOTER]]></MSCRI>
+: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_OUT@UNIX]]></MSCRI>
 </SCRIPT>
 <OUTPUTSCAN state="1">
 <Inherit>N</Inherit>

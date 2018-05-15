@@ -431,7 +431,7 @@
 PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_BUILDCONFIG_FROM_APP_SOURCE
 
 = General description =
-This action will create a build configuration for your application using code that has a public repository. It will look up the source code URL and set up a build that takes your source code and converts it into an image that can run inside of a pod. The local source must be in a git repository that has a remote repository that the server can see.
+This action will create a build configuration for your application using source code from a public repository. It will look up the source code URL to set up a build and converts it into an image that can run inside of a pod. The local source must be in a git repository that the server can see.
 
 Once the build configuration is created a new build will be automatically triggered.
 

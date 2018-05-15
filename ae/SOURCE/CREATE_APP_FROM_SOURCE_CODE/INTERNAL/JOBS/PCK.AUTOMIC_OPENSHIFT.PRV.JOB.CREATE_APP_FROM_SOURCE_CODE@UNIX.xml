@@ -154,8 +154,7 @@
 :SET &UC4RB_LOGGING_ERROR# = "******** CREATE APPLICATION FROM SOURCE CODE ACTION FAILED ********"
 
 !------------------------------------------ LOG OUT ----------------------------------------------------
-: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_OUT@UNIX
-: INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_FOOTER]]></MSCRI>
+: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_OUT@UNIX]]></MSCRI>
 </SCRIPT>
 <OUTPUTSCAN state="1">
 <Inherit>N</Inherit>
