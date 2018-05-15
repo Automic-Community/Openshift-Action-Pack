@@ -22,17 +22,17 @@ It creates a temporary config file in the temp directory. Every action first per
 * Openshift command-line tool must be set in the environment
 
 =Common Inputs=
-* OpenShift server*:		      Provide OpenShift server name. E.g localhost:8443
-* Username:			              Provide your OpenShift Login ID. E.g automic
-* Password: 			              Provide your OpenShift Login Password.
-* Session token:			      Provide your OpenShift session token for authentication to the API server.
-* Certificate: 			              Provide the path to your crt file. 
+* OpenShift server*:		     Provide OpenShift server name. E.g localhost:8443
+* Username:			             Provide your OpenShift Login ID. E.g automic
+* Password: 			             Provide your OpenShift Login Password.
+* Session token:			     Provide your OpenShift session token for authentication to the API server.
+* Certificate: 			             Provide the path to your crt file. 
 * Skip SSL Validation:                   If Yes selected, it skips SSL Validation
-* Sudo Username: 			      The username to be used for the sudo command. 
-* Options: 			              Run using sudo password (and sudo username if specified).
-* Sudo Password: 			      The password to be used for the sudo command.	
-* Overwrite Agent:			      Overwrites the default agent
-* Overwrite Login: 			      Overwrites the default login
+* Sudo Username: 			     The username to be used for the sudo command. 
+* Options: 			             Run using sudo password (and sudo username if specified).
+* Sudo Password: 			     The password to be used for the sudo command.	
+* Overwrite Agent:			     Overwrites the default agent
+* Overwrite Login: 			     Overwrites the default login
 
 
 =Actions=
@@ -57,7 +57,10 @@ Following actions are supported.
 * Action Description: This action is used to set environment variables in a build config or deployment config.
 
 * Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.UNSET_ENVIRONMENT_VARIABLES
-* Action Description: This action is used to remove environment variables from build config or deployment config.]]></DOC>
+* Action Description: This action is used to remove environment variables from build config or deployment config.
+
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_APP_FROM_IMAGE
+* Action Description: This action creates an application from the image.]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
