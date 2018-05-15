@@ -36,4 +36,4 @@ ${Single_Key}     var1
 ${Multiple_Keys}    var_1,var_2
 #----Start Build-------------------------------------------------------------------------------------
 ${Buildconfig}    springdemoapp
-${Build_Name}     springdemoapp-20
+${Build_Name}     springdemoapp-27

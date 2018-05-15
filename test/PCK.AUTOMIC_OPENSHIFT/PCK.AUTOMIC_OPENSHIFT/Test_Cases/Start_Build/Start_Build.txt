@@ -61,6 +61,7 @@ Start Build Template
     ...    &UC4RB_OPENSHIFT_ADV_OPTS#    ${AdvancedOptions}
     Run Keyword If    '${ProjectName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PROJECT#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OPENSHIFT_PROJECT#    ${ProjectName}
+    Action Set    &UC4RB_OPENSHIFT_BUILD_MODE#    ${BuildMode}
     Action Execute
     Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE    Assert Failure
 
