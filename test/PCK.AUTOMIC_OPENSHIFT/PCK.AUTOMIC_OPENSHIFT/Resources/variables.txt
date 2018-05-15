@@ -31,3 +31,6 @@ ${Srvc_Advanced_Options}    --dry-run
 ${Resource_Name}    ruby-hello-world
 ${Single_Key_Value_Pair}    var199=demo test
 ${Multiple_Key_Value_Pair}    var_1=demo1,var_2=demo2
+#----Create Application from Image--------------------------------------------------------------------------------
+${Docker_Image}    training/webapp
+${OpenShift_Image}    webapp

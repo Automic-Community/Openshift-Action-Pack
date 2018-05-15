@@ -24,10 +24,10 @@ It creates a temporary config file in the temp directory. Every action first per
 =Common Inputs=
 * OpenShift server*:		     Provide OpenShift server name. E.g localhost:8443
 * Username:			             Provide your OpenShift Login ID. E.g automic
-* Password: 			         Provide your OpenShift Login Password.
+* Password: 			             Provide your OpenShift Login Password.
 * Session token:			     Provide your OpenShift session token for authentication to the API server.
-* Certificate: 			         Provide the path to your crt file. 
-* Skip SSL Validation:           If Yes selected, it skips SSL Validation
+* Certificate: 			             Provide the path to your crt file. 
+* Skip SSL Validation:                   If Yes selected, it skips SSL Validation
 * Sudo Username: 			     The username to be used for the sudo command. 
 * Options: 			             Run using sudo password (and sudo username if specified).
 * Sudo Password: 			     The password to be used for the sudo command.	
@@ -54,7 +54,10 @@ Following actions are supported.
 * Action Description: This action is used to create application in openshift
 
 * Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.SET_ENVIRONMENT_VARIABLE
-* Action Description: This action is used to set environment variables in a build config or deployment config.]]></DOC>
+* Action Description: This action is used to set environment variables in a build config or deployment config.
+
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_APP_FROM_IMAGE
+* Action Description: This action creates an application from the image.]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
