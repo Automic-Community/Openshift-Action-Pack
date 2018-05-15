@@ -449,8 +449,8 @@ This action creates an application from the image source which can be either fro
 
 = Inputs =
 
-* Image				                : Provide the path to source code in a local or a remote repository. E.g myregistry.com/mycompany/mysql
-* Image Source				: Select either image stream or Docker Hub image registry public/private to create your application.
+* Image*				                : Provide image specification from a public or private image registry. E.g myregistry.com/mycompany/mysql
+* Image Source*				: Select either image stream or Docker Hub image registry public/private to create your application.
 * Application name				: Provide application name. E.g myapp.
 * Advanced Options			: Provide other options which will be used during the application creation. E.g -l db=myapp
 * Project Name				: Specify the project name in which you want to create application. If not provided, the default project will be used. E.g spartan.
