@@ -175,9 +175,7 @@
 
 !------------------------------------------ LOG OUT ----------------------------------------------------
 : INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_OUT@UNIX
-
-
-]]></MSCRI>
+: INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_FOOTER]]></MSCRI>
 </SCRIPT>
 <OUTPUTSCAN state="1">
 <Inherit>N</Inherit>
