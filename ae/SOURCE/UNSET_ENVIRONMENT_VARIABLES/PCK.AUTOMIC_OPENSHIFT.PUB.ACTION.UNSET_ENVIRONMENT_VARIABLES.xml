@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBP AllowExternal="1" name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.SET_ENVIRONMENT_VARIABLE">
+<JOBP AllowExternal="1" name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.UNSET_ENVIRONMENT_VARIABLES">
 <XHEADER state="1">
-<Title>Set Environment Variable</Title>
+<Title>Unset Environment Variables</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <Active>1</Active>
@@ -65,13 +65,13 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE">
-<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE">
-<UC4RB_OPENSHIFT_KEY_VALUE_PAIRs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_KEY_VALUE_PAIR#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE"/>
-<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE"/>
-<UC4RB_OPENSHIFT_RESOURCE_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE"/>
-<UC4RB_OPENSHIFT_RESOURCE_TYPEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_TYPE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE">buildconfig</UC4RB_OPENSHIFT_RESOURCE_TYPEs.00>
+<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">
+<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">
+<UC4RB_OPENSHIFT_KEYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_KEY#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
+<UC4RB_OPENSHIFT_RESOURCE_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
+<UC4RB_OPENSHIFT_RESOURCE_TYPEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_TYPE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">buildconfig</UC4RB_OPENSHIFT_RESOURCE_TYPEs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -102,7 +102,7 @@
 </PostCon>
 </postconditions>
 </task>
-<task Alias="SET_ENVIRONMENT_VARIABLE" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.SET_ENVIRONMENT_VARIABLE@WINDOWS" ParentAlias="" ParentObject="" Row="1" Text2="">
+<task Alias="UNSET_ENVIRONMENT_VARIABLES" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.UNSET_ENVIRONMENT_VARIABLES@WINDOWS" ParentAlias="" ParentObject="" Row="1" Text2="">
 <checkpoint RollbackFlag="0" RunPerPatch="0" RunPerTarget="0" TcpADays="0" TcpATime="00:00" TcpATimeTZ="" TcpExecute="" TcpOn="0" promptatgen="0" showprompt="0"/>
 <after ActFlg="1" AtimOn="0" ErlstStDays="0" ErlstStTime="00:00" ErlstStTimeTZ="" HoldFlg="0"/>
 <when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="1" WElseH="0" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
@@ -144,13 +144,13 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE">
-<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE">
-<UC4RB_OPENSHIFT_KEY_VALUE_PAIRs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_KEY_VALUE_PAIR#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE"/>
-<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE"/>
-<UC4RB_OPENSHIFT_RESOURCE_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE"/>
-<UC4RB_OPENSHIFT_RESOURCE_TYPEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_TYPE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE">buildconfig</UC4RB_OPENSHIFT_RESOURCE_TYPEs.00>
+<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">
+<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">
+<UC4RB_OPENSHIFT_KEYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_KEY#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
+<UC4RB_OPENSHIFT_RESOURCE_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
+<UC4RB_OPENSHIFT_RESOURCE_TYPEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_TYPE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">buildconfig</UC4RB_OPENSHIFT_RESOURCE_TYPEs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -181,7 +181,7 @@
 </PostCon>
 </postconditions>
 </task>
-<task Alias="SET_ENVIRONMENT_VARIABLE" BranchType="0" Col="2" Lnr="3" OType="JOBS" Object="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.SET_ENVIRONMENT_VARIABLE@UNIX" ParentAlias="" ParentObject="" Row="3" Text2="">
+<task Alias="UNSET_ENVIRONMENT_VARIABLES" BranchType="0" Col="2" Lnr="3" OType="JOBS" Object="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.UNSET_ENVIRONMENT_VARIABLES@UNIX" ParentAlias="" ParentObject="" Row="3" Text2="">
 <checkpoint RollbackFlag="0" RunPerPatch="0" RunPerTarget="0" TcpADays="0" TcpATime="00:00" TcpATimeTZ="" TcpExecute="" TcpOn="0" promptatgen="0" showprompt="0"/>
 <after ActFlg="1" AtimOn="0" ErlstStDays="0" ErlstStTime="00:00" ErlstStTimeTZ="" HoldFlg="0"/>
 <when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="1" WElseH="0" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
@@ -223,13 +223,13 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE">
-<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE">
-<UC4RB_OPENSHIFT_KEY_VALUE_PAIRs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_KEY_VALUE_PAIR#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE"/>
-<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE"/>
-<UC4RB_OPENSHIFT_RESOURCE_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE"/>
-<UC4RB_OPENSHIFT_RESOURCE_TYPEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_TYPE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE">buildconfig</UC4RB_OPENSHIFT_RESOURCE_TYPEs.00>
+<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">
+<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">
+<UC4RB_OPENSHIFT_KEYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_KEY#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
+<UC4RB_OPENSHIFT_RESOURCE_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
+<UC4RB_OPENSHIFT_RESOURCE_TYPEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_TYPE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">buildconfig</UC4RB_OPENSHIFT_RESOURCE_TYPEs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -289,13 +289,13 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE">
-<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE">
-<UC4RB_OPENSHIFT_KEY_VALUE_PAIRs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_KEY_VALUE_PAIR#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE"/>
-<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE"/>
-<UC4RB_OPENSHIFT_RESOURCE_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE"/>
-<UC4RB_OPENSHIFT_RESOURCE_TYPEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_TYPE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE">buildconfig</UC4RB_OPENSHIFT_RESOURCE_TYPEs.00>
+<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">
+<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">
+<UC4RB_OPENSHIFT_KEYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_KEY#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
+<UC4RB_OPENSHIFT_RESOURCE_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
+<UC4RB_OPENSHIFT_RESOURCE_TYPEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_TYPE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">buildconfig</UC4RB_OPENSHIFT_RESOURCE_TYPEs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -383,12 +383,12 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE" parent="PRPTS" type="PROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE" ontop="1">
-<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.SET_ENVIRONMENT_VARIABLE" prptmode="1">
+<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" parent="PRPTS" type="PROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" ontop="1">
+<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" prptmode="1">
 <UC4RB_OPENSHIFT_RESOURCE_TYPEs.00 altview="0" haslist="0">buildconfig</UC4RB_OPENSHIFT_RESOURCE_TYPEs.00>
 <UC4RB_OPENSHIFT_RESOURCE_NAMEs.00 altview="0" haslist="0"/>
-<UC4RB_OPENSHIFT_KEY_VALUE_PAIRs.00 altview="0" haslist="0"/>
+<UC4RB_OPENSHIFT_KEYs.00 altview="0" haslist="0"/>
 <UC4RB_OPENSHIFT_PROJECTs.00 altview="0" haslist="0"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -433,25 +433,25 @@
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC><![CDATA[= Action name =
-PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.SET_ENVIRONMENT_VARIABLE
+PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.UNSET_ENVIRONMENT_VARIABLES
 
 = General description =
-This action is used to update environment variables in a build config or deployment config in the specified project.
-
+This action is used to remove environment variables from build config or deployment config in the specified project.
 
 = Failure Conditions =
-*If the user provides invalid resource name.
+* If the user provides invalid resource name.
 * If the specified project does not exist.
 
 = Inputs =
-*Resource type*:           Select the resource for which you would like to set a new variable(s). E.g. buildconfig
-*Resource name*:         Provide the name of the selected deployment configuration or build configuration.E.g. MySQL
-*Key-Value pair*:           Provide the key-value pairs. Multiple key-value pairs must be separated with a comma. Maximum of 50 key-value pairs can be provided. E.g. key1=value1,key2=value2,key3=value3
-*Project Name:              Specify the project name in which you want to create a resource. If not provided, the default project will be used.E.g. test-project
+* Resource Type*:           Select the resource for which you would like to unset the variable(s). E.g. buildconfig
+* Resource Name*:         Provide the name of the selected deployment configuration or build configuration. E.g. MySQL
+* Key*:                             Provide the keys of the variables you would like to unset separated by a comma. The maximum number of keys to unset at a time is 50. E.g. KEY_1,KEY_2,..,KEY_N.
+* Project :                        Specify the project name in which you want to execute this action. If not provided, the default project will be used. E.g. spartan
 
 = Behavior =
-* In the environment variables from the resource, if there is an existing key in that case, it will update the previous key with new value
+* The user can provide multiple keys at a time.
 * A valid environment variable name is an alphanumeric(a-z and 0-9) string beginning with a letter that may contain an underscore.
+* If the user provides a non-existing key, action will pass.
 
 = Outputs =
 * Return code is 0 in case of success.
@@ -464,10 +464,10 @@ This action is used to update environment variables in a build config or deploym
 AE logs will be displayed in the AE report.
 
 = Example =
-Resource type*:                 buildconfig
+Resource Type*:                  buildconfig
 Resource Name*:               mysql
-Key-value pair*:                  key1=value
-Project Name:                     test-project
+Key*:                                   KEY_1,KEY_2
+Project :                              spartan
 
 ]]></DOC>
 </DOCU_Docu>

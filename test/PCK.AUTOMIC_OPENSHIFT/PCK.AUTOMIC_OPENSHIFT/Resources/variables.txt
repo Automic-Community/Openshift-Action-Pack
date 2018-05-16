@@ -4,13 +4,14 @@ Resource          ../../../Env/default.txt
 *** Variables ***
 #---- Promptset Fields --------------------------------------------------------------------------------------
 #----Global Variables----------------------------------------------------------------------------------------
-${Server_URL}     https://console.starter-ca-central-1.openshift.com/
+${Server_URL}     https://console.starter-ca-central-1.openshift.com
 ${User_Name}      redhatankur
 ${OpenShift_Password}    NewPwd@00
 ${Token}          ${EMPTY}
 ${Cert_Path}      ${EMPTY}
 ${Project_Name}    dummy1
 ${Advanced_Options}    --follow
+
 #----Create Resource----------------------------------------------------------------------------------------
 ${File_Path}      ${EXECDIR}\\resource.yaml
 ${File_Path_2}    ${EXECDIR}\\resource_2.yaml
@@ -25,7 +26,7 @@ ${Source_URL}     https://github.com/sumitsamson/springdemoapp.git
 ${App_Name}       myapp
 ${App_Advanced_Options}    --image-stream="openshift/wildfly:10.1"
 #----Expose Service-----------------------------------------------------------------------------------------------
-${Service_Name}    myapp
+${Service_Name}    springdemoapp
 ${Srvc_Advanced_Options}    --dry-run
 #----Set Environment Variables-------------------------------------------------------------------------------------
 ${Resource_Name}    ruby-hello-world
@@ -37,3 +38,7 @@ ${Multiple_Keys}    var_1,var_2
 #----Start Build-------------------------------------------------------------------------------------
 ${Buildconfig}    springdemoapp
 ${Build_Name}     springdemoapp-27
+#----Create Application from Image--------------------------------------------------------------------------------
+${Docker_Image}    training/webapp
+${OpenShift_Image}    webapp
+
