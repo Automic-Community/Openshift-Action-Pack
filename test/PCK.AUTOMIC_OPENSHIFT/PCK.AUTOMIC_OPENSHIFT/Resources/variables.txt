@@ -4,12 +4,12 @@ Resource          ../../../Env/default.txt
 *** Variables ***
 #---- Promptset Fields --------------------------------------------------------------------------------------
 #----Global Variables----------------------------------------------------------------------------------------
-${Server_URL}     https://console.starter-ca-central-1.openshift.com/
-${User_Name}      add_user_name
-${OpenShift_Password}    add_user_pass
-${Token}          add_token_here
-${Cert_Path}      add-certificate-path
-${Project_Name}    test-projects
+${Server_URL}     https://console.starter-ca-central-1.openshift.com
+${User_Name}      redhatankur
+${OpenShift_Password}    NewPwd@00
+${Token}          ${EMPTY}
+${Cert_Path}      ${EMPTY}
+${Project_Name}    dummy1
 ${Advanced_Options}    --output=json
 #----Create Resource----------------------------------------------------------------------------------------
 ${File_Path}      ${EXECDIR}\\resource.yaml
@@ -25,12 +25,17 @@ ${Source_URL}     https://github.com/sumitsamson/springdemoapp.git
 ${App_Name}       myapp
 ${App_Advanced_Options}    --image-stream="openshift/wildfly:10.1"
 #----Expose Service-----------------------------------------------------------------------------------------------
-${Service_Name}    myapp
+${Service_Name}    springdemoapp
 ${Srvc_Advanced_Options}    --dry-run
 #----Set Environment Variables-------------------------------------------------------------------------------------
 ${Resource_Name}    ruby-hello-world
 ${Single_Key_Value_Pair}    var199=demo test
 ${Multiple_Key_Value_Pair}    var_1=demo1,var_2=demo2
+#----Unset Environment Variables-------------------------------------------------------------------------------------
+${Resource_Name}    ruby-hello-world
+${Single_Key}    var1
+${Multiple_Keys}    var_1,var_2
 #----Create Application from Image--------------------------------------------------------------------------------
 ${Docker_Image}    training/webapp
 ${OpenShift_Image}    webapp
+
