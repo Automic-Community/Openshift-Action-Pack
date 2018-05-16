@@ -441,18 +441,18 @@
 PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.GET_BUILD_STATUS
 
 = General description =
-This action gets the build statusFailure Conditions
+This action gets the build status.
 
 = Failure Conditions =
-(none)
+if build status not found in the job report
 
 = Inputs =
 
-* Build name				: Specify the build name. E.g myappbuild-1.
-* Initial waiting time				: Specify the waiting time (in minutes) before the initial attempt to retrieve the build status.
-* Retry count				: Specify the number of retry attempts.
-* Retry interval				: Specify the waiting time in between the attempts to retrieve the build status.
-* Project				: Specify the project name in which you want to get build status. If not provided, the default project will be used. E.g spartan.
+* Build name				  : Specify the build name. E.g myappbuild-1.
+* Initial waiting time			  : Specify the waiting time (in seconds) before the initial attempt to retrieve the build status.
+* Retry count				  : Specify the number of retry attempts. -1 means action tries infinitely till gets the status as Completed ,Error, Failed ,Cancelled
+* Retry interval		          : Specify the waiting time (in seconds) in between the attempts to retrieve the build status.
+* Project				          : Specify the project name in which you want to get build status. If not provided, the default project will be used. E.g spartan.
 
 = Behavior =
 (none)
