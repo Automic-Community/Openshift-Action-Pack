@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
 <JOBS_WINDOWS AttrType="WINDOWS" name="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.GET_RESOURCE@WINDOWS">
 <XHEADER state="1">
-<Title/>
+<Title>Get Resource</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <Active>1</Active>
