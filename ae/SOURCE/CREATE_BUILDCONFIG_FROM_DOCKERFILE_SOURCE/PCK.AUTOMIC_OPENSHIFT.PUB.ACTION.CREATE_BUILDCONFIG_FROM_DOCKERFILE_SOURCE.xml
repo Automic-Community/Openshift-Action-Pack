@@ -434,14 +434,15 @@ PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_BUILDCONFIG_FROM_DOCKERFILE_SOURCE
 This action will create a build configuration using the content of a Dockerfile.
 
 = Failure Conditions = 
-* If the user provides invalid dockerfile content or Project Name.
+* If the user provides invalid Dockerfile content or Project Name.
 * If buildconfig already exists for the provided content.
 
 = Inputs =
-* Dockerfile*:                                Provide a Dockerfile content. E.g. "FROM centos:7\nRUN yum install -y httpd"
+* Dockerfile*:                                Provide a Dockerfile content. 
 * Advanced Options:                    Provide other options which will be used during the Buildconfig creation. E.g. --dry-run
 * Project:                                      Specify the project name in which you want to execute this action. If not provided, the default project will be used. E.g spartan
 
+Note: While providing the Dockerfile content, provide each command in a new line.
 
 = Outputs =
 * Return code is 0 in case of success.
@@ -454,7 +455,8 @@ This action will create a build configuration using the content of a Dockerfile.
 AE logs will be displayed in the AE report.
 
 = Example =
-Dockerfile*                            "FROM centos:7\nRUN yum install -y httpd"
+Dockerfile*                            FROM centos:7
+                                              RUN yum install -y httpd
 Advanced Options                --dry-run
 Project                                  spartan
 ]]></DOC>
