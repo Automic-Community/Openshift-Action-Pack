@@ -60,7 +60,10 @@ Following actions are supported.
 * Action Description: This action is used to remove environment variables from build config or deployment config.
 
 * Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_APP_FROM_IMAGE
-* Action Description: This action creates an application from the image.]]></DOC>
+* Action Description: This action creates an application from the image.
+
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_BUILDCONFIG_FROM_APP_SOURCE
+* Action Description: This action creates a build configuration using application source code.]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>

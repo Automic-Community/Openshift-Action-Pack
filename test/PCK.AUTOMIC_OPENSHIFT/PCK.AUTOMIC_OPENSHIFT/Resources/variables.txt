@@ -26,7 +26,7 @@ ${App_Name}       myapp
 ${App_Advanced_Options}    --image-stream="openshift/wildfly:10.1"
 #----Expose Service-----------------------------------------------------------------------------------------------
 ${Service_Name}    springdemoapp
-${Srvc_Advanced_Options}    --dry-run
+${Srvc_Advanced_Options}    --dry-run=false
 #----Set Environment Variables-------------------------------------------------------------------------------------
 ${Resource_Name}    ruby-hello-world
 ${Single_Key_Value_Pair}    var199=demo test
@@ -38,4 +38,6 @@ ${Multiple_Keys}    var_1,var_2
 #----Create Application from Image--------------------------------------------------------------------------------
 ${Docker_Image}    training/webapp
 ${OpenShift_Image}    webapp
+#----Create Buildconfig from App Source--------------------------------------------------------------------------------
+${Application_Source_URL}    https://github.com/sclorg/cakephp-ex
 
