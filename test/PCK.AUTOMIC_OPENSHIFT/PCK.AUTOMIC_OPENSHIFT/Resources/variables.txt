@@ -34,3 +34,5 @@ ${Multiple_Key_Value_Pair}    var_1=demo1,var_2=demo2
 #----Create Application from Image--------------------------------------------------------------------------------
 ${Docker_Image}    training/webapp
 ${OpenShift_Image}    webapp
+#----Create Buildconfig from Dockerfile---------------------------------------------------------------------------
+${Dockerfile_Contents}    FROM centos:7${\n}RUN yum install -y httpd
