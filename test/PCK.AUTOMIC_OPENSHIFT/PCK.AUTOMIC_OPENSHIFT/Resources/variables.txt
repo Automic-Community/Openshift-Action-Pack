@@ -33,11 +33,13 @@ ${Single_Key_Value_Pair}    var199=demo test
 ${Multiple_Key_Value_Pair}    var_1=demo1,var_2=demo2
 #----Unset Environment Variables-------------------------------------------------------------------------------------
 ${Resource_Name}    ruby-hello-world
-${Single_Key}    var1
+${Single_Key}     var1
 ${Multiple_Keys}    var_1,var_2
 #----Create Application from Image--------------------------------------------------------------------------------
 ${Docker_Image}    training/webapp
 ${OpenShift_Image}    webapp
 #----Create Buildconfig from App Source--------------------------------------------------------------------------------
 ${Application_Source_URL}    https://github.com/sclorg/cakephp-ex
-
+#----Create Application from Template--------------------------------------------------------------------------------
+${OpenShift_Template}    httpd-example
+${Local_Template}    ${EXECDIR}\\template.json

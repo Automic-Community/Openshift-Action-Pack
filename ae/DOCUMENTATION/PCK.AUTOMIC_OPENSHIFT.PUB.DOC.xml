@@ -63,7 +63,10 @@ Following actions are supported.
 * Action Description: This action creates an application from the image.
 
 * Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_BUILDCONFIG_FROM_APP_SOURCE
-* Action Description: This action creates a build configuration using application source code.]]></DOC>
+* Action Description: This action creates a build configuration using application source code.
+
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_APP_FROM_TEMPLATE
+* Action Description: This action creates an application using Openshift stored template or local template file.]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
