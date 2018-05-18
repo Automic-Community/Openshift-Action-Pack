@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBS_UNIX AttrType="UNIX" name="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.CREATE_APP_FROM_IMAGE@UNIX">
+<JOBS_WINDOWS AttrType="WINDOWS" name="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.CREATE_APP_FROM_TEMPLATE@WINDOWS">
 <XHEADER state="1">
-<Title>Create application from Image</Title>
+<Title>Create application from template</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <Active>1</Active>
@@ -17,8 +17,8 @@
 <ATTR_JOBS state="1">
 <Queue>CLIENT_QUEUE</Queue>
 <StartType/>
-<HostDst>|&lt;UNIX&gt;|HOST</HostDst>
-<HostATTR_Type>UNIX</HostATTR_Type>
+<HostDst>|&lt;WIN&gt;|HOST</HostDst>
+<HostATTR_Type>WINDOWS</HostATTR_Type>
 <CodeName/>
 <Login/>
 <IntAccount/>
@@ -40,17 +40,25 @@
 <MpElse2>0</MpElse2>
 <TZ/>
 </ATTR_JOBS>
-<ATTR_UNIX state="1">
+<ATTR_WINDOWS state="1">
 <OutputDb>1</OutputDb>
 <OutputDbErr>0</OutputDbErr>
 <OutputFile>0</OutputFile>
-<ShellScript>1</ShellScript>
-<Command>0</Command>
-<Priority>0</Priority>
-<Shell>-bash</Shell>
-<ShellOptions/>
-<Com/>
-</ATTR_UNIX>
+<IsGenerated>0</IsGenerated>
+<BAT>1</BAT>
+<COM>0</COM>
+<WinBatch>0</WinBatch>
+<Standard>1</Standard>
+<Minimized>0</Minimized>
+<Maximized>0</Maximized>
+<JObjDefault>1</JObjDefault>
+<JObjYes>0</JObjYes>
+<JObjNo>0</JObjNo>
+<WorkingDirectory>c:\</WorkingDirectory>
+<Command/>
+<LogOn>0</LogOn>
+<ShowJob>0</ShowJob>
+</ATTR_WINDOWS>
 <RUNTIME state="1">
 <MaxRetCode>0</MaxRetCode>
 <MrcExecute/>
@@ -107,16 +115,15 @@
 <PSCRI><![CDATA[:INC PCK.ITPA_SHARED.PUB.INCLUDE.START_STOP_JOB_ACCORDING_TO_AGENT_OS]]></PSCRI>
 </PRE_SCRIPT>
 <SCRIPT mode="1" state="1">
-<MSCRI><![CDATA[: DEFINE &STRING_ARR#, string, 30
-: INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_HEADER
+<MSCRI><![CDATA[ @echo off
 
 :INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 : INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_CONNECTION_PARAMS
-: SET &UC4RB_LOGGING_PARAMETER# = "Image"
-: SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_OPENSHIFT_IMAGE#"
+: SET &UC4RB_LOGGING_PARAMETER# = "Template"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_OPENSHIFT_TEMPLATE#"
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
-: SET &UC4RB_LOGGING_PARAMETER# = "Image Source"
-: SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_OPENSHIFT_IMG_SRC#"
+: SET &UC4RB_LOGGING_PARAMETER# = "Template  Source"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_OPENSHIFT_TMPL_SRC#"
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
 : SET &UC4RB_LOGGING_PARAMETER# = "Application name"
 : SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_OPENSHIFT_APP_NAME#"
@@ -128,35 +135,37 @@
 : SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_OPENSHIFT_PROJECT#"
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
 
-:INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.PREPARE_CMD@UNIX
+:INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.PREPARE_CMD@WIN
 
 :IF &UC4RB_OPENSHIFT_PROJECT# NE ""
-:   INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.CHANGE_PROJECT@UNIX
+:   INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.CHANGE_PROJECT@WIN
 :ENDIF
 
-!----------------------------------------------- Create application from image -start --------------------------------
+!----------------------------------------------- Create application from template -start --------------------------------
 : SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#," new-app ")
-: PRINT "IMAGE SRC: &UC4RB_OPENSHIFT_IMG_SRC#"
 
-:SET &ATTRIBUTE_VARA# = "PCK.AUTOMIC_OPENSHIFT.PRV.IMAGE_SRC"
-:SET &UC4RB_ATTRIBUTE# = &UC4RB_OPENSHIFT_IMG_SRC#
+
+:SET &ATTRIBUTE_VARA# = "PCK.AUTOMIC_OPENSHIFT.PRV.VARA.TEMPLATE_OPTIONS"
+:SET &UC4RB_ATTRIBUTE# = &UC4RB_OPENSHIFT_TMPL_SRC#
 :INC PCK.AUTOMIC.OPENSHIFT.PUB.INCLUDE.GET_KEY
 
 
-!Image source
-: SET &UC4RB_ESCAPED_STRING# =&UC4RB_OPENSHIFT_IMAGE#
-: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.ESCAPE_ARG_VALUE@UNIX
+!Template source
+: SET &UC4RB_ESCAPED_STRING# =&UC4RB_OPENSHIFT_TEMPLATE#
+: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.ESCAPE_ARG_VALUE@WIN
+: PRINT "TEMPLATE  SRC: &ATTRIBUTE#"
 
-:IF &ATTRIBUTE# EQ "IMAGE_STREAM"
-:  SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " --image-stream=&UC4RB_ESCAPED_STRING#")
+:IF &ATTRIBUTE# EQ "STORED"
+:  SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " --template=&UC4RB_ESCAPED_STRING#")
 : ELSE
-:  SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " --docker-image=&UC4RB_ESCAPED_STRING#")
+:  SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " --file=&UC4RB_ESCAPED_STRING#")
 :ENDIF
+
 
 !Application Name
 :IF &UC4RB_OPENSHIFT_APP_NAME# NE ""
 : SET &UC4RB_ESCAPED_STRING# =&UC4RB_OPENSHIFT_APP_NAME#
-: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.ESCAPE_ARG_VALUE@UNIX
+: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.ESCAPE_ARG_VALUE@WIN
 : SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " --name=&UC4RB_ESCAPED_STRING#")
 :ENDIF
 
@@ -165,16 +174,19 @@
 :  SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " &UC4RB_OPENSHIFT_ADV_OPTS#")
 :ENDIF
 
-:PRINT "Create Application from image : &UC4RB_OPENSHIFT_CMD#"
+:PRINT "Create Application from template : &UC4RB_OPENSHIFT_CMD#"
 &UC4RB_OPENSHIFT_CMD#
-!----------------------------------------------- Create application from image -end  --------------------------------
+!----------------------------------------------- Create application from template -end  --------------------------------
 
 !Status messages
-:SET &UC4RB_LOGGING_INFO# = "******** CREATE APPLICATION FROM IMAGE ACTION EXECUTED SUCCESSFULLY ********"
-:SET &UC4RB_LOGGING_ERROR# = "******** CREATE APPLICATION FROM IMAGE ACTION FAILED ********"
+:SET &UC4RB_LOGGING_INFO# = "******** CREATE APPLICATION FROM TEMPLATE ACTION EXECUTED SUCCESSFULLY ********"
+:SET &UC4RB_LOGGING_ERROR# = "******** CREATE APPLICATION FROM TEMPLATE ACTION FAILED ********"
 
 !------------------------------------------ LOG OUT ----------------------------------------------------
-: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_OUT@UNIX]]></MSCRI>
+: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_OUT@WIN
+
+
+]]></MSCRI>
 </SCRIPT>
 <OUTPUTSCAN state="1">
 <Inherit>N</Inherit>
@@ -188,5 +200,5 @@
 <DOCU_Docu state="1" type="text">
 <DOC/>
 </DOCU_Docu>
-</JOBS_UNIX>
+</JOBS_WINDOWS>
 </uc-export>
