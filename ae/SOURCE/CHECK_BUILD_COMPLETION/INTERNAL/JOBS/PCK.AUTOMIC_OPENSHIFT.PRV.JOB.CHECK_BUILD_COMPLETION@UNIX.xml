@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBS_UNIX AttrType="UNIX" name="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.GET_BUILD_STATUS@UNIX">
+<JOBS_UNIX AttrType="UNIX" name="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.CHECK_BUILD_COMPLETION@UNIX">
 <XHEADER state="1">
-<Title>Get Build Status</Title>
+<Title>Check build completion</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <Active>1</Active>
@@ -134,10 +134,10 @@
 :   INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.CHANGE_PROJECT@UNIX
 :ENDIF
 
-!----------------------------------------------- Get build status -start --------------------------------
+!----------------------------------------------- Check Build Completion -start --------------------------------
 !Status messages
-:SET &UC4RB_LOGGING_INFO# = "******** GET BUILD STATUS ACTION EXECUTED SUCCESSFULLY ********"
-:SET &UC4RB_LOGGING_ERROR# = "******** GET BUILD STATUS ACTION FAILED ********"
+:SET &UC4RB_LOGGING_INFO# = "******** CHECK BUILD COMPLETION ACTION EXECUTED SUCCESSFULLY ********"
+:SET &UC4RB_LOGGING_ERROR# = "******** CHECK BUILD COMPLETION ACTION FAILED ********"
 
 
 : SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#," get builds ")
@@ -147,7 +147,7 @@
 : SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " &UC4RB_ESCAPED_STRING#")
 : SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " -o template --template={{.status.phase}}")
 
-:PRINT "Get Build Status : &UC4RB_OPENSHIFT_CMD#"
+:PRINT "Check Build COMPLETION : &UC4RB_OPENSHIFT_CMD#"
 
 
 !Initial Wait Time
@@ -156,7 +156,7 @@
       sleep &UC4RB_OPENSHIFT_WAIT#
 : ENDIF
 
-  echo "Fetching the status..."
+  echo "Checking status..."
   build_status=`&UC4RB_OPENSHIFT_CMD#`
 
 !Error handling

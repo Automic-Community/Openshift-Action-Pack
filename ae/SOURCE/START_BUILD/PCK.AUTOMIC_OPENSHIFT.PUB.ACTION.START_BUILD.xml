@@ -71,6 +71,7 @@
 <UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD"/>
 <UC4RB_OPENSHIFT_BUILDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_BUILD#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD"/>
 <UC4RB_OPENSHIFT_BUILD_MODEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_BUILD_MODE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD">From build configuration</UC4RB_OPENSHIFT_BUILD_MODEs.00>
+<UC4RB_OPENSHIFT_EXEC_MODEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_EXEC_MODE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD">Asynchronous execution</UC4RB_OPENSHIFT_EXEC_MODEs.00>
 <UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -150,6 +151,7 @@
 <UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD"/>
 <UC4RB_OPENSHIFT_BUILDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_BUILD#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD"/>
 <UC4RB_OPENSHIFT_BUILD_MODEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_BUILD_MODE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD">From build configuration</UC4RB_OPENSHIFT_BUILD_MODEs.00>
+<UC4RB_OPENSHIFT_EXEC_MODEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_EXEC_MODE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD">Asynchronous execution</UC4RB_OPENSHIFT_EXEC_MODEs.00>
 <UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -229,6 +231,7 @@
 <UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD"/>
 <UC4RB_OPENSHIFT_BUILDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_BUILD#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD"/>
 <UC4RB_OPENSHIFT_BUILD_MODEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_BUILD_MODE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD">From build configuration</UC4RB_OPENSHIFT_BUILD_MODEs.00>
+<UC4RB_OPENSHIFT_EXEC_MODEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_EXEC_MODE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD">Asynchronous execution</UC4RB_OPENSHIFT_EXEC_MODEs.00>
 <UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -295,6 +298,7 @@
 <UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD"/>
 <UC4RB_OPENSHIFT_BUILDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_BUILD#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD"/>
 <UC4RB_OPENSHIFT_BUILD_MODEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_BUILD_MODE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD">From build configuration</UC4RB_OPENSHIFT_BUILD_MODEs.00>
+<UC4RB_OPENSHIFT_EXEC_MODEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_EXEC_MODE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD">Asynchronous execution</UC4RB_OPENSHIFT_EXEC_MODEs.00>
 <UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -388,6 +392,7 @@
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.START_BUILD" prptmode="1">
 <UC4RB_OPENSHIFT_BUILDs.00 altview="0" haslist="0"/>
 <UC4RB_OPENSHIFT_BUILD_MODEs.00 altview="0" haslist="0">From build configuration</UC4RB_OPENSHIFT_BUILD_MODEs.00>
+<UC4RB_OPENSHIFT_EXEC_MODEs.00 altview="0" haslist="0">Asynchronous execution</UC4RB_OPENSHIFT_EXEC_MODEs.00>
 <UC4RB_OPENSHIFT_ADV_OPTSs.00 altview="0" haslist="0"/>
 <UC4RB_OPENSHIFT_PROJECTs.00 altview="0" haslist="0"/>
 </PRPTBOX>
@@ -444,13 +449,14 @@ If the build name is not printed in the job report
 
 = Inputs =
 
-* Buildconfig / Build name				: Provide a Build Configuration or a Build name. E.g myapp.
+* Buildconfig / Build name *				: Provide a Build Configuration or a Build name. E.g myapp.
 * Build Mode				: Select either from build configuration if you want to start a build from a build configuration or option from previous build if you want to start the previous build.
+* Execution Mode                   : Select execution mode.In sync mode it will wait for the build to complete and exit with non-zero return code if the build fails. In async mode there willl be no wait.    
 * Advanced Options				: Provide other options which will be used during the build execution. E.g --follow.
 * Project				: Specify the project name in which you want to start a build. If not provided, the default project will be used. E.g spartan.
 
 = Behavior =
-(none)
+Build name will not be published in case action fails in sync mode.
 
 =Return Value=
 (none)
