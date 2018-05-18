@@ -31,9 +31,6 @@ Create Application with Invalid Application Name exceeeding 58 characters
 Create Application with Non-existing Project Name
                       NOK       ${OpenShift_Image}    From OpenShift Image Stream                     ${EMPTY}     Invalid            ${EMPTY}
 
-Create Application with Invalid Project Name i.e.
-                      NOK       ${OpenShift_Image}    From OpenShift Image Stream                     ${EMPTY}     Invalid            ${EMPTY}
-
 Create Application with Invalid advanced option
                       NOK       ${OpenShift_Image}    From OpenShift Image Stream                     ${EMPTY}     ${EMPTY}           Invalid
 
