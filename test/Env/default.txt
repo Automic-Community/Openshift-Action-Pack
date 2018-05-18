@@ -13,7 +13,7 @@ ${_AE_HOST}       @{AE}[1]
 ${_AE_PORT}       @{AE}[2]
 ${_AE_USER}       @{AE}[3]
 ${_AE_PASS}       @{AE}[4]
-${_AE_TEMP_FOLD}    TEST_OpenShift
+${_AE_TEMP_FOLD}    TEST_OPENSHIFT
 ${_PROMPTSET_AGENT_WIN}    @{Promptset_Overwrite_Agent_WIN}[0]
 ${_PROMPTSET_LOGIN_WIN}    @{Promptset_Overwrite_Agent_WIN}[1]
 ${_PROMPTSET_AGENT_UNIX}    @{Promptset_Overwrite_Agent_UNIX}[0]
