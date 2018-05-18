@@ -1,0 +1,63 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        get_resource
+Test Template     Get Resource Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    ResourceType        ResourceName        ProjectName
+Get Resource action with valid values passed in all fields
+                      [Tags]    main_scenarios
+                      OK        ${Resource_type}    ${Resource_Name}    ${Project_Name}
+
+Get Resource action with valid value in only mandatory Resource type field
+                      OK        ${Resource_type}    ${EMPTY}            ${EMPTY}
+
+Get Resource action with invalid value in only resource type field
+                      NOK       Invalid             ${EMPTY}            ${Project_Name}
+
+Get Resource action with invalid resource type but valid resource name as input
+                      NOK       Invalid             ${Resource_Name}    ${EMPTY}
+
+Mandatory assertion test for Get resource action when Resource Type is not provided
+                      NOK       ${EMPTY}            ${Resource_Name}    ${Project_Name}
+
+Get Resource action with valid Resource Type but invalid Resource Name
+                      NOK       ${Resource_type}    Invalid             ${EMPTY}
+
+Get Resource action with Invalid Project as input
+                      NOK       ${Resource_type}    ${Resource_Name}    Invalid
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "GET RESOURCE"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Get Resource Template
+    [Arguments]    ${OK_NOK}    ${ResourceType}    ${ResourceName}    ${ProjectName}
+    [Documentation]    This test get the resources information of the specified resource type
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${ResourceType}: This field specifies resource type for which all resource information will be fetched
+    ...    -${ResourceName}: This field specifies only one resource name for which resource information will be fetched
+    ...    -${ProjectName}: This field specifies the project name in which the resources are to be found
+    Generate String
+    Init Action    ${GET_RESOURCE}
+    Connect To OpenShift
+    Run Keyword If    '${ResourceType}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_RESOURCE_TYPE#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_RESOURCE_TYPE#    ${ResourceType}
+    Run Keyword If    '${ResourceName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_RESOURCE_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_RESOURCE_NAME#    ${ResourceName}
+    Run Keyword If    '${ProjectName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PROJECT#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_PROJECT#    ${ProjectName}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE    Assert Failure
+
+Teardown
+    Log    *******End Test "GET RESOURCE"*******
