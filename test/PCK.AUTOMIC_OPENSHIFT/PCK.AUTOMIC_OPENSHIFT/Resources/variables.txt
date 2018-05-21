@@ -11,7 +11,6 @@ ${Token}          ${EMPTY}
 ${Cert_Path}      ${EMPTY}
 ${Project_Name}    dummy1
 ${Advanced_Options}    --follow
-
 #----Create Resource----------------------------------------------------------------------------------------
 ${File_Path}      ${EXECDIR}\\resource.yaml
 ${File_Path_2}    ${EXECDIR}\\resource_2.yaml
@@ -37,6 +36,7 @@ ${Single_Key}     var1
 ${Multiple_Keys}    var_1,var_2
 #----Start Build-------------------------------------------------------------------------------------
 ${Buildconfig}    springdemoapp
+${Erroneous_Buildconfig}    error-app
 ${Build_Name}     springdemoapp-27
 #----Create Application from Image--------------------------------------------------------------------------------
 ${Docker_Image}    training/webapp
