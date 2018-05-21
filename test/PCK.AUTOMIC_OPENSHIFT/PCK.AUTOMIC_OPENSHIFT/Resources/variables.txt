@@ -37,7 +37,12 @@ ${Multiple_Keys}    var_1,var_2
 #----Start Build-------------------------------------------------------------------------------------
 ${Buildconfig}    springdemoapp
 ${Erroneous_Buildconfig}    error-app
-${Build_Name}     springdemoapp-27
+${Build_Name}     springdemoapp-43
+#----Check Build Completion-------------------------------------------------------------------------------------
+${Check_Build_Name}    ruby-ex-13
+${Initial_Wait_Time}    5
+${Retry_Count}    3
+${Retry_Interval}    10
 #----Create Application from Image--------------------------------------------------------------------------------
 ${Docker_Image}    training/webapp
 ${OpenShift_Image}    webapp
