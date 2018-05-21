@@ -10,7 +10,7 @@ ${OpenShift_Password}    NewPwd@00
 ${Token}          ${EMPTY}
 ${Cert_Path}      ${EMPTY}
 ${Project_Name}    dummy1
-${Advanced_Options}    --output=json
+${Advanced_Options}    --follow
 #----Create Resource----------------------------------------------------------------------------------------
 ${File_Path}      ${EXECDIR}\\resource.yaml
 ${File_Path_2}    ${EXECDIR}\\resource_2.yaml
@@ -34,6 +34,15 @@ ${Multiple_Key_Value_Pair}    var_1=demo1,var_2=demo2
 #----Unset Environment Variables-------------------------------------------------------------------------------------
 ${Single_Key}     var1
 ${Multiple_Keys}    var_1,var_2
+#----Start Build-------------------------------------------------------------------------------------
+${Buildconfig}    springdemoapp
+${Erroneous_Buildconfig}    error-app
+${Build_Name}     springdemoapp-43
+#----Check Build Completion-------------------------------------------------------------------------------------
+${Check_Build_Name}    ruby-ex-13
+${Initial_Wait_Time}    5
+${Retry_Count}    3
+${Retry_Interval}    10
 #----Create Application from Image--------------------------------------------------------------------------------
 ${Docker_Image}    training/webapp
 ${OpenShift_Image}    webapp
