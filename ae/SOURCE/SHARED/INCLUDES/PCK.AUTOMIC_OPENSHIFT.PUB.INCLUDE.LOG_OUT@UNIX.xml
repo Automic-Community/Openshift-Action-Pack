@@ -21,7 +21,9 @@ fi
 if [ "$execcode" -ne "0" ]
 then
     exit $execcode
-fi]]></MSCRI>
+fi
+
+: INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_FOOTER]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>

@@ -4,13 +4,13 @@ Resource          ../../../Env/default.txt
 *** Variables ***
 #---- Promptset Fields --------------------------------------------------------------------------------------
 #----Global Variables----------------------------------------------------------------------------------------
-${Server_URL}     https://console.starter-ca-central-1.openshift.com/
-${User_Name}      add_user_name
-${OpenShift_Password}    add_user_pass
-${Token}          add_token_here
-${Cert_Path}      add-certificate-path
-${Project_Name}    test-projects
-${Advanced_Options}    --output=json
+${Server_URL}     https://console.starter-ca-central-1.openshift.com
+${User_Name}      redhatankur
+${OpenShift_Password}    NewPwd@00
+${Token}          ${EMPTY}
+${Cert_Path}      ${EMPTY}
+${Project_Name}    dummy1
+${Advanced_Options}    --follow
 #----Create Resource----------------------------------------------------------------------------------------
 ${File_Path}      ${EXECDIR}\\resource.yaml
 ${File_Path_2}    ${EXECDIR}\\resource_2.yaml
@@ -25,14 +25,34 @@ ${Source_URL}     https://github.com/sumitsamson/springdemoapp.git
 ${App_Name}       myapp
 ${App_Advanced_Options}    --image-stream="openshift/wildfly:10.1"
 #----Expose Service-----------------------------------------------------------------------------------------------
-${Service_Name}    myapp
-${Srvc_Advanced_Options}    --dry-run
+${Service_Name}    springdemoapp
+${Srvc_Advanced_Options}    --dry-run=false
 #----Set Environment Variables-------------------------------------------------------------------------------------
 ${Resource_Name}    ruby-hello-world
 ${Single_Key_Value_Pair}    var199=demo test
 ${Multiple_Key_Value_Pair}    var_1=demo1,var_2=demo2
+#----Unset Environment Variables-------------------------------------------------------------------------------------
+${Single_Key}     var1
+${Multiple_Keys}    var_1,var_2
+#----Start Build-------------------------------------------------------------------------------------
+${Buildconfig}    springdemoapp
+${Erroneous_Buildconfig}    error-app
+${Build_Name}     springdemoapp-43
+#----Check Build Completion-------------------------------------------------------------------------------------
+${Check_Build_Name}    ruby-ex-13
+${Initial_Wait_Time}    5
+${Retry_Count}    3
+${Retry_Interval}    10
 #----Create Application from Image--------------------------------------------------------------------------------
 ${Docker_Image}    training/webapp
 ${OpenShift_Image}    webapp
 #----Create Buildconfig from Dockerfile---------------------------------------------------------------------------
 ${Dockerfile_Contents}    FROM centos:7${\n}RUN yum install -y httpd
+#----Create Buildconfig from App Source--------------------------------------------------------------------------------
+${Application_Source_URL}    https://github.com/sclorg/cakephp-ex
+#----Get Resource--------------------------------------------------------------------------------
+${Resource_type}    bc
+#----Create Application from Template--------------------------------------------------------------------------------
+${OpenShift_Template}    httpd-example
+${Local_Template}    ${EXECDIR}\\template.json
+
