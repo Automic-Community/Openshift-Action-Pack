@@ -1,0 +1,70 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        cancel_build
+Test Template     Cancel build Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    CancelOption                     BuildName                 AdvancedOptions        ProjectName
+Cancel Build action with valid values passed in all fields for cancel option as buildconfig
+                      [Tags]    main_scenarios
+                      OK        cancel by build configuration    ruby-ex                   ${Advanced_Options}    ${Project_Name}
+
+Cancel build action with valid values passed in all fields for cancel option as by build name with single build
+                      [Tags]    main_scenarios
+                      OK        cancel by build name             ${Single_build_name}      ${Advanced_Options}    ${Project_Name}
+
+Cancel build action with valid values passed in all fields for cancel option as by build name with single build
+                      [Tags]    main_scenarios
+                      OK        cancel by build name             ${Multiple_build_name}    ${Advanced_Options}    ${Project_Name}
+
+Mandatory assertion test for Cancel Build when Build Name is not provided
+                      NOK       buildconfig                      ${EMPTY}                  ${Advanced_Options}    ${EMPTY}
+
+Cancel build actrion with Invalid Build name with cancel option as build configuration
+                      OK        cancel by build configuration    Invalid                   ${EMPTY}               ${EMPTY}
+
+Cancel Build action with invalid build name and cancel optin as by build name
+                      NOK       cancel by build name             Invalid                   ${EMPTY}               ${EMPTY}
+
+Cancel build action with ivalid advanced options
+                      NOK       deploymentconfig                 ${Resource_Name}          Invalid                ${EMPTY}
+
+Cancel build action with Invalid Project name as input
+                      NOK       buildconfig                      ${Resource_Name}          ${Single_Key}          Invalid
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "CANCEL BUILD"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Cancel build Template
+    [Arguments]    ${OK_NOK}    ${CancelOption}    ${BuildName}    ${AdvancedOptions}    ${ProjectName}
+    [Documentation]    This test cancels a build in running,pending or new status
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${CancelOption}: This field specifies wether a build is to be cancelled by build name or from a build configuration
+    ...    -${BuildName}: This field specifies the name of build that is to be cancelled
+    ...    -${AdvancedOptions}: This field specifies any advanced options user may want to provide during build cancellation
+    ...    -${ProjectName}: This field specifies the project name in which the cancel build action has to be performed
+    Generate String
+    Init Action    ${CANCEL_BUILD}
+    Connect To OpenShift
+    Run Keyword If    '${BuildName}' == 'Invalid'    Action Unset    &UC4RB_OPENSHIFT_NAME#    ${Generated_Name}_${Time}    ELSE    Action Unset
+    ...    &UC4RB_OPENSHIFT_NAME#    ${BuildName}
+    Run Keyword If    '${AdvancedOptions}' == 'Invalid'    Action Unset    &UC4RB_OPENSHIFT_ADV_OPTS#    ${Generated_Name}_${Time}    ELSE    Action Unset
+    ...    &UC4RB_OPENSHIFT_ADV_OPTS#    ${AdvancedOptions}
+    Run Keyword If    '${ProjectName}' == 'Invalid'    Action Unset    &UC4RB_OPENSHIFT_PROJECT#    ${Generated_Name}_${Time}    ELSE    Action Unset
+    ...    &UC4RB_OPENSHIFT_PROJECT#    ${ProjectName}
+    Action Set    &UC4RB_OPENSHIFT_CANCEL_CHOICE#    ${CancelOption}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE    Assert Failure
+
+Teardown
+    Log    *******End Test "CANCEL BUILD"*******
