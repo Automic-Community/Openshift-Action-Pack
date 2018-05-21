@@ -57,7 +57,7 @@ Following actions are supported.
 * Action Description: This action starts a new build for the provided build config or copies an existing build.
 
 * Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CHECK_BUILD_STATUS
-* Action Description: This action checks the build status.
+* Action Description: This action checks the build completion status.
 
 * Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.GET_RESOURCE
 * Action Description: This action is used to get information about the specific resource.
@@ -76,7 +76,6 @@ Following actions are supported.
 
 * Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_APP_FROM_TEMPLATE
 * Action Description: This action creates an application using Openshift stored template or local template file.]]></DOC>
-
 </DOCU_Docu>
 </DOCU>
 </uc-export>

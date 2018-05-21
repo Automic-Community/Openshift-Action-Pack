@@ -459,7 +459,7 @@ If the build name is not printed in the job report
 Build name will not be published in case action fails in sync mode.
 
 =Return Value=
-(none)
+UC4RB_OPENSHIFT_BUILD_NAME : Name of the build generated
 
 = Outputs =
 * Return code is 0 in case of success.

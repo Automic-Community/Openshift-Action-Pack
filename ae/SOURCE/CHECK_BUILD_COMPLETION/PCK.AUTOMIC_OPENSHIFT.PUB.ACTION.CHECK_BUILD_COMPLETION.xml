@@ -103,7 +103,7 @@
 </PostCon>
 </postconditions>
 </task>
-<task Alias="GET_BUILD_STATUS" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.CHECK_BUILD_COMPLETION@WINDOWS" ParentAlias="" ParentObject="" Row="1" Text2="">
+<task Alias="CHECK_BUILD_COMPLETION" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.CHECK_BUILD_COMPLETION@WINDOWS" ParentAlias="" ParentObject="" Row="1" Text2="">
 <checkpoint RollbackFlag="0" RunPerPatch="0" RunPerTarget="0" TcpADays="0" TcpATime="00:00" TcpATimeTZ="" TcpExecute="" TcpOn="0" promptatgen="0" showprompt="0"/>
 <after ActFlg="1" AtimOn="0" ErlstStDays="0" ErlstStTime="00:00" ErlstStTimeTZ="" HoldFlg="0"/>
 <when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="1" WElseH="0" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
@@ -183,7 +183,7 @@
 </PostCon>
 </postconditions>
 </task>
-<task Alias="GET_BUILD_STATUS" BranchType="0" Col="2" Lnr="3" OType="JOBS" Object="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.CHECK_BUILD_COMPLETION@UNIX" ParentAlias="" ParentObject="" Row="3" Text2="">
+<task Alias="CHECK_BUILD_COMPLETION" BranchType="0" Col="2" Lnr="3" OType="JOBS" Object="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.CHECK_BUILD_COMPLETION@UNIX" ParentAlias="" ParentObject="" Row="3" Text2="">
 <checkpoint RollbackFlag="0" RunPerPatch="0" RunPerTarget="0" TcpADays="0" TcpATime="00:00" TcpATimeTZ="" TcpExecute="" TcpOn="0" promptatgen="0" showprompt="0"/>
 <after ActFlg="1" AtimOn="0" ErlstStDays="0" ErlstStTime="00:00" ErlstStTimeTZ="" HoldFlg="0"/>
 <when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="1" WElseH="0" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
@@ -459,7 +459,7 @@ User can provide -1 as retry count to try infinitely till it gets the end status
 (none)
 
 =Return Value=
-(none)
+UC4RB_OPENSHIFT_BUILD_STATUS : Variable holding the status
 
 = Outputs =
 * Return code is 0 in case of success.
