@@ -179,7 +179,7 @@
 
         if [ "$status_found" = true ]
         then
-          echo UC4RB_BUILD_STATUS::=$build_status
+          echo UC4RB_OPENSHIFT_BUILD_STATUS::=$build_status
         else
 
 :SWITCH  &UC4RB_OPENSHIFT_RETRY_COUNT#
@@ -199,7 +199,7 @@
                     done
                       if [ "$status_found" = true ]
                       then
-                         echo UC4RB_BUILD_STATUS::=$build_status
+                         echo UC4RB_OPENSHIFT_BUILD_STATUS::=$build_status
                          break
                       fi
 : IF  &UC4RB_OPENSHIFT_RETRY_INTERVAL# > 0
@@ -208,7 +208,7 @@
 : ENDIF
           done
 :  CASE 0
-         echo UC4RB_BUILD_STATUS::=$build_status
+         echo UC4RB_OPENSHIFT_BUILD_STATUS::=$build_status
 :  OTHER
         for((j=1;j<&UC4RB_OPENSHIFT_RETRY_COUNT#+1;j++));
                do
@@ -225,12 +225,12 @@
                     done
                       if [ "$status_found" = true ]
                       then
-                         echo UC4RB_BUILD_STATUS::=$build_status
+                         echo UC4RB_OPENSHIFT_BUILD_STATUS::=$build_status
                          break
                       else
                          if [ &UC4RB_OPENSHIFT_RETRY_COUNT# -eq $j ]
                          then
-                            echo UC4RB_BUILD_STATUS::=$build_status
+                            echo UC4RB_OPENSHIFT_BUILD_STATUS::=$build_status
                             break
                           fi
 : IF  &UC4RB_OPENSHIFT_RETRY_INTERVAL# > 0

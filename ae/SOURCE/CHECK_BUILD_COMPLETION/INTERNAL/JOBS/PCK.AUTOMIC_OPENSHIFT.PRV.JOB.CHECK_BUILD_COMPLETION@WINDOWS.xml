@@ -176,13 +176,13 @@ if "%ERRORLEVEL%" EQU "0" (
 
               for  %%B in (%LOOP_END_STATUS%) do (
                           if "%%~A" EQU "%%~B" (
-                             echo UC4RB_BUILD_STATUS::=%%~A							
+                             echo UC4RB_OPENSHIFT_BUILD_STATUS::=%%~A							
 							 goto LOOP_END
                     )
 
               )
 :IF &UC4RB_OPENSHIFT_RETRY_COUNT# EQ 0
-         echo UC4RB_BUILD_STATUS::=%%~A	
+         echo UC4RB_OPENSHIFT_BUILD_STATUS::=%%~A	
 :ENDIF
     )
 
@@ -195,7 +195,7 @@ if "%ERRORLEVEL%" EQU "0" (
                   for %%E in (%LOOP_END_STATUS%) do (
 
                       if "%%~D" EQU "%%~E" (
-					         echo UC4RB_BUILD_STATUS::=%%~D							
+					         echo UC4RB_OPENSHIFT_BUILD_STATUS::=%%~D							
 							 goto LOOP_END
                       )
                   )
@@ -218,14 +218,14 @@ if "%ERRORLEVEL%" EQU "0" (
                   for %%E in (%LOOP_END_STATUS%) do (
 
                       if "%%~D" EQU "%%~E" (
-					         echo UC4RB_BUILD_STATUS::=%%~D							
+					         echo UC4RB_OPENSHIFT_BUILD_STATUS::=%%~D							
 							 goto LOOP_END
                       )
                   )
 			
 			
                   if "&UC4RB_OPENSHIFT_RETRY_COUNT#" EQU "%%~x" (
-                             echo UC4RB_BUILD_STATUS::=%%~D							
+                             echo UC4RB_OPENSHIFT_BUILD_STATUS::=%%~D							
 							 goto LOOP_END
                   )
 			
