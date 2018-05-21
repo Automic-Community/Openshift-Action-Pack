@@ -438,7 +438,7 @@
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC><![CDATA[= Action name =
-PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.GET_BUILD_STATUS
+PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CHECK_BUILD_COMPLETION
 
 = General description =
 This action checks the build status to find the current state of the build.User may use retry to check the status repeatedly till it gets one of the end status (Complete, Failed, Cancelled, Error) or the retry count maximum limit is reached.
