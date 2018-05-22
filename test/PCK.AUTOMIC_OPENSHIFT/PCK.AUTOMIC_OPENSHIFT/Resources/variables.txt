@@ -10,7 +10,7 @@ ${OpenShift_Password}    NewPwd@00
 ${Token}          ${EMPTY}
 ${Cert_Path}      ${EMPTY}
 ${Project_Name}    dummy1
-${Advanced_Options}    --follow
+${Advanced_Options}    ${EMPTY}
 #----Create Resource----------------------------------------------------------------------------------------
 ${File_Path}      ${EXECDIR}\\resource.yaml
 ${File_Path_2}    ${EXECDIR}\\resource_2.yaml
@@ -56,5 +56,5 @@ ${Resource_type}    bc
 ${OpenShift_Template}    httpd-example
 ${Local_Template}    ${EXECDIR}\\template.json
 #----Cancel Build --------------------------------------------------------------------------------
-${Single_build_name}    ruby-ex-6
-${Multiple_build_name}    ruby-ex-7,ruby-ex-6
+${Single_build_name}    ruby-ex-12
+${Multiple_build_name}    ruby-ex-12,ruby-ex-13

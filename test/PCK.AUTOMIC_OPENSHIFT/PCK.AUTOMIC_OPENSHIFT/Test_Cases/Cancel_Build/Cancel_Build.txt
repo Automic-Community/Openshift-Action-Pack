@@ -14,30 +14,30 @@ Resource          ../../Resources/actions.txt
 *** Test Cases ***    OK_NOK    CancelOption                     BuildName                 AdvancedOptions        ProjectName
 Cancel Build action with valid values passed in all fields for cancel option as buildconfig
                       [Tags]    main_scenarios
-                      OK        cancel by build configuration    ruby-ex                   ${Advanced_Options}    ${Project_Name}
+                      OK        Cancel by build configuration    ruby-ex                   ${Advanced_Options}    ${Project_Name}
 
 Cancel build action with valid values passed in all fields for cancel option as by build name with single build
                       [Tags]    main_scenarios
-                      OK        cancel by build name             ${Single_build_name}      ${Advanced_Options}    ${Project_Name}
+                      OK        Cancel by build name             ${Single_build_name}      ${Advanced_Options}    ${Project_Name}
 
-Cancel build action with valid values passed in all fields for cancel option as by build name with single build
+Cancel build action with valid values passed in all fields for cancel option as by build name with multiple builds
                       [Tags]    main_scenarios
-                      OK        cancel by build name             ${Multiple_build_name}    ${Advanced_Options}    ${Project_Name}
+                      OK        Cancel by build name             ${Multiple_build_name}    ${Advanced_Options}    ${Project_Name}
 
 Mandatory assertion test for Cancel Build when Build Name is not provided
-                      NOK       buildconfig                      ${EMPTY}                  ${Advanced_Options}    ${EMPTY}
+                      NOK       Cancel by build configuration    ${EMPTY}                  ${Advanced_Options}    ${EMPTY}
 
 Cancel build actrion with Invalid Build name with cancel option as build configuration
-                      OK        cancel by build configuration    Invalid                   ${EMPTY}               ${EMPTY}
+                      OK        Cancel by build configuration    Invalid                   ${EMPTY}               ${EMPTY}
 
 Cancel Build action with invalid build name and cancel optin as by build name
-                      NOK       cancel by build name             Invalid                   ${EMPTY}               ${EMPTY}
+                      NOK       Cancel by build name             Invalid                   ${EMPTY}               ${EMPTY}
 
 Cancel build action with ivalid advanced options
-                      NOK       deploymentconfig                 ${Resource_Name}          Invalid                ${EMPTY}
+                      NOK       Cancel by build name             ${Resource_Name}          Invalid                ${EMPTY}
 
 Cancel build action with Invalid Project name as input
-                      NOK       buildconfig                      ${Resource_Name}          ${Single_Key}          Invalid
+                      NOK       Cancel by build name             ${Resource_Name}          ${Single_Key}          Invalid
 
 *** Keywords ***
 Startup
@@ -56,11 +56,11 @@ Cancel build Template
     Generate String
     Init Action    ${CANCEL_BUILD}
     Connect To OpenShift
-    Run Keyword If    '${BuildName}' == 'Invalid'    Action Unset    &UC4RB_OPENSHIFT_NAME#    ${Generated_Name}_${Time}    ELSE    Action Unset
+    Run Keyword If    '${BuildName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OPENSHIFT_NAME#    ${BuildName}
-    Run Keyword If    '${AdvancedOptions}' == 'Invalid'    Action Unset    &UC4RB_OPENSHIFT_ADV_OPTS#    ${Generated_Name}_${Time}    ELSE    Action Unset
+    Run Keyword If    '${AdvancedOptions}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_ADV_OPTS#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OPENSHIFT_ADV_OPTS#    ${AdvancedOptions}
-    Run Keyword If    '${ProjectName}' == 'Invalid'    Action Unset    &UC4RB_OPENSHIFT_PROJECT#    ${Generated_Name}_${Time}    ELSE    Action Unset
+    Run Keyword If    '${ProjectName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PROJECT#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OPENSHIFT_PROJECT#    ${ProjectName}
     Action Set    &UC4RB_OPENSHIFT_CANCEL_CHOICE#    ${CancelOption}
     Action Execute
