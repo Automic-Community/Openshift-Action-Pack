@@ -46,6 +46,8 @@ ${Retry_Interval}    10
 #----Create Application from Image--------------------------------------------------------------------------------
 ${Docker_Image}    training/webapp
 ${OpenShift_Image}    webapp
+#----Create Buildconfig from Dockerfile---------------------------------------------------------------------------
+${Dockerfile_Contents}    FROM centos:7${\n}RUN yum install -y httpd
 #----Create Buildconfig from App Source--------------------------------------------------------------------------------
 ${Application_Source_URL}    https://github.com/sclorg/cakephp-ex
 #----Get Resource--------------------------------------------------------------------------------
@@ -53,3 +55,4 @@ ${Resource_type}    bc
 #----Create Application from Template--------------------------------------------------------------------------------
 ${OpenShift_Template}    httpd-example
 ${Local_Template}    ${EXECDIR}\\template.json
+
