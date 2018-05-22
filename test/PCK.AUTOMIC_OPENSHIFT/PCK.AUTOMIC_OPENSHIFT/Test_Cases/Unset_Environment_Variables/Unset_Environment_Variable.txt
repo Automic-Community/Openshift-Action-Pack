@@ -1,3 +1,16 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        unset_environment_variables
+Test Template     Unset Environment Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
 *** Test Cases ***    OK_NOK    ResourceType        ResourceName        Keys                ProjectName
 Unset Environment Variable action with valid values passed in all fields for resource type buildconfig
                       [Tags]    main_scenarios
@@ -33,31 +46,31 @@ Unset Environment Variable action with Invalid Project
 
 *** Keywords ***
 Startup
-    Log    *******Start Test "UNSET ENVIRONMENT VARIABLE"*******
+    Log    *******Start Test "UNSET ENVIRONMENT VARIABLES"*******
     Log    *******Connect to AE*******
     Connect AE
 
 Unset Environment Template
     [Arguments]    ${OK_NOK}    ${ResourceType}    ${ResourceName}    ${Keys}    ${ProjectName}
-    [Documentation]    This test exposes a services in the project
+    [Documentation]    This test will remove environment variables form config files in a project
     ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
-    ...    -${ResourceType}: This field specifies resource type for which variable/s will be create or updated
-    ...    -${ResourceName}: This field specifies the name of selected resource type in which environment variable/s will be updated.
-    ...    -${Keys}: This field specifies the variable/s that will be updated in a key-value format.
+    ...    -${ResourceType}: This field specifies resource type for which variable/s will be removed
+    ...    -${ResourceName}: This field specifies the name of selected resource type in which environment variable/s will be removed.
+    ...    -${Keys}: This field specifies the variable/s that will be updated in a single or multiple keys format.
     ...    -${ProjectName}: This field specifies the project name in which the resources environment variables need change
     Generate String
-    Init Action    ${UNSET_ENV_VARIABLE}
+    Init Action    ${UNSET_ENV_VARIABLES}
     Connect To OpenShift
-    Run Keyword If    '${ResourceType}' == 'Invalid'    Action Unset    &UC4RB_OPENSHIFT_RESOURCE_TYPE#    ${Generated_Name}_${Time}    ELSE    Action Unset
+    Run Keyword If    '${ResourceType}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_RESOURCE_TYPE#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OPENSHIFT_RESOURCE_TYPE#    ${ResourceType}
-    Run Keyword If    '${ResourceName}' == 'Invalid'    Action Unset    &UC4RB_OPENSHIFT_RESOURCE_NAME#    ${Generated_Name}_${Time}    ELSE    Action Unset
+    Run Keyword If    '${ResourceName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_RESOURCE_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OPENSHIFT_RESOURCE_NAME#    ${ResourceName}
-    Run Keyword If    '${Keys}' == 'Invalid'    Action Unset    &UC4RB_OPENSHIFT_KEYS#    ${Generated_Name}_${Time}    ELSE    Action Unset
+    Run Keyword If    '${Keys}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_KEYS#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OPENSHIFT_KEYS#    ${Keys}
-    Run Keyword If    '${ProjectName}' == 'Invalid'    Action Unset    &UC4RB_OPENSHIFT_PROJECT#    ${Generated_Name}_${Time}    ELSE    Action Unset
+    Run Keyword If    '${ProjectName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PROJECT#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OPENSHIFT_PROJECT#    ${ProjectName}
     Action Execute
     Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE    Assert Failure
 
 Teardown
-    Log    *******End Test "UNSET ENVIRONMENT VARIABLE"*******
+    Log    *******End Test "UNSET ENVIRONMENT VARIABLES"*******
