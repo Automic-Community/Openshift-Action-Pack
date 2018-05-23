@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBP AllowExternal="1" name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.UNSET_ENVIRONMENT_VARIABLES">
+<JOBP AllowExternal="1" name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CHECK_BUILD_COMPLETION">
 <XHEADER state="1">
-<Title>Unset Environment Variables</Title>
+<Title>Check build completion</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <Active>1</Active>
@@ -65,13 +65,14 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">
-<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">
-<UC4RB_OPENSHIFT_KEYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_KEY#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
-<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
-<UC4RB_OPENSHIFT_RESOURCE_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
-<UC4RB_OPENSHIFT_RESOURCE_TYPEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_TYPE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">buildconfig</UC4RB_OPENSHIFT_RESOURCE_TYPEs.00>
+<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION">
+<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION">
+<UC4RB_OPENSHIFT_BUILD_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_BUILD_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION"/>
+<UC4RB_OPENSHIFT_RETRY_COUNTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RETRY_COUNT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION">10</UC4RB_OPENSHIFT_RETRY_COUNTs.00>
+<UC4RB_OPENSHIFT_RETRY_INTERVALs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RETRY_INTERVAL#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION">120</UC4RB_OPENSHIFT_RETRY_INTERVALs.00>
+<UC4RB_OPENSHIFT_WAITs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_WAIT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION">5</UC4RB_OPENSHIFT_WAITs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -102,7 +103,7 @@
 </PostCon>
 </postconditions>
 </task>
-<task Alias="UNSET_ENVIRONMENT_VARIABLES" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.UNSET_ENVIRONMENT_VARIABLES@WINDOWS" ParentAlias="" ParentObject="" Row="1" Text2="">
+<task Alias="CHECK_BUILD_COMPLETION" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.CHECK_BUILD_COMPLETION@WINDOWS" ParentAlias="" ParentObject="" Row="1" Text2="">
 <checkpoint RollbackFlag="0" RunPerPatch="0" RunPerTarget="0" TcpADays="0" TcpATime="00:00" TcpATimeTZ="" TcpExecute="" TcpOn="0" promptatgen="0" showprompt="0"/>
 <after ActFlg="1" AtimOn="0" ErlstStDays="0" ErlstStTime="00:00" ErlstStTimeTZ="" HoldFlg="0"/>
 <when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="1" WElseH="0" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
@@ -144,13 +145,14 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">
-<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">
-<UC4RB_OPENSHIFT_KEYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_KEY#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
-<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
-<UC4RB_OPENSHIFT_RESOURCE_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
-<UC4RB_OPENSHIFT_RESOURCE_TYPEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_TYPE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">buildconfig</UC4RB_OPENSHIFT_RESOURCE_TYPEs.00>
+<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION">
+<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION">
+<UC4RB_OPENSHIFT_BUILD_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_BUILD_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION"/>
+<UC4RB_OPENSHIFT_RETRY_COUNTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RETRY_COUNT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION">10</UC4RB_OPENSHIFT_RETRY_COUNTs.00>
+<UC4RB_OPENSHIFT_RETRY_INTERVALs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RETRY_INTERVAL#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION">120</UC4RB_OPENSHIFT_RETRY_INTERVALs.00>
+<UC4RB_OPENSHIFT_WAITs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_WAIT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION">5</UC4RB_OPENSHIFT_WAITs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -181,7 +183,7 @@
 </PostCon>
 </postconditions>
 </task>
-<task Alias="UNSET_ENVIRONMENT_VARIABLES" BranchType="0" Col="2" Lnr="3" OType="JOBS" Object="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.UNSET_ENVIRONMENT_VARIABLES@UNIX" ParentAlias="" ParentObject="" Row="3" Text2="">
+<task Alias="CHECK_BUILD_COMPLETION" BranchType="0" Col="2" Lnr="3" OType="JOBS" Object="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.CHECK_BUILD_COMPLETION@UNIX" ParentAlias="" ParentObject="" Row="3" Text2="">
 <checkpoint RollbackFlag="0" RunPerPatch="0" RunPerTarget="0" TcpADays="0" TcpATime="00:00" TcpATimeTZ="" TcpExecute="" TcpOn="0" promptatgen="0" showprompt="0"/>
 <after ActFlg="1" AtimOn="0" ErlstStDays="0" ErlstStTime="00:00" ErlstStTimeTZ="" HoldFlg="0"/>
 <when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="1" WElseH="0" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
@@ -223,13 +225,14 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">
-<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">
-<UC4RB_OPENSHIFT_KEYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_KEY#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
-<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
-<UC4RB_OPENSHIFT_RESOURCE_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
-<UC4RB_OPENSHIFT_RESOURCE_TYPEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_TYPE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">buildconfig</UC4RB_OPENSHIFT_RESOURCE_TYPEs.00>
+<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION">
+<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION">
+<UC4RB_OPENSHIFT_BUILD_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_BUILD_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION"/>
+<UC4RB_OPENSHIFT_RETRY_COUNTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RETRY_COUNT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION">10</UC4RB_OPENSHIFT_RETRY_COUNTs.00>
+<UC4RB_OPENSHIFT_RETRY_INTERVALs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RETRY_INTERVAL#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION">120</UC4RB_OPENSHIFT_RETRY_INTERVALs.00>
+<UC4RB_OPENSHIFT_WAITs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_WAIT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION">5</UC4RB_OPENSHIFT_WAITs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -289,13 +292,14 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">
-<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">
-<UC4RB_OPENSHIFT_KEYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_KEY#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
-<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
-<UC4RB_OPENSHIFT_RESOURCE_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES"/>
-<UC4RB_OPENSHIFT_RESOURCE_TYPEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_TYPE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES">buildconfig</UC4RB_OPENSHIFT_RESOURCE_TYPEs.00>
+<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION">
+<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION">
+<UC4RB_OPENSHIFT_BUILD_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_BUILD_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION"/>
+<UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION"/>
+<UC4RB_OPENSHIFT_RETRY_COUNTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RETRY_COUNT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION">10</UC4RB_OPENSHIFT_RETRY_COUNTs.00>
+<UC4RB_OPENSHIFT_RETRY_INTERVALs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RETRY_INTERVAL#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION">120</UC4RB_OPENSHIFT_RETRY_INTERVALs.00>
+<UC4RB_OPENSHIFT_WAITs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_WAIT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION">5</UC4RB_OPENSHIFT_WAITs.00>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -383,12 +387,13 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" parent="PRPTS" type="PROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" ontop="1">
-<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.UNSET_ENVIRONMENT_VARIABLES" prptmode="1">
-<UC4RB_OPENSHIFT_RESOURCE_TYPEs.00 altview="0" haslist="0">buildconfig</UC4RB_OPENSHIFT_RESOURCE_TYPEs.00>
-<UC4RB_OPENSHIFT_RESOURCE_NAMEs.00 altview="0" haslist="0"/>
-<UC4RB_OPENSHIFT_KEYs.00 altview="0" haslist="0"/>
+<node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION" parent="PRPTS" type="PROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION" ontop="1">
+<PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.CHECK_BUILD_COMPLETION" prptmode="1">
+<UC4RB_OPENSHIFT_BUILD_NAMEs.00 altview="0" haslist="0"/>
+<UC4RB_OPENSHIFT_WAITs.00 altview="0" haslist="0">5</UC4RB_OPENSHIFT_WAITs.00>
+<UC4RB_OPENSHIFT_RETRY_COUNTs.00 altview="0" haslist="0">10</UC4RB_OPENSHIFT_RETRY_COUNTs.00>
+<UC4RB_OPENSHIFT_RETRY_INTERVALs.00 altview="0" haslist="0">120</UC4RB_OPENSHIFT_RETRY_INTERVALs.00>
 <UC4RB_OPENSHIFT_PROJECTs.00 altview="0" haslist="0"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -433,24 +438,28 @@
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC><![CDATA[= Action name =
-PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.UNSET_ENVIRONMENT_VARIABLES
+PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CHECK_BUILD_COMPLETION
 
 = General description =
-This action is used to remove environment variables from build config or deployment config in the specified project.
+This action checks the build status to find the current state of the build.User may use retry to check the status repeatedly till it gets one of the end status (Complete, Failed, Cancelled, Error) or the retry count maximum limit is reached.
+User can provide -1 as retry count to try infinitely till it gets the end status (Complete, Failed, Cancelled, Error)
 
 = Failure Conditions =
-* If the user provides invalid resource name.
-* If the specified project does not exist.
+* If build status not found in the job report
 
 = Inputs =
-* Resource Type*:           Select the resource for which you would like to unset the variable(s). E.g. buildconfig
-* Resource Name*:         Provide the name of the selected deployment configuration or build configuration. E.g. MySQL
-* Key*:                             Provide the keys of the variables you would like to unset separated by a comma. The maximum number of keys to unset at a time is 50. E.g. KEY_1,KEY_2,..,KEY_N.
-* Project :                        Specify the project name in which you want to execute this action. If not provided, the default project will be used. E.g. spartan
+
+* Build name *				  : Specify the build name. E.g myappbuild-1.
+* Initial waiting time			  : Specify the waiting time (in seconds) before the initial attempt to retrieve the build status.
+* Retry count				  : Specify the number of retry attempts. -1 means action tries infinitely till gets one of the end status i.e Completed ,Error, Failed ,Cancelled
+* Retry interval		          : Specify the waiting time (in seconds) in between the attempts to retrieve the build status.
+* Project				          : Specify the project name in which you want to get build status. If not provided, the default project will be used. E.g spartan.
 
 = Behavior =
-* The user can provide multiple keys at a time & If more than 50 keys are provided, it will unset the only first 50 keys and rest will be ignored.
-* If the user provides a non-existing key, action will pass.
+(none)
+
+=Return Value=
+UC4RB_OPENSHIFT_BUILD_STATUS : Variable holding the status
 
 = Outputs =
 * Return code is 0 in case of success.
@@ -462,13 +471,7 @@ This action is used to remove environment variables from build config or deploym
 = Logging =
 AE logs will be displayed in the AE report.
 
-= Example =
-Resource Type*:                  buildconfig
-Resource Name*:               mysql
-Key*:                                   KEY_1,KEY_2
-Project :                              spartan
-
-]]></DOC>
+= Example =]]></DOC>
 </DOCU_Docu>
 </JOBP>
 </uc-export>

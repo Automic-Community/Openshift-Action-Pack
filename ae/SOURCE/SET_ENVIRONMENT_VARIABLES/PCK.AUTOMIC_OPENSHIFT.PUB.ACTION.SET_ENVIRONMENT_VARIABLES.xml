@@ -452,6 +452,8 @@ This action is used to update environment variables in a build config or deploym
 = Behavior =
 * In the environment variables from the resource, if there is an existing key in that case, it will update the previous key with new value
 * A valid environment variable name is an alphanumeric(a-z and 0-9) string beginning with a letter that may contain an underscore.
+* If more than 50 key-value pairs are provided, it will set the only first 50 key-value pairs and rest will be ignored.
+* If any key-value pair contains ',' then the action will fail.
 
 = Outputs =
 * Return code is 0 in case of success.

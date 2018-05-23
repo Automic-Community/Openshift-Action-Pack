@@ -46,7 +46,7 @@ Set Environment Variable action with Invalid Project
 
 *** Keywords ***
 Startup
-    Log    *******Start Test "SET ENVIRONMENT VARIABLE"*******
+    Log    *******Start Test "SET ENVIRONMENT VARIABLES"*******
     Log    *******Connect to AE*******
     Connect AE
 
@@ -59,7 +59,7 @@ Set Environment Template
     ...    -${KeyValuePair}: This field specifies the variable/s that will be updated in a key-value format.
     ...    -${ProjectName}: This field specifies the project name in which the resources environment variables need change
     Generate String
-    Init Action    ${SET_ENV_VARIABLE}
+    Init Action    ${SET_ENV_VARIABLES}
     Connect To OpenShift
     Run Keyword If    '${ResourceType}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_RESOURCE_TYPE#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OPENSHIFT_RESOURCE_TYPE#    ${ResourceType}
@@ -73,4 +73,4 @@ Set Environment Template
     Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE    Assert Failure
 
 Teardown
-    Log    *******End Test "SET ENVIRONMENT VARIABLE"*******
+    Log    *******End Test "SET ENVIRONMENT VARIABLES"*******
