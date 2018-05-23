@@ -101,7 +101,7 @@
 </PostCon>
 </postconditions>
 </task>
-<task Alias="" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.GET_BUILD_STATUS@WINDOWS" ParentAlias="" ParentObject="" Row="1" Text2="">
+<task Alias="GET_BUILD_STATUS" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.GET_BUILD_STATUS@WINDOWS" ParentAlias="" ParentObject="" Row="1" Text2="">
 <checkpoint RollbackFlag="0" RunPerPatch="0" RunPerTarget="0" TcpADays="0" TcpATime="00:00" TcpATimeTZ="" TcpExecute="" TcpOn="0" promptatgen="0" showprompt="0"/>
 <after ActFlg="1" AtimOn="0" ErlstStDays="0" ErlstStTime="00:00" ErlstStTimeTZ="" HoldFlg="0"/>
 <when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="1" WElseH="0" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
@@ -126,7 +126,7 @@
 <node content="1" id="PVALUE" name="Parent Variables" parent="" type="TASKVALUE">
 <VALUE state="2">
 <Values/>
-<Mode>0</Mode>
+<Mode>1</Mode>
 </VALUE>
 </node>
 <node content="1" id="PRPTS" name="PromptSets" parent="" pref="1" type="PROMPTSET"/>
@@ -179,7 +179,7 @@
 </PostCon>
 </postconditions>
 </task>
-<task Alias="" BranchType="0" Col="2" Lnr="3" OType="JOBS" Object="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.GET_BUILD_STATUS@UNIX" ParentAlias="" ParentObject="" Row="3" Text2="">
+<task Alias="GET_BUILD_STATUS" BranchType="0" Col="2" Lnr="3" OType="JOBS" Object="PCK.AUTOMIC_OPENSHIFT.PRV.JOB.GET_BUILD_STATUS@UNIX" ParentAlias="" ParentObject="" Row="3" Text2="">
 <checkpoint RollbackFlag="0" RunPerPatch="0" RunPerTarget="0" TcpADays="0" TcpATime="00:00" TcpATimeTZ="" TcpExecute="" TcpOn="0" promptatgen="0" showprompt="0"/>
 <after ActFlg="1" AtimOn="0" ErlstStDays="0" ErlstStTime="00:00" ErlstStTimeTZ="" HoldFlg="0"/>
 <when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="1" WElseH="0" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
@@ -204,7 +204,7 @@
 <node content="1" id="PVALUE" name="Parent Variables" parent="" type="TASKVALUE">
 <VALUE state="2">
 <Values/>
-<Mode>0</Mode>
+<Mode>1</Mode>
 </VALUE>
 </node>
 <node content="1" id="PRPTS" name="PromptSets" parent="" pref="1" type="PROMPTSET"/>
@@ -364,7 +364,7 @@
 <node content="1" id="VALUE" name="Variables" parent="" type="VALUE">
 <VALUE state="1">
 <Values/>
-<Mode>0</Mode>
+<Mode>1</Mode>
 </VALUE>
 </node>
 <node content="1" id="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS" name="PCK.AUTOMIC_OPENSHIFT.PUB.PROMPTSET.CONNECTION_DETAILS" parent="PRPTS" type="PROMPTSET">
@@ -427,7 +427,36 @@
 <MSCRI/>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[= Action name =
+PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.GET_BUILD_STATUS
+
+= General description =
+This action will be used to get the status of the specified build.
+
+= Failure Conditions =
+* If the user provides invalid project name.
+* if the user provides invalid Build name.
+
+= Inputs =
+
+* Build name*				: Specify a build name.E.g. demo-17    
+* Advanced Options	        : Provide other options which will be used while fetching the status.E.g. -o json
+* Project				        : Specify the project name in which you want to cancel build. If not provided, the default project will be used.E.g. test-project
+
+=Return Value=
+UC4RB_OPENSHIFT_BUILD_STATUS: Build Status
+
+= Outputs =
+* Return code is 0 in case of success.
+* Return code is non-zero in case of failure.
+
+= Rollback =
+(none)
+
+= Logging =
+AE logs will be displayed in the AE report.
+
+= Example =]]></DOC>
 </DOCU_Docu>
 </JOBP>
 </uc-export>
