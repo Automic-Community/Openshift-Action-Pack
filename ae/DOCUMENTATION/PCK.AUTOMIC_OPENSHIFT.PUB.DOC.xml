@@ -69,8 +69,10 @@ Following actions are supported.
 * Action Description: This action creates a build configuration using application source code.
 
 * Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_APP_FROM_TEMPLATE
-* Action Description: This action creates an application using Openshift stored template or local template file.]]></DOC>
+* Action Description: This action creates an application using Openshift stored template or local template file.
 
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.GET_BUILD_STATUS
+* Action Description: This action is used to get the status of the specified build.]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
