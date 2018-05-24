@@ -127,10 +127,6 @@
 
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 
-!----------------------------------------------- Status messages -------------------------------------------
-:SET &UC4RB_LOGGING_INFO# = "******** GET BUILD STATUS ACTION EXECUTED SUCCESSFULLY ********"
-:SET &UC4RB_LOGGING_ERROR# = "******** GET BUILD STATUS ACTION FAILED ********"
-
 !----------------------------------------------- Get Build status --------------------------------
 
 :INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.PREPARE_CMD@Unix
@@ -151,46 +147,23 @@
 : SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " -o template --template={{.status.phase}}")
 :PRINT "Get Build status: &UC4RB_OPENSHIFT_CMD#"
 build_status=`&UC4RB_OPENSHIFT_CMD#`
+!----------------------------------------------- Status messages -------------------------------------------
+:SET &UC4RB_LOGGING_INFO# = "******** GET BUILD STATUS ACTION EXECUTED SUCCESSFULLY ********"
+:SET &UC4RB_LOGGING_ERROR# = "******** GET BUILD STATUS ACTION FAILED ********"
 
-!Error handling
-  execcode=$?
-  if [ $execcode -eq 0 ]
-  then
-        echo "Status fetched :$build_status"
-        ## declare status array
-        status_array=(Complete Failed Error Cancelled)
-        status_found=false
+execcode=$?
+if [ $execcode -eq 0 ]
+then
+    echo "UC4RB_OPENSHIFT_BUILD_STATUS::="$build_status
+else
+:  INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
+  exit $execcode
+fi
+:  PRINT "Log out from openshift"
+   &UC4RB_OPENSHIFT_LOGOUT_CMD#
 
-        for status in "${status_array[@]}"
-        do
-            if [ "$status" == "$build_status" ]
-            then
-               status_found=true
-               break
-            fi
-        done
-
-        if [ "$status_found" = true ]
-        then
-          echo UC4RB_OPENSHIFT_BUILD_STATUS::=$build_status
-:         INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.INFO
-        fi
-
-   else
-:          INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
-   fi
-: PRINT "Log out from openshift"
-  &UC4RB_OPENSHIFT_LOGOUT_CMD#
-
- if [ "$execcode" -ne "0" ]
- then
-    exit $execcode
- fi
 !------------------- Check Build Completion -end  --------------------------------
 : INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_FOOTER
-
-
-
 ]]></MSCRI>
 </SCRIPT>
 <OUTPUTSCAN state="1">
@@ -208,15 +181,15 @@ build_status=`&UC4RB_OPENSHIFT_CMD#`
 :      SET &KEY# = GET_PROCESS_LINE(&HND#,1)
 :      SET &VALUE# = GET_PROCESS_LINE(&HND#,2)
 :      IF &KEY# EQ "UC4RB_OPENSHIFT_BUILD_STATUS"
-:        PRINT "setting"
 :         SET &UC4RB_OPENSHIFT_BUILD_STATUS# = &VALUE#
 :      ENDIF
 :    ENDPROCESS
 :    CLOSE_PROCESS &HND#
 :ENDIF
-:PUBLISH &UC4RB_OPENSHIFT_BUILD_STATUS#
+:INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.DELETE_TMP_DIR
 
-:INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.DELETE_TMP_DIR]]></OSCRI>
+:PUBLISH &UC4RB_OPENSHIFT_BUILD_STATUS#,,"WORKFLOW"
+]]></OSCRI>
 </POST_SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>

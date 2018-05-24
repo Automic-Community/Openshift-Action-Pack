@@ -431,7 +431,7 @@
 PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.GET_BUILD_STATUS
 
 = General description =
-This action will be used to get the status of the specified build.
+This action retrieves status for provided build name. Possible statuses for a build can be Pending, Error, Complete, New, Cancelled, Running, Failed.
 
 = Failure Conditions =
 * If the user provides invalid project name.
