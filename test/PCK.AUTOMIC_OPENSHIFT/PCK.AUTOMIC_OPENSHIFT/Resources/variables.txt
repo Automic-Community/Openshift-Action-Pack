@@ -4,9 +4,9 @@ Resource          ../../../Env/default.txt
 *** Variables ***
 #---- Promptset Fields --------------------------------------------------------------------------------------
 #----Global Variables----------------------------------------------------------------------------------------
-${Server_URL}     https://console.starter-ca-central-1.openshift.com
-${User_Name}      redhatankur
-${OpenShift_Password}    NewPwd@00
+${Server_URL}     https://192.168.99.100:8443
+${User_Name}      admin
+${OpenShift_Password}    admin
 ${Token}          ${EMPTY}
 ${Cert_Path}      ${EMPTY}
 ${Project_Name}    dummy1
@@ -47,7 +47,7 @@ ${Retry_Interval}    10
 ${Docker_Image}    training/webapp
 ${OpenShift_Image}    webapp
 #----Create Buildconfig from Dockerfile---------------------------------------------------------------------------
-${Dockerfile_Contents}    FROM centos:7${\n}RUN yum install -y httpd
+${Dockerfile_Contents}    FROM centos:7\\nRUN yum install -y httpd
 #----Create Buildconfig from App Source--------------------------------------------------------------------------------
 ${Application_Source_URL}    https://github.com/sclorg/cakephp-ex
 #----Get Resource--------------------------------------------------------------------------------
