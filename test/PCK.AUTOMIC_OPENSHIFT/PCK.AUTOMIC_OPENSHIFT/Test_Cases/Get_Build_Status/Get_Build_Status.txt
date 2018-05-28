@@ -12,7 +12,7 @@ Resource          ../../Resources/variables.txt
 Resource          ../../Resources/actions.txt
 
 *** Test Cases ***    OK_NOK    BuildName         AdvancedOptions        ProjectName
-Get Build Status for a specific project with adavanced options
+Get Build Status for a specific project with advanced options
                       [Tags]    main_scenarios
                       OK        ${Build_Name}     ${Advanced_Options}    ${Project_Name}
 
