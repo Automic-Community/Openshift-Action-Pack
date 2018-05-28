@@ -456,7 +456,10 @@ UC4RB_OPENSHIFT_BUILD_STATUS: Build Status
 = Logging =
 AE logs will be displayed in the AE report.
 
-= Example =]]></DOC>
+= Example =
+* Build name*	                          : demo-17
+*Advanced Options                   : -o json
+*Project                                     : spartan]]></DOC>
 </DOCU_Docu>
 </JOBP>
 </uc-export>

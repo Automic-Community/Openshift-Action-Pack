@@ -138,6 +138,13 @@
 :   PRINT "Project scope has been changed. You are currently working in project &UC4RB_OPENSHIFT_PROJECT#"
 :ENDIF
 
+
+!----------------------------------------------- Check Build Completion -end  --------------------------------
+!Status messages
+:SET &UC4RB_LOGGING_INFO# = "******** GET BUILD STATUS ACTION EXECUTED SUCCESSFULLY ********"
+:SET &UC4RB_LOGGING_ERROR# = "******** GET BUILD STATUS ACTION FAILED ********"
+
+
 !----------------------------------------------- Get Build status --------------------------------
 
 : SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#," get builds ")
@@ -148,7 +155,6 @@
 :IF &UC4RB_OPENSHIFT_ADV_OPTS# NE ""
 :  SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " &UC4RB_OPENSHIFT_ADV_OPTS#")
 :ENDIF
-
 : SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " -o template --template={{.status.phase}}")
 
 : SET &LEN# = STR_LENGTH(&AGENT_TEMPDIR#)
@@ -160,9 +166,6 @@
 :PRINT "Get Build status: &UC4RB_OPENSHIFT_CMD#"
 &UC4RB_OPENSHIFT_CMD# > "&UC4RB_BUILD_STATUS_FILE#"
 
-
-
-set LOOP_END_STATUS=Complete Failed Error Cancelled
 if "%ERRORLEVEL%" EQU "0" (
     for /F %%A in (&UC4RB_BUILD_STATUS_FILE#) do (
 
@@ -171,16 +174,18 @@ if "%ERRORLEVEL%" EQU "0" (
     )
 )
 
+@set retcode=%errorlevel%
 
-
-!----------------------------------------------- Check Build Completion -end  --------------------------------
-!Status messages
-:SET &UC4RB_LOGGING_INFO# = "******** GET BUILD STATUS ACTION EXECUTED SUCCESSFULLY ********"
-:SET &UC4RB_LOGGING_ERROR# = "******** GET BUILD STATUS ACTION FAILED ********"
-
-!------------------------------------------ LOG OUT ----------------------------------------------------
-: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_OUT@WIN
-
+!Error handling
+IF %ERRORLEVEL% EQU 0 (
+:INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.INFO
+)ELSE (
+:SET &UC4RB_LOGGING_STRING# = "ERROR:"
+echo "&UC4RB_LOGGING_STRING# &UC4RB_LOGGING_ERROR#"
+)
+:PRINT "Loging out from openshift"
+&UC4RB_OPENSHIFT_LOGOUT_CMD#
+@if NOT %retcode% == 0 goto :retcode
 ]]></MSCRI>
 </SCRIPT>
 <OUTPUTSCAN state="1">
@@ -190,24 +195,7 @@ if "%ERRORLEVEL%" EQU "0" (
 <LoginFsc/>
 </OUTPUTSCAN>
 <POST_SCRIPT mode="1" replacementmode="1" state="1">
-<OSCRI><![CDATA[:SET &UC4RB_OPENSHIFT_BUILD_STATUS# = ""
-:SET &STATUS# = GET_UC_OBJECT_STATUS(,,"RETCODE")
-:IF &STATUS# EQ 0
-:    SET &HND# = PREP_PROCESS_REPORT("JOBS",, "REP","UC4RB_OPENSHIFT_BUILD_STATUS*","COL=DELIMITER", 'DELIMITER=*::=*')
-:    PROCESS &HND#
-:      SET &KEY# = GET_PROCESS_LINE(&HND#,1)
-:      SET &VALUE# = GET_PROCESS_LINE(&HND#,2)
-:      IF &KEY# EQ "UC4RB_OPENSHIFT_BUILD_STATUS"
-:         SET &UC4RB_OPENSHIFT_BUILD_STATUS# = &VALUE#
-:      ENDIF
-:    ENDPROCESS
-:    CLOSE_PROCESS &HND#
-:ENDIF
-:PUBLISH &UC4RB_OPENSHIFT_BUILD_STATUS#
-
-:INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.DELETE_TMP_DIR
-
-]]></OSCRI>
+<OSCRI><![CDATA[:INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.PRINT_BUILD_STATUS]]></OSCRI>
 </POST_SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>

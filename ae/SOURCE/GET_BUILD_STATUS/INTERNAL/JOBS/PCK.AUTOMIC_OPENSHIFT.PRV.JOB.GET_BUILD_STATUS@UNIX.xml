@@ -127,6 +127,10 @@
 
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 
+!----------------------------------------------- Status messages -------------------------------------------
+:SET &UC4RB_LOGGING_INFO# = "******** GET BUILD STATUS ACTION EXECUTED SUCCESSFULLY ********"
+:SET &UC4RB_LOGGING_ERROR# = "******** GET BUILD STATUS ACTION FAILED ********"
+
 !----------------------------------------------- Get Build status --------------------------------
 
 :INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.PREPARE_CMD@Unix
@@ -147,23 +151,25 @@
 : SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " -o template --template={{.status.phase}}")
 :PRINT "Get Build status: &UC4RB_OPENSHIFT_CMD#"
 build_status=`&UC4RB_OPENSHIFT_CMD#`
-!----------------------------------------------- Status messages -------------------------------------------
-:SET &UC4RB_LOGGING_INFO# = "******** GET BUILD STATUS ACTION EXECUTED SUCCESSFULLY ********"
-:SET &UC4RB_LOGGING_ERROR# = "******** GET BUILD STATUS ACTION FAILED ********"
 
+!Error handling
 execcode=$?
 if [ $execcode -eq 0 ]
 then
-    echo "UC4RB_OPENSHIFT_BUILD_STATUS::="$build_status
+  echo "UC4RB_OPENSHIFT_BUILD_STATUS::="$build_status
+:  INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.INFO
 else
 :  INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
-  exit $execcode
 fi
-:  PRINT "Log out from openshift"
-   &UC4RB_OPENSHIFT_LOGOUT_CMD#
+:PRINT "Log out from openshift"
+&UC4RB_OPENSHIFT_LOGOUT_CMD#
 
-!------------------- Check Build Completion -end  --------------------------------
+if [ "$execcode" -ne "0" ]
+then
+    exit $execcode
+fi
 : INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_FOOTER
+
 ]]></MSCRI>
 </SCRIPT>
 <OUTPUTSCAN state="1">
@@ -173,23 +179,7 @@ fi
 <LoginFsc/>
 </OUTPUTSCAN>
 <POST_SCRIPT mode="1" replacementmode="1" state="1">
-<OSCRI><![CDATA[:SET &UC4RB_OPENSHIFT_BUILD_STATUS# = ""
-:SET &STATUS# = GET_UC_OBJECT_STATUS(,,"RETCODE")
-:IF &STATUS# EQ 0
-:    SET &HND# = PREP_PROCESS_REPORT("JOBS",, "REP","UC4RB_OPENSHIFT_BUILD_STATUS*","COL=DELIMITER", 'DELIMITER=*::=*')
-:    PROCESS &HND#
-:      SET &KEY# = GET_PROCESS_LINE(&HND#,1)
-:      SET &VALUE# = GET_PROCESS_LINE(&HND#,2)
-:      IF &KEY# EQ "UC4RB_OPENSHIFT_BUILD_STATUS"
-:         SET &UC4RB_OPENSHIFT_BUILD_STATUS# = &VALUE#
-:      ENDIF
-:    ENDPROCESS
-:    CLOSE_PROCESS &HND#
-:ENDIF
-:INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.DELETE_TMP_DIR
-
-:PUBLISH &UC4RB_OPENSHIFT_BUILD_STATUS#,,"WORKFLOW"
-]]></OSCRI>
+<OSCRI><![CDATA[:INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.PRINT_BUILD_STATUS]]></OSCRI>
 </POST_SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>
