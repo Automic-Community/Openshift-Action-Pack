@@ -58,3 +58,6 @@ ${Local_Template}    ${EXECDIR}\\template.json
 #----Cancel Build --------------------------------------------------------------------------------
 ${Single_build_name}    ruby-ex-12
 ${Multiple_build_name}    ruby-ex-12,ruby-ex-13
+#----Link and Unlink Secret --------------------------------------------------------------------------------
+${Service_Acc_Name}    ruby-ex-12
+${Secret_Name}    ruby-ex-12,ruby-ex-13
