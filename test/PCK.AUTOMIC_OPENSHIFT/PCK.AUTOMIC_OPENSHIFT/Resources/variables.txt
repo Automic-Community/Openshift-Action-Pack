@@ -59,5 +59,6 @@ ${Local_Template}    ${EXECDIR}\\template.json
 ${Single_build_name}    ruby-ex-12
 ${Multiple_build_name}    ruby-ex-12,ruby-ex-13
 #----Link and Unlink Secret --------------------------------------------------------------------------------
-${Service_Acc_Name}    default
-${Secret_Name}    secret120
+${Service_Acc_Name}    builder
+${Secret_Name}    secret1
+${Secret_Name2}    secret123
