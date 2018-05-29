@@ -49,6 +49,8 @@
 <row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.GET_BUILD_STATUS/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.GET_RESOURCE/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.GET_RESOURCE/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.LINK_SECRET/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.LINK_SECRET/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.REPLACE_RESOURCE/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.REPLACE_RESOURCE/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.SET_ENVIRONMENT_VARIABLES/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
