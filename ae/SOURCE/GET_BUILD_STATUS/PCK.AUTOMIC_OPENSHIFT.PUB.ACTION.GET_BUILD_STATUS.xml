@@ -441,7 +441,7 @@ This action retrieves status for provided build name. Possible statuses for a bu
 
 * Build name*				: Specify a build name.E.g. demo-17    
 * Advanced Options	        : Provide other options which will be used while fetching the status.E.g. -o json
-* Project				        : Specify the project name in which you want to cancel build. If not provided, the default project will be used.E.g. test-project
+* Project				        : Specify the project name where the build is located. If not provided, the default project will be used.E.g. demo-project.
 
 =Return Value=
 UC4RB_OPENSHIFT_BUILD_STATUS: Build Status
