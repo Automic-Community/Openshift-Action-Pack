@@ -127,10 +127,6 @@
 
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 
-!----------------------------------------------- Status messages -------------------------------------------
-:SET &UC4RB_LOGGING_INFO# = "******** GET BUILD STATUS ACTION EXECUTED SUCCESSFULLY ********"
-:SET &UC4RB_LOGGING_ERROR# = "******** GET BUILD STATUS ACTION FAILED ********"
-
 !----------------------------------------------- Get Build status --------------------------------
 
 :INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.PREPARE_CMD@Unix
@@ -148,27 +144,21 @@
 :IF &UC4RB_OPENSHIFT_ADV_OPTS# NE ""
 :  SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " &UC4RB_OPENSHIFT_ADV_OPTS#")
 :ENDIF
-: SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " -o template --template={{.status.phase}}")
+: SET &UC4RB_OPENSHIFT_CMD# = STR_CAT(&UC4RB_OPENSHIFT_CMD#, " -o template --template=UC4RB_OPENSHIFT_BUILD_STATUS::={{.status.phase}}")
 :PRINT "Get Build status: &UC4RB_OPENSHIFT_CMD#"
-build_status=`&UC4RB_OPENSHIFT_CMD#`
+&UC4RB_OPENSHIFT_CMD#
 
-!Error handling
-execcode=$?
-if [ $execcode -eq 0 ]
-then
-  echo "UC4RB_OPENSHIFT_BUILD_STATUS::="$build_status
-:  INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.INFO
-else
-:  INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
-fi
-:PRINT "Log out from openshift"
-&UC4RB_OPENSHIFT_LOGOUT_CMD#
+!to print blank line
+echo
 
-if [ "$execcode" -ne "0" ]
-then
-    exit $execcode
-fi
-: INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_FOOTER
+!----------------------------------------------- Get Build status -end  --------------------------------
+!Status messages
+:SET &UC4RB_LOGGING_INFO# = "******** GET BUILD STATUS ACTION EXECUTED SUCCESSFULLY ********"
+:SET &UC4RB_LOGGING_ERROR# = "******** GET BUILD STATUS ACTION FAILED ********"
+
+
+!------------------------------------------ LOG OUT ----------------------------------------------------
+: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.LOG_OUT@UNIX
 
 ]]></MSCRI>
 </SCRIPT>
@@ -179,7 +169,8 @@ fi
 <LoginFsc/>
 </OUTPUTSCAN>
 <POST_SCRIPT mode="1" replacementmode="1" state="1">
-<OSCRI><![CDATA[:INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.PRINT_BUILD_STATUS]]></OSCRI>
+<OSCRI><![CDATA[:INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.PRINT_BUILD_STATUS
+:INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.DELETE_TMP_DIR]]></OSCRI>
 </POST_SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>
