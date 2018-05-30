@@ -15,7 +15,16 @@
 
   &UC4RB_OPENSHIFT_PROJ_CMD#
 
-:INC PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_CMDLINE_CMD@WINDOWS]]></MSCRI>
+@set retcode=%errorlevel%
+
+!Error handling
+IF %ERRORLEVEL% NEQ 0 (
+:   PRINT "Loging out from openshift"
+&UC4RB_OPENSHIFT_LOGOUT_CMD#
+@if NOT %retcode% == 0 goto :retcode
+
+)
+]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC><![CDATA[To switch project name in Openshift for Windows environment]]></DOC>

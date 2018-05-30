@@ -15,7 +15,14 @@
 
   &UC4RB_OPENSHIFT_PROJ_CMD#
 
-: INC PCK.AUTOMIC_OPENSHIFT.PUB.INCLUDE.CHECK_CMD_STATUS@UNIX]]></MSCRI>
+!Error handling
+execcode=$?
+if [ "$execcode" -ne "0" ]
+then
+:   PRINT "Loging out from openshift"
+&UC4RB_OPENSHIFT_LOGOUT_CMD#
+    exit $execcode
+fi]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC><![CDATA[To switch project name in Openshift for Windows environment]]></DOC>
