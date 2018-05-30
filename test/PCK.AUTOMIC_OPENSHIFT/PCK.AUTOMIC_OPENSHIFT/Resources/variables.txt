@@ -4,13 +4,13 @@ Resource          ../../../Env/default.txt
 *** Variables ***
 #---- Promptset Fields --------------------------------------------------------------------------------------
 #----Global Variables----------------------------------------------------------------------------------------
-${Server_URL}     https://192.168.99.100:8443
-${User_Name}      admin
-${OpenShift_Password}    admin
+${Server_URL}     https://console.starter-ca-central-1.openshift.com
+${User_Name}      redhatankur
+${OpenShift_Password}    NewPwd@00
 ${Token}          ${EMPTY}
 ${Cert_Path}      ${EMPTY}
-${Project_Name}    dummy1
-${Advanced_Options}    ${EMPTY}
+${Project_Name}    dummy4
+${Advanced_Options}    --force
 #----Create Resource----------------------------------------------------------------------------------------
 ${File_Path}      ${EXECDIR}\\resource.yaml
 ${File_Path_2}    ${EXECDIR}\\resource_2.yaml
@@ -58,3 +58,6 @@ ${Local_Template}    ${EXECDIR}\\template.json
 #----Cancel Build --------------------------------------------------------------------------------
 ${Single_build_name}    ruby-ex-12
 ${Multiple_build_name}    ruby-ex-12,ruby-ex-13
+#----Delete Application --------------------------------------------------------------------------------
+${Delete_App_Name1}    demo10
+${Delete_App_Name2}    demo11
