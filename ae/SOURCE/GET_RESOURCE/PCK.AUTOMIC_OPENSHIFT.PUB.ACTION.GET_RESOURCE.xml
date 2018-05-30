@@ -68,6 +68,7 @@
 <node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE">
+<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE"/>
 <UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE"/>
 <UC4RB_OPENSHIFT_RESOURCE_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE"/>
 <UC4RB_OPENSHIFT_RESOURCE_TYPEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_TYPE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE"/>
@@ -146,6 +147,7 @@
 <node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE">
+<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE"/>
 <UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE"/>
 <UC4RB_OPENSHIFT_RESOURCE_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE"/>
 <UC4RB_OPENSHIFT_RESOURCE_TYPEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_TYPE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE"/>
@@ -224,6 +226,7 @@
 <node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE">
+<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE"/>
 <UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE"/>
 <UC4RB_OPENSHIFT_RESOURCE_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE"/>
 <UC4RB_OPENSHIFT_RESOURCE_TYPEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_TYPE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE"/>
@@ -289,6 +292,7 @@
 <node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE">
+<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE"/>
 <UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE"/>
 <UC4RB_OPENSHIFT_RESOURCE_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_NAME#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE"/>
 <UC4RB_OPENSHIFT_RESOURCE_TYPEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_RESOURCE_TYPE#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE"/>
@@ -384,6 +388,7 @@
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.GET_RESOURCE" prptmode="1">
 <UC4RB_OPENSHIFT_RESOURCE_TYPEs.00 altview="0" haslist="0"/>
 <UC4RB_OPENSHIFT_RESOURCE_NAMEs.00 altview="0" haslist="0"/>
+<UC4RB_OPENSHIFT_ADV_OPTSs.00 altview="0" haslist="0"/>
 <UC4RB_OPENSHIFT_PROJECTs.00 altview="0" haslist="0"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -441,6 +446,7 @@ This action is used to get information about the specific resource.
 = Inputs =
 * Resource type*:                 Provide an object type.E.g. dc for deployment config object type.
 * Resource name :               Provide a name of a resource from the specified object type to get the details pertaining to this resource.E.g. mysql
+* Advanced Options:            Provide other options which will be used during the action execution. E.g -l app=appName
 * Project:                              Specify the project name where the specified resource resides. If not provided, the default project will be used.E.g. test-project
 
 
