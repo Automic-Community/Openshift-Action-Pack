@@ -96,7 +96,7 @@
 
 ! Check the build status
 :    INC PCK.AUTOMIC_OPENSHIFT.PRV.INCLUDE.CHECK_BUILD_STATUS
-:    P "Openshift intermediate build status [&BUILD_STATUS#]"
+:    P "Build status: [&BUILD_STATUS#]"
 
 
 :IF &ISBUILD_OVER# EQ "FALSE"
