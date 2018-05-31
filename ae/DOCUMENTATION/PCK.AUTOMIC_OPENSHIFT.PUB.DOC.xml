@@ -62,11 +62,11 @@ Following actions are supported.
 * Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.GET_RESOURCE
 * Action Description: This action is used to get information about the specific resource.
 
-* Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.SET_ENVIRONMENT_VARIABLES
-* Action Description: This action is used to set environment variables in a build config or deployment config.
+* Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.SET_ENVIRONMENT_VARIABLE
+* Action Description: This action is used to set environment variable in a build config or deployment config.
 
-* Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.UNSET_ENVIRONMENT_VARIABLES
-* Action Description: This action is used to remove environment variables from build config or deployment config.
+* Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.UNSET_ENVIRONMENT_VARIABLE
+* Action Description: This action is used to remove environment variable from build config or deployment config.
 
 * Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_APP_FROM_IMAGE
 * Action Description: This action creates an application from the image.
@@ -85,7 +85,9 @@ Following actions are supported.
 
 * Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.GET_BUILD_STATUS
 * Action Description: This action is used to get the status of the specified build.
-]]></DOC>
+
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.DELETE_APPLICATION
+* Action Description: This action is used to delete all resources associated with an application.]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
