@@ -58,13 +58,13 @@ ${Local_Template}    ${EXECDIR}\\template.json
 #----Cancel Build --------------------------------------------------------------------------------
 ${Single_build_name}    ruby-ex-12
 ${Multiple_build_name}    ruby-ex-12,ruby-ex-13
-<<<<<<< HEAD
 #----Link and Unlink Secret --------------------------------------------------------------------------------
 ${Service_Acc_Name}    default
 ${Secret_Name}    secret100
 ${Secret_Name2}    secret99
-=======
 #----Delete Application --------------------------------------------------------------------------------
 ${Delete_App_Name1}    demo10
 ${Delete_App_Name2}    demo11
->>>>>>> develop
+#----Delete Resource --------------------------------------------------------------------------------
+${Delete_Resrc_Type}    services
+${Delete_Resrc_Name}    demo-007
