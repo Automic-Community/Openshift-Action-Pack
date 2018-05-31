@@ -436,7 +436,7 @@
 PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CANCEL_BUILD
 
 = General description =
-This action will be used to cancel running, pending, or new builds. This action requests a graceful shutdown of the build. There may be a delay between requesting the build and the time the build is terminated.
+This action will be used to cancel running, pending, or new builds. This action requests a graceful shutdown of the build. There may be a delay between requesting the build and the time the build is terminated. The user can cancel, one build at a time by build name.
 
 = Failure Conditions =
 * If the user provides invalid build name.
