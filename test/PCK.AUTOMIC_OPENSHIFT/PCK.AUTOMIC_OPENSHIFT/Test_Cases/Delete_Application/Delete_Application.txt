@@ -1,0 +1,63 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        delete_application
+Test Template     Delete Application Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    ApplicationName        AdvancedOptions        ProjectName
+Delete Application action with valid values passed in all fields
+                      [Tags]    main_scenarios
+                      OK        ${Delete_App_Name1}    ${Advanced_Options}    ${Project_Name}
+
+Delete Application action with valid values passed in only mandatory fields
+                      OK        ${Delete_App_Name2}    ${EMPTY}               ${EMPTY}
+
+Delete Application action when user passes non-existent Application Name as input
+                      OK        ${Delete_App_Name2}    ${Advanced_Options}    ${EMPTY}
+
+Mandatory assertion test for Delete Application action when Application Name is not provided
+                      NOK       ${EMPTY}               ${Advanced_Options}    ${Project_Name}
+
+Delete Application action when user passes invalid Application Name as input
+                      NOK       Invalid                ${Advanced_Options}    ${EMPTY}
+
+Delete Application action with invalid Advanced Options as input
+                      NOK       ${Delete_App_Name1}    Invalid                ${EMPTY}
+
+Delete Application action with invalid/non-existent Project Name as input
+                      NOK       ${Delete_App_Name2}    ${Advanced_Options}    Invalid
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "DELETE APPLICATION"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Delete Application Template
+    [Arguments]    ${OK_NOK}    ${ApplicationName}    ${AdvancedOptions}    ${ProjectName}
+    [Documentation]    This test deletes all resources associated to the provided Application Name in input
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${ApplicationName}: This field specifies the application name for which resources will be deleted
+    ...    -${AdvancedOptions}: This field specifies any advanced options which will be used with the delete application action
+    ...    -${ProjectName}: This field specifies the project name in which the action has to be performed
+    Generate String
+    Init Action    ${DELETE_APPLICATION}
+    Connect To OpenShift
+    Run Keyword If    '${ApplicationName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_APP_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_APP_NAME#    ${ApplicationName}
+    Run Keyword If    '${AdvancedOptions}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_ADV_OPTS#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_ADV_OPTS#    ${AdvancedOptions}
+    Run Keyword If    '${ProjectName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PROJECT#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_PROJECT#    ${ProjectName}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE    Assert Failure
+
+Teardown
+    Log    *******End Test "DELETE APPLICATION"*******
