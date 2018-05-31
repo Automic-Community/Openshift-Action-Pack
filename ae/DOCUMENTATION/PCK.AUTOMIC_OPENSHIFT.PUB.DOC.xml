@@ -85,7 +85,9 @@ Following actions are supported.
 
 * Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.GET_BUILD_STATUS
 * Action Description: This action is used to get the status of the specified build.
-]]></DOC>
+
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.DELETE_APPLICATION
+* Action Description: This action is used to delete all resources associated with an application.]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
