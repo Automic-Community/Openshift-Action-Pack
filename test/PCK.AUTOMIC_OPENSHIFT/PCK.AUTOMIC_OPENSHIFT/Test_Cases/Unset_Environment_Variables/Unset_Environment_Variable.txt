@@ -36,10 +36,10 @@ Unset Environment Variable action with Invalid Resource name
                       NOK       deploymentconfig    Invalid             ${Single_Key}       ${EMPTY}
 
 Unset Environment Variable action with single Key as input in incorrect format
-                      NOK       deploymentconfig    ${Resource_Name}    Key-1               ${EMPTY}
+                      OK        deploymentconfig    ${Resource_Name}    Key-1               ${EMPTY}
 
 Unset Environment Variable action with multiple keys as input where atleast one key-value in incorrect format
-                      NOK       deploymentconfig    ${Resource_Name}    key_1,key+2         ${EMPTY}
+                      OK        deploymentconfig    ${Resource_Name}    key_1,key+2         ${EMPTY}
 
 Unset Environment Variable action with Invalid Project
                       NOK       buildconfig         ${Resource_Name}    ${Single_Key}       Invalid
@@ -59,14 +59,14 @@ Unset Environment Template
     ...    -${Keys}: This field specifies the variable/s that will be updated in a single or multiple keys format.
     ...    -${ProjectName}: This field specifies the project name in which the resources environment variables need change
     Generate String
-    Init Action    ${UNSET_ENV_VARIABLES}
+    Init Action    ${UNSET_ENV_VARIABLE}
     Connect To OpenShift
     Run Keyword If    '${ResourceType}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_RESOURCE_TYPE#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OPENSHIFT_RESOURCE_TYPE#    ${ResourceType}
     Run Keyword If    '${ResourceName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_RESOURCE_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OPENSHIFT_RESOURCE_NAME#    ${ResourceName}
-    Run Keyword If    '${Keys}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_KEYS#    ${Generated_Name}_${Time}    ELSE    Action Set
-    ...    &UC4RB_OPENSHIFT_KEYS#    ${Keys}
+    Run Keyword If    '${Keys}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_KEY#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_KEY#    ${Keys}
     Run Keyword If    '${ProjectName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PROJECT#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OPENSHIFT_PROJECT#    ${ProjectName}
     Action Execute

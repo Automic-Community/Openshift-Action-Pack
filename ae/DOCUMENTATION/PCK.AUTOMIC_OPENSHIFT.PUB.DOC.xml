@@ -86,11 +86,18 @@ Following actions are supported.
 * Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.GET_BUILD_STATUS
 * Action Description: This action is used to get the status of the specified build.
 
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.LINK_SECRET
+* Action Description: This action will link and enable a service account to automatically use that secret for some forms of authentication.
+
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.UNLINK_SECRET
+* Action Description: This action will be used to un-link the provided secret from the service account. 
+
 * Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.DELETE_APPLICATION
 * Action Description: This action is used to delete all resources associated with an application.
 
 * Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.DELETE_RESOURCE
 * Action Description: This action is used to resource of type buildconfig,deploymentconfig,service,imagestream,route,pod etc. ]]></DOC>
+
 </DOCU_Docu>
 </DOCU>
 </uc-export>

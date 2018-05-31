@@ -10,7 +10,7 @@ ${OpenShift_Password}    NewPwd@00
 ${Token}          ${EMPTY}
 ${Cert_Path}      ${EMPTY}
 ${Project_Name}    dummy4
-${Advanced_Options}    --force
+${Advanced_Options}    --loglevel=10
 #----Create Resource----------------------------------------------------------------------------------------
 ${File_Path}      ${EXECDIR}\\resource.yaml
 ${File_Path_2}    ${EXECDIR}\\resource_2.yaml
@@ -58,6 +58,10 @@ ${Local_Template}    ${EXECDIR}\\template.json
 #----Cancel Build --------------------------------------------------------------------------------
 ${Single_build_name}    ruby-ex-12
 ${Multiple_build_name}    ruby-ex-12,ruby-ex-13
+#----Link and Unlink Secret --------------------------------------------------------------------------------
+${Service_Acc_Name}    default
+${Secret_Name}    secret100
+${Secret_Name2}    secret99
 #----Delete Application --------------------------------------------------------------------------------
 ${Delete_App_Name1}    demo10
 ${Delete_App_Name2}    demo11
