@@ -61,3 +61,6 @@ ${Multiple_build_name}    ruby-ex-12,ruby-ex-13
 #----Delete Application --------------------------------------------------------------------------------
 ${Delete_App_Name1}    demo10
 ${Delete_App_Name2}    demo11
+#----Delete Resource --------------------------------------------------------------------------------
+${Delete_Resrc_Type}    services
+${Delete_Resrc_Name}    demo-007
