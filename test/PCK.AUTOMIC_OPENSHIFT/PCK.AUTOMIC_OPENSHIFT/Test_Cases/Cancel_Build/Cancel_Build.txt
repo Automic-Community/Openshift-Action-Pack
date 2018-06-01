@@ -11,33 +11,29 @@ Resource          ../../Resources/keywords.txt
 Resource          ../../Resources/variables.txt
 Resource          ../../Resources/actions.txt
 
-*** Test Cases ***    OK_NOK    CancelOption                     BuildName                 AdvancedOptions        ProjectName
+*** Test Cases ***    OK_NOK    CancelOption                     BuildName               AdvancedOptions        ProjectName
 Cancel Build action with valid values passed in all fields for cancel option as buildconfig
                       [Tags]    main_scenarios
-                      OK        Cancel by build configuration    ruby-ex                   ${Advanced_Options}    ${Project_Name}
+                      OK        Cancel by build configuration    ruby-ex                 ${Advanced_Options}    ${Project_Name}
 
 Cancel build action with valid values passed in all fields for cancel option as by build name with single build
                       [Tags]    main_scenarios
-                      OK        Cancel by build name             ${Single_build_name}      ${Advanced_Options}    ${Project_Name}
-
-Cancel build action with valid values passed in all fields for cancel option as by build name with multiple builds
-                      [Tags]    main_scenarios
-                      OK        Cancel by build name             ${Multiple_build_name}    ${Advanced_Options}    ${Project_Name}
+                      OK        Cancel by build name             ${Single_build_name}    ${Advanced_Options}    ${Project_Name}
 
 Mandatory assertion test for Cancel Build when Build Name is not provided
-                      NOK       Cancel by build configuration    ${EMPTY}                  ${Advanced_Options}    ${EMPTY}
+                      NOK       Cancel by build configuration    ${EMPTY}                ${Advanced_Options}    ${EMPTY}
 
 Cancel build actrion with Invalid Build name with cancel option as build configuration
-                      OK        Cancel by build configuration    Invalid                   ${EMPTY}               ${EMPTY}
+                      OK        Cancel by build configuration    Invalid                 ${EMPTY}               ${EMPTY}
 
 Cancel Build action with invalid build name and cancel optin as by build name
-                      NOK       Cancel by build name             Invalid                   ${EMPTY}               ${EMPTY}
+                      NOK       Cancel by build name             Invalid                 ${EMPTY}               ${EMPTY}
 
 Cancel build action with ivalid advanced options
-                      NOK       Cancel by build name             ${Resource_Name}          Invalid                ${EMPTY}
+                      NOK       Cancel by build name             ${Resource_Name}        Invalid                ${EMPTY}
 
 Cancel build action with Invalid Project name as input
-                      NOK       Cancel by build name             ${Resource_Name}          ${Single_Key}          Invalid
+                      NOK       Cancel by build name             ${Resource_Name}        ${Single_Key}          Invalid
 
 *** Keywords ***
 Startup
