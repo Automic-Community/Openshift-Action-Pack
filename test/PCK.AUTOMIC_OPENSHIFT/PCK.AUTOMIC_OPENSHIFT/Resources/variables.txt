@@ -30,10 +30,8 @@ ${Srvc_Advanced_Options}    --dry-run=false
 #----Set Environment Variables-------------------------------------------------------------------------------------
 ${Resource_Name}    ruby-hello-world
 ${Single_Key_Value_Pair}    var199=demo test
-${Multiple_Key_Value_Pair}    var_1=demo1,var_2=demo2
 #----Unset Environment Variables-------------------------------------------------------------------------------------
 ${Single_Key}     var1
-${Multiple_Keys}    var_1,var_2
 #----Start Build-------------------------------------------------------------------------------------
 ${Buildconfig}    springdemoapp
 ${Erroneous_Buildconfig}    error-app
