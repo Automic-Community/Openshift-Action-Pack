@@ -440,7 +440,7 @@ Once the build configuration is created a new build will be automatically trigge
 * If buildconfig already exists for the provided application source.
 
 = Inputs =
-* Application source URL*:        Provide the path to the application source code in a local or a remote repository. E.g. https://github.com/openshift/nodejs-ex.git
+* Application source*:        Provide the path to the application source code in a local or a remote repository. E.g. https://github.com/openshift/nodejs-ex.git
 * Advanced Options:                  Provide other options which will be used during the Buildconfig creation. E.g. --dry-run
 * Project:                                    Specify the project name in which you want to create a Buildconfig. If not provided, the default project will be used. E.g. spartan
 

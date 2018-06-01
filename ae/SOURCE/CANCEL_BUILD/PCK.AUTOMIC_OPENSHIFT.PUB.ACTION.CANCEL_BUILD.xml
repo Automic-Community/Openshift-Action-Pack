@@ -442,8 +442,8 @@ This action will be used to cancel running, pending, or new builds. This action 
 * If the user provides invalid build name.
 
 = Inputs =
-* Name*:                              Specify the build(s) to be cancelled separated by a comma or the name of a build configuration. The maximum number of builds you can cancel at a time is 50.E.g. myApp-build-1
-* Cancel Options:                 Select option 'by build name', when you would like to specify build name(s) to be cancelled or 'by build configuration', when all builds for a configuration need to be cancelled
+* Name*:                              Specify the build to be cancelled separated by a comma or the name of a build configuration.E.g. myApp-build-1
+* Cancel Options:                 Select option 'by build name', when you would like to specify build name to be cancelled or 'by build configuration', when all builds for a configuration need to be cancelled
 * Advanced Options:            Provide other options E.g. --state=new
 * Project                                Specify the project name in which you want to execute this action. If not provided, the default project will be used.E.g. Spartan
 

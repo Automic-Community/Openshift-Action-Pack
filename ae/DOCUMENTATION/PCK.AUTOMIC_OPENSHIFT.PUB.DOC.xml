@@ -20,6 +20,7 @@ It creates a temporary config file in the temp directory. Every action first per
 
 =Setup=  
 * Openshift command-line tool must be set in the environment
+* Oracle JRE 1.7 must be installed on Agent OS and "java" must be set as executable on the same.
 
 =Common Inputs=
 * OpenShift server*:		     Provide OpenShift server name. E.g localhost:8443
