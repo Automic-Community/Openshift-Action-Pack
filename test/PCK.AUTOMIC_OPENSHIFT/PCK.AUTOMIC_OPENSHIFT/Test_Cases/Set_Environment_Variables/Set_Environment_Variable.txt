@@ -59,7 +59,7 @@ Set Environment Template
     ...    -${KeyValuePair}: This field specifies the variable/s that will be updated in a key-value format.
     ...    -${ProjectName}: This field specifies the project name in which the resources environment variables need change
     Generate String
-    Init Action    ${SET_ENV_VARIABLES}
+    Init Action    ${SET_ENV_VARIABLE}
     Connect To OpenShift
     Run Keyword If    '${ResourceType}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_RESOURCE_TYPE#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_OPENSHIFT_RESOURCE_TYPE#    ${ResourceType}
