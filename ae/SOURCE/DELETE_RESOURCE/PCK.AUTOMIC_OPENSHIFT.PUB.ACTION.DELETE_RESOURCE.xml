@@ -451,6 +451,7 @@ Resource name and label cannot be provided together.
 
 = Behavior =
 The action will fail if resource name is not existing but if label is provided using the advanced options then it will not fail .
+When only resource type is provided, all the resources of the specified resource type will be deleted.
 
 =Return Value=
 (none)
