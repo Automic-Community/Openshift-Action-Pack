@@ -68,6 +68,7 @@
 <node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE">
+<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE"/>
 <UC4RB_OPENSHIFT_FILE_PATHs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_FILE_PATH#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE"/>
 <UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE"/>
 </PRPTBOX>
@@ -145,6 +146,7 @@
 <node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE">
+<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE"/>
 <UC4RB_OPENSHIFT_FILE_PATHs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_FILE_PATH#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE"/>
 <UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE"/>
 </PRPTBOX>
@@ -222,6 +224,7 @@
 <node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE">
+<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE"/>
 <UC4RB_OPENSHIFT_FILE_PATHs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_FILE_PATH#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE"/>
 <UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE"/>
 </PRPTBOX>
@@ -286,6 +289,7 @@
 <node content="1" id="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE" name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE" parent="PPRPTS" type="PPROMPTSET">
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE">
+<UC4RB_OPENSHIFT_ADV_OPTSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_ADV_OPTS#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE"/>
 <UC4RB_OPENSHIFT_FILE_PATHs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_FILE_PATH#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE"/>
 <UC4RB_OPENSHIFT_PROJECTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_OPENSHIFT_PROJECT#" promptsetname="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE"/>
 </PRPTBOX>
@@ -379,6 +383,7 @@
 <PROMPTSET name="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE" ontop="1">
 <PRPTBOX promptset="PCK.AUTOMIC_OPENSHIFT.PRV.PROMPTSET.REPLACE_RESOURCE" prptmode="1">
 <UC4RB_OPENSHIFT_FILE_PATHs.00 altview="0" haslist="0"/>
+<UC4RB_OPENSHIFT_ADV_OPTSs.00 altview="0" haslist="0"/>
 <UC4RB_OPENSHIFT_PROJECTs.00 altview="0" haslist="0"/>
 </PRPTBOX>
 </PROMPTSET>
@@ -434,6 +439,7 @@ This action modifies an existing resource based on the contents of the specified
 
 = Inputs =
 * File Path*:                    Provide one or more comma-separated files or a directory path. Accepted file types are JSON and YAML. E.g. ./deployment.yaml
+* Advanced Options:      Provide other options which will be used during the action execution. E.g -o name
 * Project:                        Provide the project name in which you want to replace the resource. If not provided, the default project will be used. E.g. spartan   
 
 = Behavior =

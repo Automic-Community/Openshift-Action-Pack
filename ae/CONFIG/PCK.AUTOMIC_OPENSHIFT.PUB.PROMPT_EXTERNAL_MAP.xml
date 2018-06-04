@@ -55,16 +55,17 @@
 <row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.LINK_SECRET/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.REPLACE_RESOURCE/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.REPLACE_RESOURCE/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
-<row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.SET_ENVIRONMENT_VARIABLES/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
-<row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.SET_ENVIRONMENT_VARIABLES/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.SET_ENVIRONMENT_VARIABLE/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.SET_ENVIRONMENT_VARIABLE/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.START_BUILD/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.START_BUILD/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.UNSET_ENVIRONMENT_VARIABLE/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.UNSET_ENVIRONMENT_VARIABLE/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.UNLINK_SECRET/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.UNLINK_SECRET/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
-<row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.UNSET_ENVIRONMENT_VARIABLES/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
-<row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.UNSET_ENVIRONMENT_VARIABLES/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.DELETE_RESOURCE/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.DELETE_RESOURCE/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
+
 </Variables>
 </VARA>
 <DOCU_Docu state="1" type="text">

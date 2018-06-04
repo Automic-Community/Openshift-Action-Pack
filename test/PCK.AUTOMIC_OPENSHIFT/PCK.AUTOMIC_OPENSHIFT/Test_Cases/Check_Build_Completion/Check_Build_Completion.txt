@@ -11,29 +11,23 @@ Resource          ../../Resources/keywords.txt
 Resource          ../../Resources/variables.txt
 Resource          ../../Resources/actions.txt
 
-*** Test Cases ***    OK_NOK    BuildName              WaitTime                RetryCount        RetryInterval        ProjectName
-Check Build Completion action with valid values passed in all fields for build mode set as "from build configuration"
-                      [Tags]    main_scenarios
-                      OK        ${Check_Build_Name}    ${Initial_Wait_Time}    ${Retry_Count}    ${Retry_Interval}    ${Project_Name}
-
-Check Build Completion action with zero initial wait time
-                      OK        ${Check_Build_Name}    0                       ${Retry_Count}    ${Retry_Interval}    ${Project_Name}
-
-Check Build Completion action with retry count as 0
-                      OK        ${Check_Build_Name}    ${Initial_Wait_Time}    0                 ${EMPTY}             ${Project_Name}
-
-Check Build Completion action with retry count as -1
-                      [Tags]    main_scenarios
-                      OK        ${Check_Build_Name}    ${Initial_Wait_Time}    -1                ${Retry_Interval}    ${Project_Name}
-
+*** Test Cases ***    OK_NOK                                                                                                                    BuildName    WaitTime                RetryCount              RetryInterval        ProjectName
 Mandatory assertion test for Check Build Completion action when Build Name is not provided
-                      NOK       ${EMPTY}               ${Initial_Wait_Time}    ${Retry_Count}    ${Retry_Interval}    ${Project_Name}
-
-Check Build Completion action with Invalid/non-existent Build name
-                      NOK       Invalid                ${Initial_Wait_Time}    ${Retry_Count}    ${Retry_Interval}    ${Project_Name}
-
-Check Build Completion action when user passes an Invalid Project
-                      NOK       ${Check_Build_Name}    ${Initial_Wait_Time}    ${Retry_Count}    ${Retry_Interval}    Invalid
+                      #Check Build Completion action with valid values passed in all fields for build mode set as "from build configuration"
+                      #                                                                                                                         [Tags]       main_scenarios
+                      #                                                                                                                         OK           ${Check_Build_Name}     ${Initial_Wait_Time}    ${Retry_Count}       ${Retry_Interval}    ${Project_Name}
+                      #Check Build Completion action with zero initial wait time
+                      #                                                                                                                         OK           ${Check_Build_Name}     0                       ${Retry_Count}       ${Retry_Interval}    ${Project_Name}
+                      #Check Build Completion action with retry count as 0
+                      #                                                                                                                         OK           ${Check_Build_Name}     ${Initial_Wait_Time}    0                    ${EMPTY}             ${Project_Name}
+                      #Check Build Completion action with retry count as -1
+                      #                                                                                                                         [Tags]       main_scenarios
+                      #                                                                                                                         OK           ${Check_Build_Name}     ${Initial_Wait_Time}    -1                   ${Retry_Interval}    ${Project_Name}
+                      NOK                                                                                                                       ${EMPTY}     ${Initial_Wait_Time}    ${Retry_Count}          ${Retry_Interval}    ${Project_Name}
+                      #Check Build Completion action with Invalid/non-existent Build name
+                      #                                                                                                                         NOK          Invalid                 ${Initial_Wait_Time}    ${Retry_Count}       ${Retry_Interval}    ${Project_Name}
+                      #Check Build Completion action when user passes an Invalid Project
+                      #                                                                                                                         NOK          ${Check_Build_Name}     ${Initial_Wait_Time}    ${Retry_Count}       ${Retry_Interval}    Invalid
 
 *** Keywords ***
 Startup
@@ -44,6 +38,7 @@ Startup
 Check Build Completion Template
     [Arguments]    ${OK_NOK}    ${BuildName}    ${WaitTime}    ${RetryCount}    ${RetryInterval}    ${ProjectName}
     [Documentation]    This test Check Build Completion for a previously triggered build name
+    ...    -Note: This test suite will not work as implementation changed from Job to Script so commenting all the test cases.
     ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
     ...    -${BuildName}: This field specifies the build name for which completion status is to be checked
     ...    -${WaitTime}: This field specifies the waiting time (in seconds) before the initial attempt to retrieve the build status

@@ -436,12 +436,12 @@
 PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_APP_FROM_SOURCE_CODE
 
 = General description =
-This action creates an application in the project.When you specify a source code URL, it will set up a build that takes your source code and converts it into an image that can run inside of a pod. Local source must be in a git repository that has a remote repository that the server can see.The images will be deployed via a deployment configuration, and a service will be connected to the first public port of
-the app. You may either specify components using the various existing flags or let new-app auto detect what kind of components you have provided.
+This action creates an application in the project. When you specify a source code URL, it will set up a build that takes your source code and converts it into an image that can run inside of a pod. A local source must be in a git repository that has a remote repository that the server can see. The images will be deployed via a deployment configuration, and a service will be connected to the first public port of
+the app. You may either specify components using the various existing flags or let new-app autodetect what kind of components you have provided.
 
 
 = Inputs =
-* Application source URL         : Provide the path to source code in a local or a remote repository.E.g  https://github.com/youruser/yourgitrepo.git
+* Application source         : Provide the path to the source code in a local or a remote repository.E.g  https://github.com/youruser/yourgitrepo.git
 * Application name          : Provide application name. E.g Myapp
 * Project                           : Specify the project name in which you want to create a resource. If not provided, the default project will be used. E.g dev
 * Advanced Options        : Provide other options which will be used during the application creation .E.g  --image-stream="openshift/wildfly:10.0"

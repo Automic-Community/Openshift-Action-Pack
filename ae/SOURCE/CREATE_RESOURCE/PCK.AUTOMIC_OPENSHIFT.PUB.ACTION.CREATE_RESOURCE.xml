@@ -431,7 +431,7 @@
 PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_RESOURCE
 
 = General description =
-This action creates the resource(s) in Openshift. It parses a configuration file and creates one or more OpenShift objects based on the file contents. When multiple files or directory paths are provided in file path, action iterates through each one, creating the objects described in all of the indicated files.
+This action creates the resource(s) in Openshift. It parses a configuration file and creates one or more OpenShift objects based on the file contents. When multiple files or directory paths are provided, action iterates through each one, creating the objects described in all of the indicated files.
 
 
 = Failure Conditions =

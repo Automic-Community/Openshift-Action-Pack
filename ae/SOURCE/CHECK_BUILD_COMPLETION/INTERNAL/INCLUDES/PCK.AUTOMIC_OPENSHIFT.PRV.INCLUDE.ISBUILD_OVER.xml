@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<JOBI name="PCK.AUTOMIC_OPENSHIFT.PRV.INCLUDE.ISBUILD_OVER">
+<HEADER state="1">
+<Title/>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<SCRIPT mode="1" state="1">
+<MSCRI><![CDATA[!   Complete, Failed , Cancelled , Error
+:   SET &ISBUILD_OVER# = "FALSE"
+:   IF &BUILD_STATUS# EQ "Complete" OR "Failed" OR "Cancelled" OR "Error"
+:      SET &ISBUILD_OVER# = "TRUE"
+:   ENDIF]]></MSCRI>
+</SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</JOBI>
+</uc-export>

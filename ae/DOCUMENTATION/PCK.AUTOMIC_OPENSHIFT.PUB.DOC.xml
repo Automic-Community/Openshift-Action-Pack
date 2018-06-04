@@ -16,10 +16,12 @@ The core of the platform is containers and orchestration. For the container side
 This package provides means to interact with the Openshift system and performs different actions on it.
 The user can either provide username/password or session token or certificate path as a means to login into the system. Any other combination will fail the action.
 
-It creates a temporary config file in the temp directory. Every action first performs the login action which causes the session to be updated in the temporary config file and then it executes the action specific command. Once done with the action it logouts and this temporary config file will be deleted in the post process of every action.
+=Supported versions=
+oc client version3.9.14
 
 =Setup=  
-* Openshift command-line tool must be set in the environment
+* Oracle JRE 1.7 must be installed on Agent OS and "java" must be set as executable on the same.
+* Openshift command-line tool should be installed on Agent OS and  must be set in the environment
 
 =Common Inputs=
 * OpenShift server*:		     Provide OpenShift server name. E.g localhost:8443
@@ -62,11 +64,11 @@ Following actions are supported.
 * Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.GET_RESOURCE
 * Action Description: This action is used to get information about the specific resource.
 
-* Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.SET_ENVIRONMENT_VARIABLES
-* Action Description: This action is used to set environment variables in a build config or deployment config.
+* Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.SET_ENVIRONMENT_VARIABLE
+* Action Description: This action is used to set the environment variable in a build config or deployment config.
 
-* Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.UNSET_ENVIRONMENT_VARIABLES
-* Action Description: This action is used to remove environment variables from build config or deployment config.
+* Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.UNSET_ENVIRONMENT_VARIABLE
+* Action Description: This action is used to remove environment variable from build config or deployment config.
 
 * Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_APP_FROM_IMAGE
 * Action Description: This action creates an application from the image.
@@ -97,7 +99,6 @@ Following actions are supported.
 
 * Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.DELETE_RESOURCE
 * Action Description: This action is used to resource of type buildconfig,deploymentconfig,service,imagestream,route,pod etc. ]]></DOC>
-
 </DOCU_Docu>
 </DOCU>
 </uc-export>
