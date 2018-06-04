@@ -442,7 +442,7 @@ PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.START_BUILD
 
 = General description =
 This action starts and publishes the build name.
-The action starts a new build for the provided build config or copies an existing build.Note that builds triggered from binary input will not preserve the source on the server so rebuilds triggered by base image changes will use the source specified on the build config.Failure Conditions
+The action starts a new build for the provided build config or copies an existing build.Note that builds triggered from binary input will not preserve the source on the server so rebuilds triggered by base image changes will use the source specified in the build config.
 
 = Failure Conditions =
 If the build name is not printed in the job report

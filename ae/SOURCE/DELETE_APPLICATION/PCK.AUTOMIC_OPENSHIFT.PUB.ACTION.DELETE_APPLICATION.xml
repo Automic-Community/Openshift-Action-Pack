@@ -438,10 +438,10 @@ This action is used to delete all resources associated with an application.
 
 * Application Name *				: Provide an application name. E.g myapp.
 * Advanced Options				: Provide other options which will be used during the action execution.
-* Project Name				        : Specify the project name in which you want to delete an application. If not provided, the default project will be used. E.g test-project.
+* Project 				                        : Specify the project name in which you want to delete an application. If not provided, the default project will be used. E.g test-project.
 
 = Behavior =
-Action will not fail if provided application does not exists.
+Action will not fail if the provided application does not exist.
 
 =Return Value=
 (none)

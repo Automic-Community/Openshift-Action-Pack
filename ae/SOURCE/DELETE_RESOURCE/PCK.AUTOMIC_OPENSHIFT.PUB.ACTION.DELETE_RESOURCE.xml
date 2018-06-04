@@ -436,7 +436,7 @@
 PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.DELETE_RESOURCE
 
 = General description =
-This action is used to delete resource of type buildconfig,deploymentconfig,service,imagestream,route , pod etc. More than one resource type can be provided using comma in between.
+This action is used to delete resource of type buildconfig, deploymentconfig, service, imagestream, route, pod etc. More than one resource type can be provided using a comma in between.
 
 
 =Failure Conditions=
@@ -444,13 +444,13 @@ Resource name and label cannot be provided together.
 
 = Inputs =
 
-* Resource Type*				: Provide a resource type E.g bc . Multiple types can be provided using comma(,) as separator
-* Resource Name				: Provide a resource name. E.g node-1-vsjnm.
-* Advanced Options				: Provide other options which will be used during the action execution. E.g -l app=appName.
-* Project Name				: Specify the project name in which you want to delete a resource. If not provided, the default project will be used. E.g test-project.
+* Resource Type*				: Provide a resource type E.g bc . Multiple types can be provided using a comma(,) as a separator
+* Resource Name				: Provide a resource name. E.g node-1.
+* Advanced Options	                : Provide other options which will be used during the action execution. E.g -l app=appName.
+* Project				                : Specify the project name in which you want to delete a resource. If not provided, the default project will be used. E.g test-project.
 
 = Behavior =
-The action will fail if resource name is not existing but if label is provided using the advanced options then it will not fail .
+The action will fail if resource name is not existing but if a label is provided using the advanced options then it will not fail.
 When only resource type is provided, all the resources of the specified resource type will be deleted.
 
 =Return Value=
@@ -467,9 +467,7 @@ When only resource type is provided, all the resources of the specified resource
 AE logs will be displayed in the AE report.
 
 = Example =
-Resource types : bc , dc , imagestream,pod,service, routes. For more info please refer command oc types
-
-
+Resource types: bc, dc, imagestream, pod, service, routes. For more info please refer to command "oc types".
 Resource Type = bc ,dc
 Advanced Options = -l app=myapp]]></DOC>
 </DOCU_Docu>

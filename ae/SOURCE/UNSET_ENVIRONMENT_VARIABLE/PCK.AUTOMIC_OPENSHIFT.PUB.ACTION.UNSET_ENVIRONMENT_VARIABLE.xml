@@ -451,8 +451,8 @@ This action is used to unset environment a single variable
 * Resource Type *				: Select the resource for which you would like to unset the variable.
 * Resource Name *				: Provide the name of the selected deployment configuration or build configuration. E.g mysql.
 * Key *				                :  Provide the key of the variable you would like to unset E.g. KEY_1
-* Name				                 : Specify the project name in which you want to execute this action. If not provided, the default project will be used. E.g test-project.
 * Advanced Options:                      : Provide other options which will be used during the action execution. E.g -o name
+* Project				                 : Specify the project name in which you want to execute this action. If not provided, the default project will be used. E.g test-project.
 
 = Behavior =
 * A valid environment variable name is an alphanumeric(a-z and 0-9) string beginning with a letter that may contain an underscore.

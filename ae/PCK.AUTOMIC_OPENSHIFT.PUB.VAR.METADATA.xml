@@ -32,8 +32,7 @@
 <row Name="Homepage" Value="www.automic.com" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="License" Value="Automic License" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="Name" Value="PCK.AUTOMIC_OPENSHIFT" Value1="" Value2="" Value3="" Value4=""/>
-<row Name="Package Format Version" Value="0.3.0" Value1="" Value2="" Value3="" Value4=""/>
-<row Name="Restricted To Client" Value="" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="Package Format Version" Value="0.1.0" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="Title" Value="Automic Openshift Package" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="Version" Value="1.0.0" Value1="" Value2="" Value3="" Value4=""/>
 </Variables>

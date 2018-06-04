@@ -360,8 +360,8 @@
 PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CHECK_BUILD_COMPLETION
 
 = General description =
-This action checks the build status to find the current state of the build.User may use retry to check the status repeatedly till it gets one of the end status (Complete, Failed, Cancelled, Error) or the retry count maximum limit is reached.
-User can provide -1 as retry count to try infinitely till it gets the end status (Complete, Failed, Cancelled, Error)
+This action checks the build status to find the current state of the build. A user may use retry to check the status repeatedly till it gets one of the end statuses (Complete, Failed, Cancelled, Error) or the retry counts maximum limit is reached.
+A user can provide -1 as retry count to try infinitely till it gets the end status (Complete, Failed, Cancelled, Error)
 
 = Failure Conditions =
 * If build status not found in the job report
@@ -370,8 +370,8 @@ User can provide -1 as retry count to try infinitely till it gets the end status
 
 * Build name *				  : Specify the build name. E.g myappbuild-1.
 * Initial waiting time			  : Specify the waiting time (in seconds) before the initial attempt to retrieve the build status.
-* Retry count				  : Specify the number of retry attempts. -1 means action tries infinitely till gets one of the end status i.e Completed ,Error, Failed ,Cancelled
-* Retry interval		          : Specify the waiting time (in seconds) in between the attempts to retrieve the build status.
+* Retry count				  : Specify the number of retry attempts. -1 means action tries infinitely till gets one of the end statuses i.e Completed, Error, Failed,  Cancelled
+* Retry interval		          : Specify the waiting time (in seconds) between the attempts to retrieve the build status.
 * Project				          : Specify the project name in which you want to get build status. If not provided, the default project will be used. E.g spartan.
 
 = Behavior =
