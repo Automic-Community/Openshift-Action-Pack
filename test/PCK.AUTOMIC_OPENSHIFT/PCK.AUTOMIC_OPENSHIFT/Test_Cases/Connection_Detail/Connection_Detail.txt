@@ -1,0 +1,76 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        connection_detail
+Test Template     Connection Detail Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    OpenShiftSrvr     Username        Passwd                   SessionToken    Certificate    ProjectName        SkipSSL    DisplayName    ProjectDesc    AdvancedOption
+Create Project action with connection detail using valid Server Details and UserName/Password
+                      [Tags]    main_scenarios
+                      OK        ${Server_URL}     ${User_Name}    ${OpenShift_Password}    ${EMPTY}        ${EMPTY}       ${Project_Name}    YES        ${EMPTY}       ${EMPTY}       ${EMPTY}
+
+Create Project action with connection detail using more than one condition for authentication
+                      NOK       ${Server_URL}     ${User_Name}    ${OpenShift_Password}    ${Token}        ${EMPTY}       ${Project_Name}    YES        ${EMPTY}       ${EMPTY}       ${EMPTY}
+
+Create Project action with connection detail using invalid Server Details and access
+                      NOK       Invalid           ${User_Name}    ${OpenShift_Password}    ${EMPTY}        ${EMPTY}       ${Project_Name}    YES        ${EMPTY}       ${EMPTY}       ${EMPTY}
+
+Create Project action with connection detail using invalid Username/Password combination
+                      NOK       ${Server_URL}     Invalid         Invalid                  ${EMPTY}        ${EMPTY}       ${Project_Name}    YES        ${EMPTY}       ${EMPTY}       ${EMPTY}
+
+Create Project action with connection detail using invalid Server SessionToken
+                      NOK       ${Server_URL}     ${User_Name}    ${EMPTY}                 Invalid         ${EMPTY}       ${Project_Name}    YES        ${EMPTY}       ${EMPTY}       ${EMPTY}
+
+Create Project action with connection detail using invalid Certificate
+                      NOK       ${Server_URL}     ${User_Name}    ${EMPTY}                 ${EMPTY}        Invalid        ${Project_Name}    YES        ${EMPTY}       ${EMPTY}       ${EMPTY}
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "CREATE CONNECTION DETAIL"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Connection Detail Template
+    [Arguments]    ${OK_NOK}    ${OpenShiftSrvr}    ${Username}    ${Passwd}    ${SessionToken}    ${Certificate}
+    ...    ${ProjectName}    ${SkipSSL}    ${DisplayName}    ${ProjectDesc}    ${AdvancedOption}
+    [Documentation]    This test create a project in OpenShiftServer
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${ProjectName}: This field specifies name of Project to be created
+    ...    -${OpenShiftSrvr}: This field specifies the OpenShift Server name
+    ...    -${Username}: This field specifies the username part of User Credentials
+    ...    -${Passwd}: This field specifies the Password part of User Credentials
+    ...    -${SessionToken}: This field specifies the authentication token used to login to OpenShift
+    ...    -${Certificate}: This field specifies the certificate path which can be used for logging into OpenShift
+    ...    -${DisplayName}: This field specifies Project Display Name
+    ...    -${ProjectDesc}: This field specifies any description user wants to add to the created project
+    ...    -${AdvancedOption}: This field specifies any other options that will be considered during project creation
+    ...    -${SkipSSL}: This field specifies if the SSL certificate validation is to be skipped or not
+    Generate String
+    Init Action    ${CREATE_PROJECT}
+    Run Keyword If    '${OpenShiftSrvr}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_SERVER#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_SERVER#    ${OpenShiftSrvr}
+    Run Keyword If    '${User_name}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_USERNAME#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_USERNAME#    ${User_name}
+    Run Keyword If    '${Passwd}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PASSWORD#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_PASSWORD#    ${Passwd}
+    Run Keyword If    '${SessionToken}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_TOKEN#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_TOKEN#    ${SessionToken}
+    Run Keyword If    '${Certificate}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_CERTS#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_CERTS#    ${Certificate}
+    Action Set    &UC4RB_OPENSHIFT_PRJ_NAME#    ${ProjectName}
+    Action Set    &UC4RB_SKIP_SSL#    ${SkipSSL}
+    Action Set    &UC4RB_OPENSHIFT_PRJ_DISP_NAME#    ${DisplayName}
+    Action Set    &UC4RB_OPENSHIFT_PRJ_DESC#    ${ProjectDesc}
+    Action Set    &UC4RB_OPENSHIFT_ADV_OPTS#    ${AdvancedOption}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE    Assert Failure
+
+Teardown
+    Log    *******End Test "CREATE CONNECTION DETAIL"*******

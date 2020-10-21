@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<DOCU name="PCK.AUTOMIC_OPENSHIFT.PUB.DOC">
+<HEADER state="1">
+<Title>Package Documentation</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<DOCU_Docu state="1" type="text">
+<DOC><![CDATA[About the Package
+================================
+OpenShift is a platform as a service (PaaS) from Red Hat that is built on Docker and Kubernetes. Kubernetes is an open source, container as a service (CaaS) project originating from Google.
+
+The core of the platform is containers and orchestration. For the container side of the house, the platform uses images based on the docker image format. For the orchestration side, it uses Kubernetes. 
+
+This package provides means to interact with the Openshift system and performs different actions on it.
+The user can either provide username/password or session token or certificate path as a means to login into the system. Any other combination will fail the action.
+
+=Supported versions=
+oc v3.9.14
+
+=Setup=  
+* Supports Windows and UNIX Agent.
+* Oracle JRE 1.7 must be installed on Agent OS and "java" must be set as executable on the same.
+* Openshift command-line tool should be installed on Agent OS and  must be set as executable.
+* The Agent should be able to access Openshift Server URL.
+
+=Common Inputs=
+* OpenShift server*:		     Provide OpenShift server name. E.g localhost:8443
+* Username:			             Provide your OpenShift Login ID. E.g automic
+* Password: 			         Provide your OpenShift Login Password.
+* Session token:			     Provide your OpenShift session token for authentication to the API server.
+* Certificate: 			         Provide the path to your crt file. 
+* Skip SSL Validation:           If Yes selected, it skips SSL Validation
+* Sudo Username: 			     The username to be used for the sudo command. 
+* Options: 			             Run using sudo password (and sudo username if specified).
+* Sudo Password: 			     The password to be used for the sudo command.	
+* Overwrite Agent:			     Overwrites the default agent
+* Overwrite Login: 			     Overwrites the default login
+
+
+=Actions=
+Following actions are supported.
+
+* Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_PROJECT
+* Action Description: This action is used to create a project in Openshift.
+
+* Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_RESOURCE
+* Action Description: This action is used to create resource in Openshift.
+
+* Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.EXPOSE_SERVICE
+* Action Description: This action looks up a service and exposes it as a route.
+
+* Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.REPLACE_RESOURCE
+* Action Description: This action modifies an existing resource based on the contents of the specified configuration file.
+
+* Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_APP_FROM_SOURCE_CODE
+* Action Description: This action is used to create application in openshift
+
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.START_BUILD
+* Action Description: This action starts a new build for the provided build config or copies an existing build.
+
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CHECK_BUILD_STATUS
+* Action Description: This action checks the build completion status.
+
+* Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.GET_RESOURCE
+* Action Description: This action is used to get information about the specific resource.
+
+* Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.SET_ENVIRONMENT_VARIABLE
+* Action Description: This action is used to set the environment variable in a build config or deployment config.
+
+* Action name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.UNSET_ENVIRONMENT_VARIABLE
+* Action Description: This action is used to remove environment variable from build config or deployment config.
+
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_APP_FROM_IMAGE
+* Action Description: This action creates an application from the image.
+
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_BUILDCONFIG_FROM_DOCKERFILE
+* Action Description: This action will create a build configuration using the content of a Dockerfile.
+
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_BUILDCONFIG_FROM_APP_SOURCE
+* Action Description: This action creates a build configuration using application source code.
+
+*Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CANCEL_BUILD
+*Action Description: This action will be used to cancel running, pending, or new build.
+
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.CREATE_APP_FROM_TEMPLATE
+ Action Description: This action creates an application using Openshift stored template or local template file.
+
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.GET_BUILD_STATUS
+* Action Description: This action is used to get the status of the specified build.
+
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.LINK_SECRET
+* Action Description: This action will link and enable a service account to automatically use that secret for some forms of authentication.
+
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.UNLINK_SECRET
+* Action Description: This action will be used to unlink the provided secret from the service account. 
+
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.DELETE_APPLICATION
+* Action Description: This action is used to delete an application with all resources associated to it.
+
+* Action Name: PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.DELETE_RESOURCE
+* Action Description: This action is used to delete resource of type buildconfig, deploymentconfig, service, imagestream, route, pod etc. ]]></DOC>
+</DOCU_Docu>
+</DOCU>
+</uc-export>

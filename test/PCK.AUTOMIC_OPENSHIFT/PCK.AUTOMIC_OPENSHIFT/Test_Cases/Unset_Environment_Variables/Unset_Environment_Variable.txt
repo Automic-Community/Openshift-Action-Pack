@@ -1,0 +1,70 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        unset_environment_variable
+Test Template     Unset Environment Variable Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    ResourceType        ResourceName        Key              ProjectName        AdvancedOption
+Unset Environment Variable action with valid values passed in all fields for resource type buildconfig
+                      [Tags]    main_scenarios
+                      OK        buildconfig         ${Resource_Name}    ${Single_Key}    ${Project_Name}    ${Srvc_Advanced_Options}
+
+Unset Environment Variable action with valid values passed in all fields for resource type deploymentconfig
+                      [Tags]    main_scenarios
+                      OK        deploymentconfig    ${Resource_Name}    ${Single_Key}    ${Project_Name}    ${Srvc_Advanced_Options}
+
+Unset Environment Variable action with unexistent/previously unset key but passed in correct key format
+                      OK        buildconfig         ${Resource_Name}    ${Single_Key}    ${EMPTY}           ${EMPTY}
+
+Mandatory assertion test for Unset Environment Variable when ResourceName is not provided
+                      NOK       buildconfig         ${EMPTY}            ${Single_Key}    ${EMPTY}           ${EMPTY}
+
+Mandatory assertion test for Unset Environment Variable when Key is not provided
+                      NOK       buildconfig         ${Resource_Name}    ${EMPTY}         ${EMPTY}           ${EMPTY}
+
+Unset Environment Variable action with Invalid Resource name
+                      NOK       deploymentconfig    Invalid             ${Single_Key}    ${EMPTY}           ${EMPTY}
+
+Unset Environment Variable action with Invalid Project
+                      NOK       buildconfig         ${Resource_Name}    ${Single_Key}    Invalid            ${EMPTY}
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "UNSET ENVIRONMENT VARIABLE"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Unset Environment Variable Template
+    [Arguments]    ${OK_NOK}    ${ResourceType}    ${ResourceName}    ${Key}    ${ProjectName}    ${AdvancedOption}
+    [Documentation]    This test will remove environment variable form config files in a project
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${ResourceType}: This field specifies resource type for which variable/s will be removed
+    ...    -${ResourceName}: This field specifies the name of selected resource type in which environment variable will be removed.
+    ...    -${Key}: This field specifies the variable/s that will be updated in a single keys format.
+    ...    -${ProjectName}: This field specifies the project name in which the resources environment variable need change
+    ...    -${AdvancedOption}: This field specifies any other additional options which will be used during the action execution.
+    Generate String
+    Init Action    ${UNSET_ENV_VARIABLE}
+    Connect To OpenShift
+    Run Keyword If    '${ResourceType}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_RESOURCE_TYPE#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_RESOURCE_TYPE#    ${ResourceType}
+    Run Keyword If    '${ResourceName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_RESOURCE_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_RESOURCE_NAME#    ${ResourceName}
+    Run Keyword If    '${Key}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_KEY#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_KEY#    ${Key}
+    Run Keyword If    '${ProjectName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PROJECT#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_PROJECT#    ${ProjectName}
+    Run Keyword If    '${AdvancedOption}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_ADV_OPTS#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_ADV_OPTS#    ${AdvancedOption}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE    Assert Failure
+
+Teardown
+    Log    *******End Test "UNSET ENVIRONMENT VARIABLE"*******

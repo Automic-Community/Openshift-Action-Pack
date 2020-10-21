@@ -1,0 +1,62 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        get_build_status
+Test Template     Get Build Status Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    BuildName         AdvancedOptions        ProjectName
+Get Build Status for a specific project with advanced options
+                      [Tags]    main_scenarios
+                      OK        ${Build_Name}     ${Advanced_Options}    ${Project_Name}
+
+Get Build Status while asserting Project and Advanced Options as Optional field
+                      [Tags]    main_scenarios
+                      OK        ${Build_Name}     ${EMPTY}               ${EMPTY}
+
+Assert behavior of action with non-existing build name
+                      NOK       Invalid           ${Advanced_Options}    ${Project_Name}
+
+Get Build Status action with invalid advanced options provided
+                      NOK       ${Build_Name}     Invalid                ${Project_Name}
+
+Get Build Status action when user passes an Invalid Project
+                      NOK       ${Build_Name}     ${Advanced_Options}    Invalid
+
+Assert Build Name as Mandatory Field
+                      NOK       ${EMPTY}          ${Advanced_Options}    ${Project_Name}
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "GET BUILD STATUS"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Get Build Status Template
+    [Arguments]    ${OK_NOK}    ${BuildName}    ${AdvancedOptions}    ${ProjectName}
+    [Documentation]    This test executes Get Build Status Action.
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${BuildName}: This field specifies Build name to fetch status.
+    ...    -${AdvancedOptions}: This field specifies other options which will be used while fetching the status.
+    ...    -${ProjectName}: This field specifies the project name in which the build has to be started, when left empty the default project will be used
+    Generate String
+    Init Action    ${GET_BUILD_STATUS}
+    Connect To OpenShift
+    Run Keyword If    '${BuildName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_BUILD_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_BUILD_NAME#    ${BuildName}
+    Run Keyword If    '${AdvancedOptions}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_ADV_OPTS#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_ADV_OPTS#    ${AdvancedOptions}
+    Run Keyword If    '${ProjectName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PROJECT#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_PROJECT#    ${ProjectName}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE    Assert Failure
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_OPENSHIFT_BUILD_STATUS#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_OPENSHIFT_BUILD_STATUS#
+
+Teardown
+    Log    *******End Test "GET BUILD STATUS"*******

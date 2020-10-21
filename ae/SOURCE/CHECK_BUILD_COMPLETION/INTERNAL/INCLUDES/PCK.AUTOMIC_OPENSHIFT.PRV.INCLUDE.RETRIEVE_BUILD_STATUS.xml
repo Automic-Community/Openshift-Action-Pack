@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<JOBI name="PCK.AUTOMIC_OPENSHIFT.PRV.INCLUDE.RETRIEVE_BUILD_STATUS">
+<HEADER state="1">
+<Title/>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<SCRIPT mode="1" state="1">
+<MSCRI><![CDATA[!       Setting the input parameters for retrieving the build status
+
+!       Connect to Openshift
+:       PUT_PROMPT_BUFFER UC4RB_OPENSHIFT_SERVER# = &UC4RB_OPENSHIFT_SERVER#
+:       PUT_PROMPT_BUFFER UC4RB_OPENSHIFT_USERNAME# = &UC4RB_OPENSHIFT_USERNAME#
+:       PUT_PROMPT_BUFFER UC4RB_OPENSHIFT_PASSWORD# = &UC4RB_OPENSHIFT_PASSWORD#
+:       PUT_PROMPT_BUFFER UC4RB_OPENSHIFT_TOKEN# = &UC4RB_OPENSHIFT_TOKEN#
+:       PUT_PROMPT_BUFFER UC4RB_OPENSHIFT_CERTS# = &UC4RB_OPENSHIFT_CERTS#
+:       PUT_PROMPT_BUFFER UC4RB_SKIP_SSL# = &UC4RB_SKIP_SSL#
+
+!       Get Build Status
+:       PUT_PROMPT_BUFFER UC4RB_OPENSHIFT_BUILD_NAME# = &UC4RB_OPENSHIFT_BUILD_NAME#
+:       PUT_PROMPT_BUFFER UC4RB_OPENSHIFT_PROJECT# = &UC4RB_OPENSHIFT_PROJECT#
+
+!       Sudo Promptset
+:       PUT_PROMPT_BUFFER UC4RB_SUDO_PASSWORD# = &UC4RB_SUDO_PASSWORD#
+:       PUT_PROMPT_BUFFER UC4RB_USE_SUDO# = &UC4RB_USE_SUDO#
+:       PUT_PROMPT_BUFFER UC4RB_SUDO_USER# = &UC4RB_SUDO_USER#
+
+!       Overwrite Agent and Login
+:       PUT_PROMPT_BUFFER AGENT# = &AGENT#
+:       PUT_PROMPT_BUFFER LOGIN# = &LOGIN#
+
+!       Returned variable that can be further used.
+:       SET &SUCCESS# = 0
+:       SET &BUILD_STATUS# = ""
+
+
+!       Invoke the job for retrieving build status
+:       SET &ACTOBJ# = ACTIVATE_UC_OBJECT("PCK.AUTOMIC_OPENSHIFT.PUB.ACTION.GET_BUILD_STATUS",WAIT)
+:       IF &ACTOBJ# = "0"
+:          SET &ERRNR# = SYS_LAST_ERR_NR()
+:          SET &ERRINS#  = SYS_LAST_ERR_INS()
+:          SET &MESSAGE# = GET_MSG_TXT(&ERRNR#,&ERRINS#)
+:          PRINT "ERROR: Invoking GET_BUILD_STATUS action :&MESSAGE#"
+:          SET &SUCCESS# = 1
+:       ELSE
+:          SET &STATUS# = GET_UC_OBJECT_STATUS(,&ACTOBJ#,"RETCODE")
+:          IF &STATUS# <> "0"
+:             PRINT "ERROR: GET_BUILD_STATUS Action failed. Error Status [&STATUS#]. Please check the job report for the RUNID [&ACTOBJ#]."
+:             SET &SUCCESS# = 1
+:          ELSE
+:             SET &BUILD_STATUS#=GET_PUBLISHED_VALUE(&ACTOBJ#,UC4RB_OPENSHIFT_BUILD_STATUS#)
+:             IF &BUILD_STATUS# EQ ""
+:               P "Build status not found in job report"
+:               SET &SUCCESS# = 1
+:            ENDIF
+:          ENDIF
+:       ENDIF]]></MSCRI>
+</SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</JOBI>
+</uc-export>

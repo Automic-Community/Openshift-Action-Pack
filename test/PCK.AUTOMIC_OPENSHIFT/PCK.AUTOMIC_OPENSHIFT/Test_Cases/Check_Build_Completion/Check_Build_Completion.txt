@@ -1,0 +1,63 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        check_build_completion
+Test Template     Check Build Completion Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK                                                                                                                    BuildName    WaitTime                RetryCount              RetryInterval        ProjectName
+Mandatory assertion test for Check Build Completion action when Build Name is not provided
+                      #Check Build Completion action with valid values passed in all fields for build mode set as "from build configuration"
+                      #                                                                                                                         [Tags]       main_scenarios
+                      #                                                                                                                         OK           ${Check_Build_Name}     ${Initial_Wait_Time}    ${Retry_Count}       ${Retry_Interval}    ${Project_Name}
+                      #Check Build Completion action with zero initial wait time
+                      #                                                                                                                         OK           ${Check_Build_Name}     0                       ${Retry_Count}       ${Retry_Interval}    ${Project_Name}
+                      #Check Build Completion action with retry count as 0
+                      #                                                                                                                         OK           ${Check_Build_Name}     ${Initial_Wait_Time}    0                    ${EMPTY}             ${Project_Name}
+                      #Check Build Completion action with retry count as -1
+                      #                                                                                                                         [Tags]       main_scenarios
+                      #                                                                                                                         OK           ${Check_Build_Name}     ${Initial_Wait_Time}    -1                   ${Retry_Interval}    ${Project_Name}
+                      NOK                                                                                                                       ${EMPTY}     ${Initial_Wait_Time}    ${Retry_Count}          ${Retry_Interval}    ${Project_Name}
+                      #Check Build Completion action with Invalid/non-existent Build name
+                      #                                                                                                                         NOK          Invalid                 ${Initial_Wait_Time}    ${Retry_Count}       ${Retry_Interval}    ${Project_Name}
+                      #Check Build Completion action when user passes an Invalid Project
+                      #                                                                                                                         NOK          ${Check_Build_Name}     ${Initial_Wait_Time}    ${Retry_Count}       ${Retry_Interval}    Invalid
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "Check Build Completion"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Check Build Completion Template
+    [Arguments]    ${OK_NOK}    ${BuildName}    ${WaitTime}    ${RetryCount}    ${RetryInterval}    ${ProjectName}
+    [Documentation]    This test Check Build Completion for a previously triggered build name
+    ...    -Note: This test suite will not work as implementation changed from Job to Script so commenting all the test cases.
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${BuildName}: This field specifies the build name for which completion status is to be checked
+    ...    -${WaitTime}: This field specifies the waiting time (in seconds) before the initial attempt to retrieve the build status
+    ...    -${RetryCount}: This field is used to specify Specify the number of retry attempts till it gets the status as Complete, Error, Failed, Cancelled
+    ...    -${RetryInterval}: This field specifies the waiting time (seconds)in between the attempts to retrieve the build status
+    ...    -${ProjectName}: This field specifies the project name in which the Check Build Completion will be retrieved
+    Generate String
+    Init Action    ${CHECK_BUILD_COMPLETION}
+    Connect To OpenShift
+    Run Keyword If    '${BuildName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_BUILD_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_BUILD_NAME#    ${BuildName}
+    Run Keyword If    '${ProjectName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PROJECT#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_PROJECT#    ${ProjectName}
+    Action Set    &UC4RB_OPENSHIFT_WAIT#    ${WaitTime}
+    Action Set    &UC4RB_OPENSHIFT_RETRY_COUNT#    ${RetryCount}
+    Action Set    &UC4RB_OPENSHIFT_RETRY_INTERVAL#    ${RetryInterval}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE    Assert Failure
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_OPENSHIFT_BUILD_STATUS#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_OPENSHIFT_BUILD_STATUS##
+
+Teardown
+    Log    *******End Test "Check Build Completion"*******

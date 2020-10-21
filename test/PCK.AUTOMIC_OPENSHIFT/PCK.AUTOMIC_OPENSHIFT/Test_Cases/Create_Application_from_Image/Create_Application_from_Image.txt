@@ -1,0 +1,72 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        create_app_from_image
+Test Template     Create Application from Image Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    Image                 ImageSource                                     AppName      Project            AdvancedOption
+Create Application using OpenShift image and providing application name and advanced options
+                      [Tags]    main_scenarios
+                      OK        ${OpenShift_Image}    From OpenShift Image Stream                     Generated    ${EMPTY}           ${Advanced_Options}
+
+Create Application using Docker Image and providing Project
+                      OK        ${Docker_Image}       From public or private Docker image registry    ${EMPTY}     ${Project_Name}    ${EMPTY}
+
+Create Application with Invalid Image Name
+                      NOK       Invalid               From OpenShift Image Stream                     ${EMPTY}     ${EMPTY}           ${EMPTY}
+
+Create Application with Invalid Application Name using uppercase and special characters
+                      NOK       ${OpenShift_Image}    From OpenShift Image Stream                     APP!         ${EMPTY}           ${EMPTY}
+
+Create Application with Invalid Application Name exceeeding 58 characters
+                      NOK       ${OpenShift_Image}    From OpenShift Image Stream                     Invalid      ${EMPTY}           ${EMPTY}
+
+Create Application with Non-existing Project Name
+                      NOK       ${OpenShift_Image}    From OpenShift Image Stream                     ${EMPTY}     Invalid            ${EMPTY}
+
+Create Application with Invalid advanced option
+                      NOK       ${OpenShift_Image}    From OpenShift Image Stream                     ${EMPTY}     ${EMPTY}           Invalid
+
+Assert Image as Mandatory Field
+                      NOK       ${EMPTY}              From public or private Docker image registry    Generated    ${Project_Name}    ${Advanced_Options}
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "CREATE APPLICATION FROM IMAGE"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Create Application from Image Template
+    [Arguments]    ${OK_NOK}    ${Image}    ${ImageSource}    ${AppName}    ${Project}    ${AdvancedOption}
+    [Documentation]    This test creates a application from image in OpenShift
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${Image}: This field specifies image specification from a public or private image registry
+    ...    -${ImageSource}: This field specifies image stream or Docker Hub image registry public/private to create your application
+    ...    -${AppName}: This field specifies application name to be provided to new application
+    ...    -${Project}: This field specifies the project name in which you want to create application
+    ...    -${AdvancedOption}: This field specifies any other additional options which will be used during the application creation.
+    Generate String
+    Init Action    ${CREATE_APPLICATION_FROM_IMAGE}
+    Connect To OpenShift
+    Run Keyword If    '${Image}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_IMAGE#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_IMAGE#    ${Image}
+    Action Set    &UC4RB_OPENSHIFT_IMG_SRC#    ${ImageSource}
+    Run Keyword If    '${AdvancedOption}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_ADV_OPTS#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_ADV_OPTS#    ${AdvancedOption}
+    Run Keyword If    '${AppName}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_APP_NAME#    ${Generated_Name2}_${Time}    ELSE IF    '${AppName}' == 'Generated'
+    ...    Action Set    &UC4RB_OPENSHIFT_APP_NAME#    ${Generated_Name}    ELSE    Action Set    &UC4RB_OPENSHIFT_APP_NAME#
+    ...    ${AppName}
+    Run Keyword If    '${Project}' == 'Invalid'    Action Set    &UC4RB_OPENSHIFT_PROJECT#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_OPENSHIFT_PROJECT#    ${Project}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE    Assert Failure
+
+Teardown
+    Log    *******End Test "CREATE APPLICATION FROM IMAGE"*******

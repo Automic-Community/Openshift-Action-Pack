@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<SCRI name="PCK.AUTOMIC_OPENSHIFT.PRV.SCRI.CHECK_BUILD_COMPLETION">
+<XHEADER state="1">
+<Title>Check Build Completion</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<Active>1</Active>
+<OH_SubType/>
+<CustomAttributes KeyListID="0" dataRequestID="0"/>
+</XHEADER>
+<SYNCREF state="1">
+<Syncs/>
+</SYNCREF>
+<ATTR_SCRI state="1">
+<Queue>CLIENT_QUEUE</Queue>
+<StartType/>
+<ExtRepDef>1</ExtRepDef>
+<ExtRepAll>0</ExtRepAll>
+<ExtRepNone>0</ExtRepNone>
+<IntAccount/>
+<ActAtRun>0</ActAtRun>
+<UC4Priority>0</UC4Priority>
+<MaxParallel2>0</MaxParallel2>
+<MpElse1>1</MpElse1>
+<MpElse2>0</MpElse2>
+<TZ/>
+<AutoDeactNo>0</AutoDeactNo>
+<AutoDeact1ErrorFree>0</AutoDeact1ErrorFree>
+<AutoDeactErrorFree>0</AutoDeactErrorFree>
+<DeactWhen/>
+<AutoDeactAlways>1</AutoDeactAlways>
+<DeactDelay>0</DeactDelay>
+</ATTR_SCRI>
+<RUNTIME state="1">
+<MaxRetCode>0</MaxRetCode>
+<MrcExecute/>
+<MrcElseE>0</MrcElseE>
+<FcstStatus>0| |</FcstStatus>
+
+<ErtMethodDef>1</ErtMethodDef>
+<ErtMethodFix>0</ErtMethodFix>
+<ErtFix>0</ErtFix>
+<ErtDynMethod>2|Average</ErtDynMethod>
+<ErtMethodDyn>0</ErtMethodDyn>
+<ErtCnt>0</ErtCnt>
+<ErtCorr>0</ErtCorr>
+<ErtIgn>0</ErtIgn>
+<ErtIgnFlg>0</ErtIgnFlg>
+<ErtMinCnt>0</ErtMinCnt>
+<MrtMethodNone>1</MrtMethodNone>
+<MrtMethodFix>0</MrtMethodFix>
+<MrtFix>0</MrtFix>
+<MrtMethodErt>0</MrtMethodErt>
+<MrtErt>0</MrtErt>
+<MrtMethodDate>0</MrtMethodDate>
+<MrtDays>0</MrtDays>
+<MrtTime>00:00</MrtTime>
+<MrtTZ/>
+<SrtMethodNone>1</SrtMethodNone>
+<SrtMethodFix>0</SrtMethodFix>
+<SrtFix>0</SrtFix>
+<SrtMethodErt>0</SrtMethodErt>
+<SrtErt>0</SrtErt>
+<MrtCancel>0</MrtCancel>
+<MrtExecute>0</MrtExecute>
+<MrtExecuteObj/>
+</RUNTIME>
+<DYNVALUES state="1">
+<dyntree>
+<node content="1" id="VALUE" name="Variables" parent="" type="VALUE">
+<VALUE state="1">
+<Values/>
+<Mode>0</Mode>
+</VALUE>
+</node>
+</dyntree>
+</DYNVALUES>
+<ROLLBACK state="1">
+<RollbackFlag>0</RollbackFlag>
+<CBackupObj/>
+<CRollbackObj/>
+<FBackupPath/>
+<FDeleteBefore>0</FDeleteBefore>
+<FInclSubDirs>0</FInclSubDirs>
+</ROLLBACK>
+<SCRIPT mode="1" state="1">
+<MSCRI><![CDATA[: SET &ISBUILD_OVER#="FALSE"
+: SET &BUILD_STATUS# = ''
+
+
+! initial WAIT in seconds
+:    IF &UC4RB_OPENSHIFT_WAIT# > 0
+!:       SET  &INIT_WAIT_TIME# = MULT(&UC4RB_OPENSHIFT_WAIT#, 60)
+:       WAIT &UC4RB_OPENSHIFT_WAIT#
+:    ENDIF
+
+! Check the build status
+:    INC PCK.AUTOMIC_OPENSHIFT.PRV.INCLUDE.CHECK_BUILD_STATUS
+:    P "Build status: [&BUILD_STATUS#]"
+
+
+:IF &ISBUILD_OVER# EQ "FALSE"
+
+:SWITCH  &UC4RB_OPENSHIFT_RETRY_COUNT#
+!Retry infinitly till builds gets over with any of the following statuses : Complete ,Error, Failed, Cancelled
+:  CASE -1
+:      SET &COUNT# = 1
+:      WHILE &ISBUILD_OVER# EQ "FALSE"
+:       P "Retrying &COUNT# time(s)"
+!       Check the build status
+:       INC PCK.AUTOMIC_OPENSHIFT.PRV.INCLUDE.CHECK_BUILD_STATUS
+:       P "Openshift intermediate build status [&BUILD_STATUS#]"
+:         WAIT &UC4RB_OPENSHIFT_RETRY_INTERVAL#
+:       SET &COUNT# = &COUNT# + 1
+:      ENDWHILE
+! No retrying
+:  CASE 0
+:       P "No retrying"
+
+! Specific number of retry
+:  OTHER
+:     SET &COUNT# = 1
+:      WHILE &UC4RB_OPENSHIFT_RETRY_COUNT# GE &COUNT#
+:        P "Retrying &COUNT# time(s)"
+!        Check the build status
+:        INC PCK.AUTOMIC_OPENSHIFT.PRV.INCLUDE.CHECK_BUILD_STATUS
+:        P "Openshift intermediate build status [&BUILD_STATUS#]"
+:        IF  &ISBUILD_OVER# EQ "TRUE"
+:            SET &UC4RB_OPENSHIFT_RETRY_COUNT# = 0
+:        ELSE
+!        waiting
+:          WAIT &UC4RB_OPENSHIFT_RETRY_INTERVAL#
+:          SET &COUNT# = &COUNT# + 1
+:        ENDIF
+:      ENDWHILE
+
+:ENDSWITCH
+
+:ENDIF
+: P " Final Build Status &BUILD_STATUS#"
+: SET &UC4RB_OPENSHIFT_BUILD_STATUS# = &BUILD_STATUS#
+: PUBLISH  &UC4RB_OPENSHIFT_BUILD_STATUS#,,"WORKFLOW"]]></MSCRI>
+</SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</SCRI>
+</uc-export>
